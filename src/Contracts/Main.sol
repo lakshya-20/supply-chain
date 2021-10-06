@@ -16,7 +16,6 @@ contract Main{
     }
 
     struct Product{
-        address id;
         string name;
         address ownership;
         address manufacturer;
@@ -118,6 +117,22 @@ contract Main{
                 isRenewableUsed: false
             });
         }
+    }
+
+    function launchProduct(
+        string memory name,
+        string[] memory rawProducts,
+        string memory serialNo
+    ) public {
+        products[serialNo] = Product(name,msg.sender,msg.sender,rawProducts,serialNo);
+    }
+
+    function transferOwnership(
+        address newOwner,
+        string memory serialNo
+    ) public {
+        require(products[serialNo].ownership==msg.sender,"Invalid Ownership");
+        products[serialNo].ownership = newOwner;
     }
 
 }
