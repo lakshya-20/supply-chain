@@ -16,11 +16,11 @@ contract Main{
     }
 
     struct Product{
-        address id;
         string name;
         address ownership;
         address manufacturer;
         string[] rawProducts;
+        bool[] rawProductsVerification;
         string serialNo;
     }
 
@@ -118,6 +118,42 @@ contract Main{
                 isRenewableUsed: false
             });
         }
+    }
+
+    function launchProduct(
+        string memory name,
+        string[] memory rawProducts,
+        string memory serialNo
+    ) public {
+        bool[] memory rawProductsVerification = new bool[](rawProducts.length);
+        for(uint i=0;i<rawProducts.length;i++){
+            rawProductsVerification[i] = farmers[manufacturers[msg.sender].rawProducts[rawProducts[i]]].isVerified;
+        }
+        products[serialNo] = Product(name,msg.sender,msg.sender,rawProducts,rawProductsVerification,serialNo);
+    }
+
+    function transferOwnership(
+        address newOwner,
+        string memory serialNo
+    ) public {
+        require(products[serialNo].ownership==msg.sender,"Invalid Ownership");
+        products[serialNo].ownership = newOwner;
+    }
+
+    function verifyProduct(
+        string memory serialNo
+    ) public view returns (Product memory, string memory, bool, Stakeholder memory, Stakeholder memory){
+        Product memory product = products[serialNo];
+        Manufacturer memory manufacturerDetails = manufacturers[product.manufacturer];
+        Stakeholder memory manufacturer = stakeholders[product.manufacturer];
+        Stakeholder memory currentOwner = stakeholders[product.ownership];
+        return(
+            product,            
+            manufacturerDetails.name,
+            manufacturerDetails.isRenewableUsed,
+            manufacturer,
+            currentOwner
+        );
     }
 
 }
