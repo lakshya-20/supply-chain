@@ -12,9 +12,12 @@
     "babel-preset-stage-2": "6.24.1",
     "babel-preset-stage-3": "6.24.1",
     "babel-register": "6.26.0",
+    "bootstrap": "^5.1.3",
+    "font-awesome": "^4.7.0",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
     "react-scripts": "4.0.3",
+    "reactstrap": "^8.10.0",
     "truffle": "^5.4.13",
     "web-vitals": "^1.1.2",
     "web3": "^1.6.0"
