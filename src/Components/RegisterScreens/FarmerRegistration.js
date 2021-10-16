@@ -5,8 +5,6 @@ const FarmerRegistration = ({mainContract,account,role}) => {
     const [values, setValues] = useState({
         name: "",
         region: "",
-        isVerified: false,
-        isValue: false,
         rawProducts: []
     });
     const handleChange = (event) => {
