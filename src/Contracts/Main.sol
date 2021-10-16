@@ -6,6 +6,7 @@ contract Main{
         string name;
         string region;
         bool isVerified;
+        bool isValue; //to verify value exists in mapping or not
         string [] rawProducts;        
     }
     struct Manufacturer{
@@ -30,6 +31,7 @@ contract Main{
         address id;
         string name;
         string role;
+        bool isValue; //to verify value exists in mapping or not
     }
 
     mapping(address => Farmer) public farmers;
@@ -49,6 +51,15 @@ contract Main{
     }
 
     /**
+     * Function to get the role of the passed address
+     */
+    function checkIdentity(address id) public view returns(string memory) {
+        if(farmers[id].isValue) return "Farmer";
+        else if(stakeholders[id].isValue) return stakeholders[id].role;
+        else return "NewAddress";
+    }
+
+    /**
      * Function to add a new farmer on the application
      */
     function registerFarmer(
@@ -56,7 +67,7 @@ contract Main{
         string memory region,
         string[] memory rawProducts
     ) public {
-        farmers[msg.sender] = Farmer(msg.sender,name,region,false,rawProducts);
+        farmers[msg.sender] = Farmer(msg.sender,name,region,false,true,rawProducts);
     }
     /**
      * Function to verify a farmer
@@ -110,7 +121,7 @@ contract Main{
         string memory name,
         string memory role
     ) public {
-        stakeholders[msg.sender] = Stakeholder(msg.sender,name,role);
+        stakeholders[msg.sender] = Stakeholder(msg.sender,name,role,true);
         if(keccak256(abi.encodePacked(role)) == keccak256(abi.encodePacked("Manufacturer"))){
             manufacturers[msg.sender] = Manufacturer({
                 id: msg.sender,
@@ -118,6 +129,13 @@ contract Main{
                 isRenewableUsed: false
             });
         }
+    }
+
+    /**
+     * function to find a stackholder by address
+     */
+    function findStackholder(address id) public view returns(Stakeholder memory){
+        return stakeholders[id];
     }
 
     function launchProduct(
