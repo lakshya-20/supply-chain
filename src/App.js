@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import Web3 from 'web3';
 import MainContract from './Abis/Main.json';
 import './App.css';
+import Register from './Components/Register';
 
 function App() {
   const [mainContract, setMainContract] = useState(undefined);
@@ -55,14 +56,15 @@ function App() {
   }
 
   return (
-    <div className="App">
+    <div className="App container">
       Admin Address: {adminAddress}
       <br/>
       Current Address: {account}
       <br/>
       Role: {role}
       <br/>
-      Stakeholder Data: {JSON.stringify(stakeholder)}
+      {stakeholder? `Stakeholder Data: ${JSON.stringify(stakeholder)}` : ""}
+      {role==="NewAddress"? <Register mainContract={mainContract} account={account}/> : ""}
     </div>
   );
 }
