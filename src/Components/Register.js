@@ -1,7 +1,7 @@
 import { useState } from 'react';
-import { Card, Button, CardTitle, CardText,
-    Form, FormGroup, Label, Input, FormFeedback, FormText } from 'reactstrap';
+import { Card, CardText} from 'reactstrap';
 import FarmerRegistration from './RegisterScreens/FarmerRegistration';
+import StakeholderRegistration from './RegisterScreens/StakeholderRegistration';
 
 
 
@@ -10,7 +10,7 @@ const Register = ({mainContract,account}) => {
     const [stakeholderData, setStakeholderData] = useState(undefined);
     const RenderRoleCard = ({role}) => {
         return (
-            <Card body inverse 
+            <Card body inverse
                 style={{ backgroundColor: '#333', borderColor: '#333', height: "100px" }}
                 className="col-5 col-xl-5 m-1"
                 onClick={()=>setRole(role)}    
@@ -28,17 +28,23 @@ const Register = ({mainContract,account}) => {
                         <RenderRoleCard role={role}/>
                     )
                 })}
-            </div>
-            {role}
-            <br/>
-            {account}
-            <div className="d-flex justify-content-center">
-                {role=="Farmer"?
-                    <FarmerRegistration mainContract={mainContract} account={account} role={role}/>
-                :
-                    ""
-                }
-            </div>
+            </div>            
+            {role?
+                <>
+                <strong >{role+" "}</strong> Registration
+                <br/>
+                {account}
+                <div className="d-flex justify-content-center">
+                    {role=="Farmer"?
+                        <FarmerRegistration mainContract={mainContract} account={account} role={role}/>
+                    :
+                        <StakeholderRegistration mainContract={mainContract} account={account} role={role}/>
+                    }
+                </div>
+                </>
+            :
+                ""
+            }
         </div>
     )
 }

@@ -134,7 +134,7 @@ contract Main{
     /**
      * function to find a stackholder by address
      */
-    function findStackholder(address id) public view returns(Stakeholder memory){
+    function findStakeholder(address id) public view returns(Stakeholder memory){
         return stakeholders[id];
     }
 
