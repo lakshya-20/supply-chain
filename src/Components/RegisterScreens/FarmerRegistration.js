@@ -62,42 +62,42 @@ const FarmerRegistration = ({mainContract,account,role}) => {
                 <FormGroup>
                     <Label for="exampleCheckbox">Raw Material</Label>
                     <div className="d-flex justify-content-around">
-                    <CustomInput 
-                        type="checkbox" 
-                        value="Cocoa" 
-                        name="raw" 
-                        id="exampleCustomCheckbox" 
-                        label="Cocoa" 
-                        className="p-2"
-                        onChange={(e) => {handleChange(e)}}
-                    />
-                    <CustomInput 
-                        type="checkbox" 
-                        value="Sugar" 
-                        name="raw" 
-                        id="exampleCustomCheckbox" 
-                        label="Sugar" 
-                        className="p-2"
-                        onChange={(e) => {handleChange(e)}}
-                    />
-                    <CustomInput 
-                        type="checkbox" 
-                        value="Milk" 
-                        name="raw" 
-                        id="exampleCustomCheckbox" 
-                        label="Milk" 
-                        className="p-2"
-                        onChange={(e) => {handleChange(e)}}
-                    />
-                    <CustomInput 
-                        type="checkbox" 
-                        value="Apple" 
-                        name="raw"
-                        id="exampleCustomCheckbox" 
-                        label="Apple" 
-                        className="p-2"
-                        onChange={(e) => {handleChange(e)}}
-                    />
+                        <CustomInput 
+                            type="checkbox" 
+                            value="Cocoa" 
+                            name="raw" 
+                            id="exampleCustomCheckbox" 
+                            label="Cocoa" 
+                            className="p-2"
+                            onChange={(e) => {handleChange(e)}}
+                        />
+                        <CustomInput 
+                            type="checkbox" 
+                            value="Sugar" 
+                            name="raw" 
+                            id="exampleCustomCheckbox" 
+                            label="Sugar" 
+                            className="p-2"
+                            onChange={(e) => {handleChange(e)}}
+                        />
+                        <CustomInput 
+                            type="checkbox" 
+                            value="Milk" 
+                            name="raw" 
+                            id="exampleCustomCheckbox" 
+                            label="Milk" 
+                            className="p-2"
+                            onChange={(e) => {handleChange(e)}}
+                        />
+                        <CustomInput 
+                            type="checkbox" 
+                            value="Apple" 
+                            name="raw"
+                            id="exampleCustomCheckbox" 
+                            label="Apple" 
+                            className="p-2"
+                            onChange={(e) => {handleChange(e)}}
+                        />
                     </div>
                 </FormGroup>
                 <br/>
