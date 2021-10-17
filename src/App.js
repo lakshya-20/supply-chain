@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import Web3 from 'web3';
 import MainContract from './Abis/Main.json';
 import './App.css';
+import Admin from './Components/Admin';
 import Register from './Components/Register';
 
 function App() {
@@ -65,6 +66,7 @@ function App() {
       <br/>
       {stakeholder? `Stakeholder Data: ${JSON.stringify(stakeholder)}` : ""}
       {role==="NewAddress"? <Register mainContract={mainContract} account={account}/> : ""}
+      {role==="Admin"? <Admin mainContract={mainContract} account={account}/> : ""}
     </div>
   );
 }
