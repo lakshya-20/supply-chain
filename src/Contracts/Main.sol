@@ -54,7 +54,8 @@ contract Main{
      * Function to get the role of the passed address
      */
     function checkIdentity(address id) public view returns(string memory) {
-        if(farmers[id].isValue) return "Farmer";
+        if(id == admin) return "Admin";
+        else if(farmers[id].isValue) return "Farmer";
         else if(stakeholders[id].isValue) return stakeholders[id].role;
         else return "NewAddress";
     }
