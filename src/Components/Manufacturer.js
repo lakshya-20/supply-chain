@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { Card, CardText, Row} from 'reactstrap';
 import LaunchProductComponent from "./ManufacturerScreens/LaunchProduct";
+import OwnershipComponent from "./ManufacturerScreens/Ownership";
 import RawProductsComponent from "./ManufacturerScreens/RawProducts";
 const Manufacturer = ({mainContract,account}) => {
     // const [stakeholder, setStakeholder] = useState(undefined);
@@ -42,6 +43,7 @@ const Manufacturer = ({mainContract,account}) => {
             <h3>{actionItem}</h3>
             {actionItem===actionItems[0]? <RawProductsComponent mainContract={mainContract} account={account}/> : ""}
             {actionItem===actionItems[1]? <LaunchProductComponent mainContract={mainContract} account={account}/>: ""}
+            {actionItem===actionItems[2]? <OwnershipComponent mainContract={mainContract} account={account}/>: ""}
         </div>
     )
 }
