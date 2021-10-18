@@ -3,6 +3,7 @@ import Web3 from 'web3';
 import MainContract from './Abis/Main.json';
 import './App.css';
 import Admin from './Components/Admin';
+import ConsumerComponent from './Components/Consumer';
 import FooterComponent from './Components/Footer';
 import Manufacturer from './Components/Manufacturer';
 import NavbarComponent from './Components/Navbar';
@@ -67,6 +68,7 @@ function App() {
       {role==="NewAddress"? <Register mainContract={mainContract} account={account}/> : ""}
       {role==="Admin"? <Admin mainContract={mainContract} account={account}/> : ""}
       {role==="Manufacturer"? <Manufacturer mainContract={mainContract} account={account}/> : ""}
+      {role==="Distributer"? <ConsumerComponent mainContract={mainContract} account={account} role={role}/> : ""}
     </div>
     <FooterComponent 
       mainContract={mainContract} 

@@ -164,16 +164,15 @@ contract Main{
 
     function verifyProduct(
         string memory serialNo
-    ) public view returns (Product memory, string memory, bool, Stakeholder memory, Stakeholder memory){
+    ) public view returns (Product memory, string memory, bool, Stakeholder memory){
         Product memory product = products[serialNo];
         Manufacturer memory manufacturerDetails = manufacturers[product.manufacturer];
-        Stakeholder memory manufacturer = stakeholders[product.manufacturer];
+        // Stakeholder memory manufacturer = stakeholders[product.manufacturer];
         Stakeholder memory currentOwner = stakeholders[product.ownership];
         return(
             product,            
             manufacturerDetails.name,
             manufacturerDetails.isRenewableUsed,
-            manufacturer,
             currentOwner
         );
     }
