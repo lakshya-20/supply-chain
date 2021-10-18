@@ -3,7 +3,9 @@ import Web3 from 'web3';
 import MainContract from './Abis/Main.json';
 import './App.css';
 import Admin from './Components/Admin';
+import FooterComponent from './Components/Footer';
 import Manufacturer from './Components/Manufacturer';
+import NavbarComponent from './Components/Navbar';
 import Register from './Components/Register';
 
 function App() {
@@ -58,18 +60,21 @@ function App() {
   }
 
   return (
-    <div className="App container">
-      Admin Address: {adminAddress}
-      <br/>
-      Current Address: {account}
-      <br/>
-      Role: {role}
-      <br/>
+    <>
+    <NavbarComponent mainContract={mainContract} account={account} />
+    <div className="App container" style={{marginBottom: "100px", minHeight:"500px"}}>
       {stakeholder? `Stakeholder Data: ${JSON.stringify(stakeholder)}` : ""}
       {role==="NewAddress"? <Register mainContract={mainContract} account={account}/> : ""}
       {role==="Admin"? <Admin mainContract={mainContract} account={account}/> : ""}
       {role==="Manufacturer"? <Manufacturer mainContract={mainContract} account={account}/> : ""}
     </div>
+    <FooterComponent 
+      mainContract={mainContract} 
+      account={account}
+      adminAddress = {adminAddress}
+      role={role}
+    />
+    </>
   );
 }
 

@@ -1,6 +1,5 @@
 import { useState } from "react";
-import { Card, Button, CardTitle, CardText, Row, Col,
-    Form, FormGroup, Label, Input, CustomInput, FormText } from 'reactstrap';
+import { Card, Button, CardTitle, CardText, Row, Col, Input, FormText } from 'reactstrap';
 const Admin = ({mainContract,account}) => {
     const [farmerAddress, setFarmerAddress] = useState(null);
     const [manufacturerAddress, setManufacturerAddress] = useState(null);
@@ -20,7 +19,7 @@ const Admin = ({mainContract,account}) => {
     }
     return (
         <div>
-            Admin Panel
+            <h4>Admin Panel</h4>
             <Row>
                 <Col sm="6">
                     <Card body>

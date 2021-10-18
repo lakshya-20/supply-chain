@@ -33,6 +33,7 @@ const Manufacturer = ({mainContract,account}) => {
     return(
         <div>
             {JSON.stringify(manufacturerData)}
+            <h4>Manufacturer Panel</h4>
             <Row>
                 {actionItems.map(actionItem => {
                     return (
