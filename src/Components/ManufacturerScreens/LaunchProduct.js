@@ -1,10 +1,9 @@
-import { useState } from 'react';
+import { useState } from "react";
 import {Button, Form, FormGroup, Label, Input, CustomInput } from 'reactstrap';
-
-const FarmerRegistration = ({mainContract,account,role}) => {
+const LaunchProductComponent  = ({mainContract, account}) => {
     const [values, setValues] = useState({
         name: "",
-        region: "",
+        serialNo: "",
         rawProducts: []
     });
     const handleChange = (event) => {
@@ -26,14 +25,14 @@ const FarmerRegistration = ({mainContract,account,role}) => {
             });
         }        
     };
-    const handleSubmit =async () =>{        
-        await mainContract.methods.registerFarmer(
+    const handleSubmit = async() => {
+        await mainContract.methods.launchProduct(
             values.name,
-            values.region,
-            values.rawProducts
-        ).send({from: account})
+            values.rawProducts,
+            values.serialNo
+        ).send({from: account});
     }
-    return(
+    return (
         <div>
             <Form onSubmit={()=>handleSubmit()} className="col-12 pt-3">
                 <FormGroup>
@@ -48,17 +47,14 @@ const FarmerRegistration = ({mainContract,account,role}) => {
                 <br/>
                 <FormGroup>
                     <Input 
-                        type="select" 
-                        name="region"  
-                        onChange={(e) => {handleChange(e)}}                   
-                    >
-                    <option>Select Region</option>
-                    <option>South India</option>
-                    <option>North India</option>
-                    <option>East India</option>
-                    <option>West India</option>
-                    </Input>
-                </FormGroup>                
+                        type="text"
+                        name="serialNo"
+                        value={values.serialNo}
+                        placeholder="Serial No"
+                        onChange={(e) => {handleChange(e)}}
+                    />
+                </FormGroup>
+                <br/>
                 <FormGroup>
                     <Label for="exampleCheckbox">Raw Material</Label>
                     <div className="d-flex justify-content-around">
@@ -100,11 +96,9 @@ const FarmerRegistration = ({mainContract,account,role}) => {
                         />
                     </div>
                 </FormGroup>
-                <br/>
-                <Button>Submit</Button>
+                <Button>Launch</Button>
             </Form>
         </div>
     )
 }
-
-export default FarmerRegistration;
+export default LaunchProductComponent;
