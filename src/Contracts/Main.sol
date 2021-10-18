@@ -103,10 +103,13 @@ contract Main{
      * Function to add a rawproduct for a manufacturer
      */
     function updateManufacturerRawProducts(        
-        string memory rawProductName,
-        address farmerAddress
+        string[] memory rawProducts,
+        address[] memory farmerAddresses
     ) public {
-        manufacturers[msg.sender].rawProducts[rawProductName] = farmerAddress;
+        //manufacturers[msg.sender].rawProducts[rawProductName] = farmerAddress;
+        for(uint i = 0;i< rawProducts.length; i++){
+            manufacturers[msg.sender].rawProducts[rawProducts[i]] = farmerAddresses[i];
+        }
     }
     /**
      * function to find a manufacturer by address
