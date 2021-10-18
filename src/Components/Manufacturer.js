@@ -41,7 +41,7 @@ const Manufacturer = ({mainContract,account}) => {
                     )
                 })}
             </Row>
-            <h3>{actionItem}</h3>
+            <h5>{actionItem}</h5>
             {actionItem===actionItems[0]? <RawProductsComponent mainContract={mainContract} account={account}/> : ""}
             {actionItem===actionItems[1]? <LaunchProductComponent mainContract={mainContract} account={account}/>: ""}
             {actionItem===actionItems[2]? <OwnershipComponent mainContract={mainContract} account={account}/>: ""}
