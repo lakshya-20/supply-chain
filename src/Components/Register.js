@@ -21,7 +21,7 @@ const Register = ({mainContract,account}) => {
     }
     return (
         <div>
-            {"Register here"}
+            <h4>Registration Panel</h4>
             <div className="row">
                 {["Distributer", "Retailer", "Manufacturer", "Farmer", "Consumer"].map(role => {
                     return (
@@ -33,7 +33,6 @@ const Register = ({mainContract,account}) => {
                 <>
                 <strong >{role+" "}</strong> Registration
                 <br/>
-                {account}
                 <div className="d-flex justify-content-center">
                     {role=="Farmer"?
                         <FarmerRegistration mainContract={mainContract} account={account} role={role}/>
