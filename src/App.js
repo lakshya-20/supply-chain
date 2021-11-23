@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 import Web3 from 'web3';
+import { Card, Button, CardTitle, CardText } from 'reactstrap';
 import MainContract from './Abis/Main.json';
 import './App.css';
 import Admin from './Components/Admin';
@@ -64,7 +65,31 @@ function App() {
     <>
     <NavbarComponent mainContract={mainContract} account={account} />
     <div className="App container" style={{marginBottom: "100px", minHeight:"500px"}}>
-      {stakeholder? `Stakeholder Data: ${JSON.stringify(stakeholder)}` : ""}
+      {stakeholder?
+        <div className="d-flex justify-content-center">
+          <div className="col-10 col-sm-8">
+            <Card inverse style={{ backgroundColor: '#333', borderColor: '#333' }}>
+              <CardTitle tag="h5">{stakeholder.name}</CardTitle>
+              {role=="Farmer"?
+                <>
+                <CardText>
+                  Role: Farmer
+                  <br/>
+                  Verification: {stakeholder.isVerified?"Done":"Not Done"}
+                  <br/>
+                  Raw Products: {JSON.stringify(stakeholder.rawProducts)}
+                </CardText>
+                </>
+              :
+                <CardText>Role: {stakeholder.role}</CardText>
+              }
+            </Card>
+          </div>
+        </div>
+      :
+        ""
+      }      
+      {/* {stakeholder? `Stakeholder Data: ${JSON.stringify(stakeholder)}` : ""} */}
       {role==="NewAddress"? <Register mainContract={mainContract} account={account}/> : ""}
       {role==="Admin"? <Admin mainContract={mainContract} account={account}/> : ""}
       {role==="Manufacturer"? <Manufacturer mainContract={mainContract} account={account}/> : ""}
