@@ -69,6 +69,7 @@ function App() {
       {role==="Admin"? <Admin mainContract={mainContract} account={account}/> : ""}
       {role==="Manufacturer"? <Manufacturer mainContract={mainContract} account={account}/> : ""}
       {role==="Distributer"? <ConsumerComponent mainContract={mainContract} account={account} role={role}/> : ""}
+      {role==="Consumer"? <ConsumerComponent mainContract={mainContract} account={account} role={role}/> : ""}
     </div>
     <FooterComponent 
       mainContract={mainContract} 
