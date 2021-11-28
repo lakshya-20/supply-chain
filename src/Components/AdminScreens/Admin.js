@@ -6,10 +6,10 @@ const Admin = ({mainContract,account}) => {
         <div>
             <h3>Admin Panel</h3>
             <Row>
-                <Col sm="6">
+                <Col sm="6" className="p-1">
                     <VerifyFarmer mainContract={mainContract} account={account}/>
                 </Col>
-                <Col sm="6">
+                <Col sm="6" className="p-1">
                     <VerifyManufacturer mainContract={mainContract} account={account}/>
                 </Col>
             </Row>
