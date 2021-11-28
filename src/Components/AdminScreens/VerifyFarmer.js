@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Card, Button, CardTitle, CardText, Row, Col, Input, FormText, CardSubtitle } from 'reactstrap';
 function VerifyFarmer({mainContract,account}) {
-    const [farmerAddressArray, setFarmerAddressArray] = useState([]);
     const [farmerDetailsArray, setFarmerDetailsArray] = useState([])
     const verifyFarmer = async (farmerAddress) => {
         if(farmerAddress==null) {
@@ -14,13 +13,11 @@ function VerifyFarmer({mainContract,account}) {
     useEffect(()=>{
         if(mainContract){            
             (async ()=>{
-                console.log(await mainContract.methods.farmers("0x6288260D9Bb7032d6acc33739B1F96d1162b02Da").call())
                 const addressArray =  await mainContract.methods.getFarmersArray().call();
                 var temp=[];
                 for(var i=0;i<addressArray.length;i++){
                     temp[i]=await mainContract.methods.findFarmer(addressArray[i]).call();
-                }
-                setFarmerAddressArray(addressArray);
+                }                
                 setFarmerDetailsArray(temp);
             })();           
         }
@@ -29,7 +26,7 @@ function VerifyFarmer({mainContract,account}) {
         return (
             <Card className="m-1">                
                 <CardTitle>{farmer.name}</CardTitle>
-                <CardSubtitle>{farmer.id}</CardSubtitle>
+                <CardSubtitle className="text-secondary">{farmer.id}</CardSubtitle>
                 <CardSubtitle>Raw Products: {JSON.stringify(farmer.rawProducts)}</CardSubtitle>           
                 <div className="">
                     {farmer.isVerified?
@@ -49,10 +46,14 @@ function VerifyFarmer({mainContract,account}) {
         <Card body>
             <CardTitle tag="h5">Verify Farmer</CardTitle>
             <CardText>Feature to mark the farmer as a verified farmer.</CardText>            
-            <div>
-                {farmerDetailsArray.map(farmer=>{
-                    return renderFarmerCard(farmer)
-                })}
+            <div>                
+                {farmerDetailsArray.length>0?
+                    farmerDetailsArray.map(farmer=>{
+                        return renderFarmerCard(farmer)
+                    })
+                :
+                    <span>No Farmer Exists</span>
+                }
             </div>
         </Card>
      );

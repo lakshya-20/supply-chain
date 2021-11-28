@@ -40,6 +40,7 @@ contract Main{
     mapping(address => Stakeholder) public stakeholders;
     
     address [] public farmersArray;
+    address [] public manufacturersArray;
 
     address payable public admin;
     constructor() public {
@@ -124,11 +125,19 @@ contract Main{
     /**
      * function to find a manufacturer by address
      */
-    function findManufacturer(address id) public view returns(string memory,bool){
+    function findManufacturer(address id) public view returns(string memory, bool, address){
         return(
             manufacturers[id].name,
-            manufacturers[id].isRenewableUsed
+            manufacturers[id].isRenewableUsed,
+            id
         );
+    }
+
+    /**
+     * function to return array of address of all manufacturers
+     */
+    function getManufacturersArray() public view returns(address[] memory){
+        return manufacturersArray;
     }
 
     function registerStakeHolder(
@@ -142,6 +151,7 @@ contract Main{
                 name: name,
                 isRenewableUsed: false
             });
+            manufacturersArray.push(msg.sender);
         }
     }
 
