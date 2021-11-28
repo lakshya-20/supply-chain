@@ -38,6 +38,8 @@ contract Main{
     mapping(address => Manufacturer) public manufacturers;
     mapping(string => Product) public products;
     mapping(address => Stakeholder) public stakeholders;
+    
+    address [] public farmersArray;
 
     address payable public admin;
     constructor() public {
@@ -69,6 +71,7 @@ contract Main{
         string[] memory rawProducts
     ) public {
         farmers[msg.sender] = Farmer(msg.sender,name,region,false,true,rawProducts);
+        farmersArray.push(msg.sender);
     }
     /**
      * Function to verify a farmer
@@ -81,6 +84,13 @@ contract Main{
      */
     function findFarmer(address id) public view returns(Farmer memory){
         return farmers[id];
+    }
+
+    /**
+     * function to return array of address of all farmers
+     */
+    function getFarmersArray() public view returns(address[] memory){
+        return farmersArray;
     }
 
     // /**

@@ -3,7 +3,7 @@ import Web3 from 'web3';
 import { Card, Button, CardTitle, CardText } from 'reactstrap';
 import MainContract from './Abis/Main.json';
 import './App.css';
-import Admin from './Components/Admin';
+import Admin from './Components/AdminScreens/Admin';
 import ConsumerComponent from './Components/Consumer';
 import FooterComponent from './Components/Footer';
 import Manufacturer from './Components/Manufacturer';
