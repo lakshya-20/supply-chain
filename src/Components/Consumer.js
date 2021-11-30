@@ -10,8 +10,8 @@ const ConsumerComponent = ({mainContract,account,role}) => {
         return (
             <Card body inverse
                 style={{ backgroundColor: '#333', borderColor: '#333', height: "100px" }}
-                className="col-12 col-sm-5 m-1"
-                onClick={()=>setActionItem(actionItem)}    
+                className="col-5 m-1"
+                onClick={()=>setActionItem(actionItem)}
             >
                 <CardText>{actionItem}</CardText>
             </Card>
@@ -19,15 +19,15 @@ const ConsumerComponent = ({mainContract,account,role}) => {
     }
     return (
         <div>
-            <h4>{role} Panel</h4>
-            <Row>
+            <h4 className="text-center">{role} Panel</h4>
+            <Row className="text-center">
                 {actionItems.map(actionItem => {
                     return (
                         <RenderActionCard actionItem={actionItem}/>
                     )
                 })}
             </Row>
-            <h5>{actionItem}</h5>
+            <h5 className="text-center">{actionItem}</h5>
             {actionItem===actionItems[0]? <ViewProduct mainContract={mainContract} account={account}/> : ""}
             {actionItem===actionItems[1]? <OwnershipComponent mainContract={mainContract} account={account}/>: ""}
         </div>

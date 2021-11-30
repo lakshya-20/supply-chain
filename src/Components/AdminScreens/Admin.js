@@ -3,7 +3,7 @@ import VerifyFarmer from "./VerifyFarmer";
 import VerifyManufacturer from "./VerifyManufacturer";
 const Admin = ({mainContract,account}) => {
     return (
-        <div>
+        <div className="text-center">
             <h3>Admin Panel</h3>
             <Row>
                 <Col sm="6" className="p-1">

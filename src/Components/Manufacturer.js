@@ -31,7 +31,7 @@ const Manufacturer = ({mainContract,account}) => {
         )
     }
     return(
-        <div>
+        <div className="text-center">
             {/* {JSON.stringify(manufacturerData)} */}
             <h4>Manufacturer Panel</h4>
             <Row>

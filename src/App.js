@@ -66,7 +66,7 @@ function App() {
     <NavbarComponent mainContract={mainContract} account={account} />
     <div className="App container" style={{marginBottom: "100px", minHeight:"500px"}}>
       {stakeholder?
-        <div className="d-flex justify-content-center">
+        <div className="d-flex justify-content-center text-center">
           <div className="col-10 col-sm-8">
             <Card inverse style={{ backgroundColor: '#333', borderColor: '#333' }}>
               <CardTitle tag="h5">{stakeholder.name}</CardTitle>
