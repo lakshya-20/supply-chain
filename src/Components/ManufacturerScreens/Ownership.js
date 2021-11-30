@@ -7,30 +7,32 @@ const OwnershipComponent = ({mainContract, account}) => {
         await mainContract.methods.transferOwnership(newAddress,serialNo).send({from: account});
     }
     return (
-        <div>
-            <Form onSubmit={()=>handleSubmit()} className="col-12 pt-3">
-                <FormGroup>
-                    <Input 
-                        type="text"
-                        name="newAddress"
-                        value={newAddress}
-                        placeholder="New Owner Address"
-                        onChange={(e) => setNewAddress(e.target.value)}
-                    />
-                </FormGroup>
-                <br/>
-                <FormGroup>
-                    <Input 
-                        type="text"
-                        name="serialNo"
-                        value={serialNo}
-                        placeholder="Product Serial No"
-                        onChange={(e) => setSerialNo(e.target.value)}
-                    />
-                </FormGroup>
-                <br/>
-                <Button>Transfer Ownership</Button>
-            </Form>
+        <div className="d-flex justify-content-center">
+            <div className="col-12 col-sm-8 col-md-6">
+                <Form onSubmit={()=>handleSubmit()} className="col-12 pt-3 text-center">
+                    <FormGroup>
+                        <Input 
+                            type="text"
+                            name="newAddress"
+                            value={newAddress}
+                            placeholder="New Owner Address"
+                            onChange={(e) => setNewAddress(e.target.value)}
+                        />
+                    </FormGroup>
+                    <br/>
+                    <FormGroup>
+                        <Input 
+                            type="text"
+                            name="serialNo"
+                            value={serialNo}
+                            placeholder="Product Serial No"
+                            onChange={(e) => setSerialNo(e.target.value)}
+                        />
+                    </FormGroup>
+                    <br/>
+                    <Button>Transfer Ownership</Button>
+                </Form>
+            </div>
         </div>
     )
 }

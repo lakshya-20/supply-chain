@@ -20,7 +20,7 @@ const Register = ({mainContract,account}) => {
         )
     }
     return (
-        <div>
+        <div className="text-center">
             <h4>Registration Panel</h4>
             <div className="row">
                 {["Distributer", "Retailer", "Manufacturer", "Farmer", "Consumer"].map(role => {
