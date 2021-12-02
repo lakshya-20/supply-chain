@@ -3,13 +3,15 @@ import {Button, Form, FormGroup, Label, Input, CustomInput } from 'reactstrap';
 const OwnershipComponent = ({mainContract, account}) => {
     const [newAddress, setNewAddress] = useState(undefined);
     const [serialNo, setSerialNo] = useState(undefined);
-    const handleSubmit = async () => {
+    const handleSubmit = async (e) => {
+        e.preventDefault();
         await mainContract.methods.transferOwnership(newAddress,serialNo).send({from: account});
+        window.location.reload(false);
     }
     return (
         <div className="d-flex justify-content-center">
             <div className="col-12 col-sm-8 col-md-6">
-                <Form onSubmit={()=>handleSubmit()} className="col-12 pt-3 text-center">
+                <Form onSubmit={(e)=>handleSubmit(e)} className="col-12 pt-3 text-center">
                     <FormGroup>
                         <Input 
                             type="text"

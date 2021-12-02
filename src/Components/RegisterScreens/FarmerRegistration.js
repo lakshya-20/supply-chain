@@ -26,16 +26,18 @@ const FarmerRegistration = ({mainContract,account,role}) => {
             });
         }        
     };
-    const handleSubmit =async () =>{        
+    const handleSubmit =async (e) =>{
+        e.preventDefault();        
         await mainContract.methods.registerFarmer(
             values.name,
             values.region,
             values.rawProducts
         ).send({from: account})
+        window.location.reload(false);
     }
     return(
         <div>
-            <Form onSubmit={()=>handleSubmit()} className="col-12 pt-3">
+            <Form onSubmit={(e)=>handleSubmit(e)} className="col-12 pt-3">
                 <FormGroup>
                     <Input 
                         type="text"
@@ -66,7 +68,7 @@ const FarmerRegistration = ({mainContract,account,role}) => {
                             type="checkbox" 
                             value="Cocoa" 
                             name="raw" 
-                            id="exampleCustomCheckbox" 
+                            id="cocoaCheckbox" 
                             label="Cocoa" 
                             className="p-2"
                             onChange={(e) => {handleChange(e)}}
@@ -75,7 +77,7 @@ const FarmerRegistration = ({mainContract,account,role}) => {
                             type="checkbox" 
                             value="Sugar" 
                             name="raw" 
-                            id="exampleCustomCheckbox" 
+                            id="sugarCustomCheckbox" 
                             label="Sugar" 
                             className="p-2"
                             onChange={(e) => {handleChange(e)}}
@@ -84,7 +86,7 @@ const FarmerRegistration = ({mainContract,account,role}) => {
                             type="checkbox" 
                             value="Milk" 
                             name="raw" 
-                            id="exampleCustomCheckbox" 
+                            id="milkCustomCheckbox" 
                             label="Milk" 
                             className="p-2"
                             onChange={(e) => {handleChange(e)}}
@@ -93,7 +95,7 @@ const FarmerRegistration = ({mainContract,account,role}) => {
                             type="checkbox" 
                             value="Apple" 
                             name="raw"
-                            id="exampleCustomCheckbox" 
+                            id="appleCustomCheckbox" 
                             label="Apple" 
                             className="p-2"
                             onChange={(e) => {handleChange(e)}}

@@ -12,15 +12,17 @@ const StakeholderRegistration = ({mainContract,account,role}) => {
             [name]: value,
         });     
     };
-    const handleSubmit =async () =>{        
+    const handleSubmit =async (e) =>{        
+        e.preventDefault();
         await mainContract.methods.registerStakeHolder(
             values.name,
             role
         ).send({from: account})
+        window.location.reload(false);
     }
     return(
         <div>
-            <Form onSubmit={()=>handleSubmit()} className="col-12 pt-3">
+            <Form onSubmit={(e)=>handleSubmit(e)} className="col-12 pt-3">
                 <FormGroup>
                     <Input 
                         type="text"
