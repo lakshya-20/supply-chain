@@ -26,6 +26,7 @@ const RawProductsComponent = ({mainContract,account}) => {
             rawProducts,
             farmerAddressesArr
         ).send({from:account})
+        window.location.reload(false);
     }
     const handleChange = (event) => {
         const { name, value, checked} = event.target;
@@ -50,7 +51,7 @@ const RawProductsComponent = ({mainContract,account}) => {
                             type="checkbox" 
                             value="Cocoa" 
                             name="rawProduct" 
-                            id="exampleCustomCheckbox" 
+                            id="cocoaCustomCheckbox" 
                             label="Cocoa" 
                             className="p-2"
                             onChange={(e) => {handleChange(e)}}
@@ -59,7 +60,7 @@ const RawProductsComponent = ({mainContract,account}) => {
                             type="checkbox" 
                             value="Sugar" 
                             name="rawProduct" 
-                            id="exampleCustomCheckbox" 
+                            id="sugarCustomCheckbox" 
                             label="Sugar" 
                             className="p-2"
                             onChange={(e) => {handleChange(e)}}
@@ -68,7 +69,7 @@ const RawProductsComponent = ({mainContract,account}) => {
                             type="checkbox" 
                             value="Milk" 
                             name="rawProduct" 
-                            id="exampleCustomCheckbox" 
+                            id="milkCustomCheckbox" 
                             label="Milk" 
                             className="p-2"
                             onChange={(e) => {handleChange(e)}}
@@ -77,7 +78,7 @@ const RawProductsComponent = ({mainContract,account}) => {
                             type="checkbox" 
                             value="Apple" 
                             name="rawProduct"
-                            id="exampleCustomCheckbox" 
+                            id="appleCustomCheckbox" 
                             label="Apple" 
                             className="p-2"
                             onChange={(e) => {handleChange(e)}}

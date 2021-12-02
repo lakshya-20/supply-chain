@@ -15,10 +15,7 @@ const Manufacturer = ({mainContract,account}) => {
                 setManufacturerData(await mainContract.methods.findManufacturer(account).call());
             }
         })();
-    },[mainContract])
-    useEffect(()=>{
-        console.log(manufacturerData);
-    },[manufacturerData])
+    },[mainContract])    
     const RenderActionCard = ({actionItem}) => {
         return (
             <Card body inverse

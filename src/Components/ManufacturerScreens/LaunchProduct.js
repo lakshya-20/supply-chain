@@ -25,17 +25,19 @@ const LaunchProductComponent  = ({mainContract, account}) => {
             });
         }        
     };
-    const handleSubmit = async() => {
+    const handleSubmit = async(e) => {
+        e.preventDefault();
         await mainContract.methods.launchProduct(
             values.name,
             values.rawProducts,
             values.serialNo
         ).send({from: account});
+        window.location.reload(false);
     }
     return (
         <div className="d-flex justify-content-center">
             <div className="col-12 col-sm-8 col-md-6">            
-                <Form onSubmit={()=>handleSubmit()} className="col-12 pt-3">
+                <Form onSubmit={(e)=>handleSubmit(e)} className="col-12 pt-3">
                     <FormGroup>
                         <Input 
                             type="text"
@@ -63,7 +65,7 @@ const LaunchProductComponent  = ({mainContract, account}) => {
                                 type="checkbox" 
                                 value="Cocoa" 
                                 name="raw" 
-                                id="exampleCustomCheckbox" 
+                                id="cocoaCustomCheckbox" 
                                 label="Cocoa" 
                                 className="p-2"
                                 onChange={(e) => {handleChange(e)}}
@@ -72,7 +74,7 @@ const LaunchProductComponent  = ({mainContract, account}) => {
                                 type="checkbox" 
                                 value="Sugar" 
                                 name="raw" 
-                                id="exampleCustomCheckbox" 
+                                id="sugarCustomCheckbox" 
                                 label="Sugar" 
                                 className="p-2"
                                 onChange={(e) => {handleChange(e)}}
@@ -81,7 +83,7 @@ const LaunchProductComponent  = ({mainContract, account}) => {
                                 type="checkbox" 
                                 value="Milk" 
                                 name="raw" 
-                                id="exampleCustomCheckbox" 
+                                id="milkCustomCheckbox" 
                                 label="Milk" 
                                 className="p-2"
                                 onChange={(e) => {handleChange(e)}}
@@ -90,7 +92,7 @@ const LaunchProductComponent  = ({mainContract, account}) => {
                                 type="checkbox" 
                                 value="Apple" 
                                 name="raw"
-                                id="exampleCustomCheckbox" 
+                                id="appleCustomCheckbox" 
                                 label="Apple" 
                                 className="p-2"
                                 onChange={(e) => {handleChange(e)}}
