@@ -89,9 +89,9 @@
       "type": "function"
     }
   ],
-  "metadata": "{\"compiler\":{\"version\":\"0.5.16+commit.9c3226ce\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"inputs\":[{\"internalType\":\"contract Farmer\",\"name\":\"_farmer\",\"type\":\"address\"},{\"internalType\":\"contract Manufacturer\",\"name\":\"_manufacturer\",\"type\":\"address\"},{\"internalType\":\"contract StakeHolder\",\"name\":\"_stakeHolder\",\"type\":\"address\"},{\"internalType\":\"contract Product\",\"name\":\"_product\",\"type\":\"address\"}],\"payable\":false,\"stateMutability\":\"nonpayable\",\"type\":\"constructor\"},{\"constant\":true,\"inputs\":[],\"name\":\"farmer\",\"outputs\":[{\"internalType\":\"contract Farmer\",\"name\":\"\",\"type\":\"address\"}],\"payable\":false,\"stateMutability\":\"view\",\"type\":\"function\"},{\"constant\":true,\"inputs\":[],\"name\":\"manufacturer\",\"outputs\":[{\"internalType\":\"contract Manufacturer\",\"name\":\"\",\"type\":\"address\"}],\"payable\":false,\"stateMutability\":\"view\",\"type\":\"function\"},{\"constant\":true,\"inputs\":[],\"name\":\"product\",\"outputs\":[{\"internalType\":\"contract Product\",\"name\":\"\",\"type\":\"address\"}],\"payable\":false,\"stateMutability\":\"view\",\"type\":\"function\"},{\"constant\":true,\"inputs\":[],\"name\":\"stakeHolder\",\"outputs\":[{\"internalType\":\"contract StakeHolder\",\"name\":\"\",\"type\":\"address\"}],\"payable\":false,\"stateMutability\":\"view\",\"type\":\"function\"}],\"devdoc\":{\"methods\":{}},\"userdoc\":{\"methods\":{}}},\"settings\":{\"compilationTarget\":{\"project:/src/Contracts/Main.sol\":\"Main\"},\"evmVersion\":\"petersburg\",\"libraries\":{},\"optimizer\":{\"enabled\":false,\"runs\":200},\"remappings\":[]},\"sources\":{\"project:/src/Contracts/Farmer.sol\":{\"keccak256\":\"0xdbb7c932e11f98ec95971c2830f3ba4904f2ff603c45d985beaa8d2a995b4df4\",\"urls\":[\"bzz-raw://8eb9596527adcdb6e91ccf79c01cc56c0edb7280de661a3120716dcc1d136936\",\"dweb:/ipfs/QmRDHAHMg7TBHtE8xs8vcPudzacH8xoE1PeG4cJFUKH5nh\"]},\"project:/src/Contracts/Main.sol\":{\"keccak256\":\"0x29635e65d8fd0d228fbdfd870b010f4a290c4aa283279b69a2e6efe5b21a48d9\",\"urls\":[\"bzz-raw://79c93c2944457cc5817008a998d20dff4374b417e4c0e1ba691660912907fb50\",\"dweb:/ipfs/QmTYbBBi5XKFN1MWZDtiVR57umAqzFtWGmhGggLa15vjHA\"]},\"project:/src/Contracts/Manufacturer.sol\":{\"keccak256\":\"0x6fed415252e0c1bacde81b71a6a7b519f6418961c0bffc841abac8b0cba19cfc\",\"urls\":[\"bzz-raw://5c4c6eb369d776cfb2612fc2cd20003f634ddaca25f746f205eea28c3047ce05\",\"dweb:/ipfs/QmSuNpjyqbgBT6hEvcemiykV6TXKHvqCaoZCx88WbU4cca\"]},\"project:/src/Contracts/Product.sol\":{\"keccak256\":\"0xdd2a5359635d652d295be671eacdbbc5b77f78310540c1e461a46e39a3244d8b\",\"urls\":[\"bzz-raw://24eda918b4b8f38282390289c43d3606a89e7f5dddfea61e70e9140c1b8ac9ca\",\"dweb:/ipfs/QmPj6emAHiPyRvrzkUBtVyXJwyNqvHkXiaFcXzCgCqtXHA\"]},\"project:/src/Contracts/StakeHolder.sol\":{\"keccak256\":\"0x09681062ffa6295dccd81318a932713a746da981024a895a3e8aad565bda06a6\",\"urls\":[\"bzz-raw://870004b931696ce8c53937858d21eed2a6031b84c327716d09e6be0e8972b80d\",\"dweb:/ipfs/QmdkrYGgZCaHk7uuDjSAfAnuXRfYEPptMkAffcX4b3R3hN\"]}},\"version\":1}",
-  "bytecode": "0x608060405234801561001057600080fd5b506040516103bd3803806103bd8339818101604052608081101561003357600080fd5b8101908080519060200190929190805190602001909291908051906020019092919080519060200190929190505050836000806101000a81548173ffffffffffffffffffffffffffffffffffffffff021916908373ffffffffffffffffffffffffffffffffffffffff16021790555082600160006101000a81548173ffffffffffffffffffffffffffffffffffffffff021916908373ffffffffffffffffffffffffffffffffffffffff16021790555081600260006101000a81548173ffffffffffffffffffffffffffffffffffffffff021916908373ffffffffffffffffffffffffffffffffffffffff16021790555080600360006101000a81548173ffffffffffffffffffffffffffffffffffffffff021916908373ffffffffffffffffffffffffffffffffffffffff16021790555050505050610245806101786000396000f3fe608060405234801561001057600080fd5b506004361061004c5760003560e01c80630de621b814610051578063747542821461009b578063bf9ce952146100e5578063d811fcf01461012f575b600080fd5b610059610179565b604051808273ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200191505060405180910390f35b6100a361019f565b604051808273ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200191505060405180910390f35b6100ed6101c5565b604051808273ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200191505060405180910390f35b6101376101eb565b604051808273ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200191505060405180910390f35b600260009054906101000a900473ffffffffffffffffffffffffffffffffffffffff1681565b600160009054906101000a900473ffffffffffffffffffffffffffffffffffffffff1681565b600360009054906101000a900473ffffffffffffffffffffffffffffffffffffffff1681565b6000809054906101000a900473ffffffffffffffffffffffffffffffffffffffff168156fea265627a7a72315820fab7799c1e0c56f25434bfbdf13f62ebd9208ec8baf2df7e945dddf6781e103b64736f6c63430005100032",
-  "deployedBytecode": "0x608060405234801561001057600080fd5b506004361061004c5760003560e01c80630de621b814610051578063747542821461009b578063bf9ce952146100e5578063d811fcf01461012f575b600080fd5b610059610179565b604051808273ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200191505060405180910390f35b6100a361019f565b604051808273ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200191505060405180910390f35b6100ed6101c5565b604051808273ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200191505060405180910390f35b6101376101eb565b604051808273ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200191505060405180910390f35b600260009054906101000a900473ffffffffffffffffffffffffffffffffffffffff1681565b600160009054906101000a900473ffffffffffffffffffffffffffffffffffffffff1681565b600360009054906101000a900473ffffffffffffffffffffffffffffffffffffffff1681565b6000809054906101000a900473ffffffffffffffffffffffffffffffffffffffff168156fea265627a7a72315820fab7799c1e0c56f25434bfbdf13f62ebd9208ec8baf2df7e945dddf6781e103b64736f6c63430005100032",
+  "metadata": "{\"compiler\":{\"version\":\"0.5.16+commit.9c3226ce\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"inputs\":[{\"internalType\":\"contract Farmer\",\"name\":\"_farmer\",\"type\":\"address\"},{\"internalType\":\"contract Manufacturer\",\"name\":\"_manufacturer\",\"type\":\"address\"},{\"internalType\":\"contract StakeHolder\",\"name\":\"_stakeHolder\",\"type\":\"address\"},{\"internalType\":\"contract Product\",\"name\":\"_product\",\"type\":\"address\"}],\"payable\":false,\"stateMutability\":\"nonpayable\",\"type\":\"constructor\"},{\"constant\":true,\"inputs\":[],\"name\":\"farmer\",\"outputs\":[{\"internalType\":\"contract Farmer\",\"name\":\"\",\"type\":\"address\"}],\"payable\":false,\"stateMutability\":\"view\",\"type\":\"function\"},{\"constant\":true,\"inputs\":[],\"name\":\"manufacturer\",\"outputs\":[{\"internalType\":\"contract Manufacturer\",\"name\":\"\",\"type\":\"address\"}],\"payable\":false,\"stateMutability\":\"view\",\"type\":\"function\"},{\"constant\":true,\"inputs\":[],\"name\":\"product\",\"outputs\":[{\"internalType\":\"contract Product\",\"name\":\"\",\"type\":\"address\"}],\"payable\":false,\"stateMutability\":\"view\",\"type\":\"function\"},{\"constant\":true,\"inputs\":[],\"name\":\"stakeHolder\",\"outputs\":[{\"internalType\":\"contract StakeHolder\",\"name\":\"\",\"type\":\"address\"}],\"payable\":false,\"stateMutability\":\"view\",\"type\":\"function\"}],\"devdoc\":{\"methods\":{}},\"userdoc\":{\"methods\":{}}},\"settings\":{\"compilationTarget\":{\"project:/src/Contracts/Main.sol\":\"Main\"},\"evmVersion\":\"petersburg\",\"libraries\":{},\"optimizer\":{\"enabled\":false,\"runs\":200},\"remappings\":[]},\"sources\":{\"project:/src/Contracts/Farmer.sol\":{\"keccak256\":\"0xdbb7c932e11f98ec95971c2830f3ba4904f2ff603c45d985beaa8d2a995b4df4\",\"urls\":[\"bzz-raw://8eb9596527adcdb6e91ccf79c01cc56c0edb7280de661a3120716dcc1d136936\",\"dweb:/ipfs/QmRDHAHMg7TBHtE8xs8vcPudzacH8xoE1PeG4cJFUKH5nh\"]},\"project:/src/Contracts/Main.sol\":{\"keccak256\":\"0x29635e65d8fd0d228fbdfd870b010f4a290c4aa283279b69a2e6efe5b21a48d9\",\"urls\":[\"bzz-raw://79c93c2944457cc5817008a998d20dff4374b417e4c0e1ba691660912907fb50\",\"dweb:/ipfs/QmTYbBBi5XKFN1MWZDtiVR57umAqzFtWGmhGggLa15vjHA\"]},\"project:/src/Contracts/Manufacturer.sol\":{\"keccak256\":\"0xef63dd707784a17f83891ee8c49c4cc9987d62854e67ccb9c2b9b99307c2b4c6\",\"urls\":[\"bzz-raw://003dc3328335058e43cd3afdb530da4d15965f7c03301bafe73c3108e9df10af\",\"dweb:/ipfs/Qmb5cQbyYSLnaLQ2TkZFH36b1vcNSwZ7TVfoqppbqjFtsA\"]},\"project:/src/Contracts/Product.sol\":{\"keccak256\":\"0xdd2a5359635d652d295be671eacdbbc5b77f78310540c1e461a46e39a3244d8b\",\"urls\":[\"bzz-raw://24eda918b4b8f38282390289c43d3606a89e7f5dddfea61e70e9140c1b8ac9ca\",\"dweb:/ipfs/QmPj6emAHiPyRvrzkUBtVyXJwyNqvHkXiaFcXzCgCqtXHA\"]},\"project:/src/Contracts/StakeHolder.sol\":{\"keccak256\":\"0x09681062ffa6295dccd81318a932713a746da981024a895a3e8aad565bda06a6\",\"urls\":[\"bzz-raw://870004b931696ce8c53937858d21eed2a6031b84c327716d09e6be0e8972b80d\",\"dweb:/ipfs/QmdkrYGgZCaHk7uuDjSAfAnuXRfYEPptMkAffcX4b3R3hN\"]}},\"version\":1}",
+  "bytecode": "0x608060405234801561001057600080fd5b506040516103bd3803806103bd8339818101604052608081101561003357600080fd5b8101908080519060200190929190805190602001909291908051906020019092919080519060200190929190505050836000806101000a81548173ffffffffffffffffffffffffffffffffffffffff021916908373ffffffffffffffffffffffffffffffffffffffff16021790555082600160006101000a81548173ffffffffffffffffffffffffffffffffffffffff021916908373ffffffffffffffffffffffffffffffffffffffff16021790555081600260006101000a81548173ffffffffffffffffffffffffffffffffffffffff021916908373ffffffffffffffffffffffffffffffffffffffff16021790555080600360006101000a81548173ffffffffffffffffffffffffffffffffffffffff021916908373ffffffffffffffffffffffffffffffffffffffff16021790555050505050610245806101786000396000f3fe608060405234801561001057600080fd5b506004361061004c5760003560e01c80630de621b814610051578063747542821461009b578063bf9ce952146100e5578063d811fcf01461012f575b600080fd5b610059610179565b604051808273ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200191505060405180910390f35b6100a361019f565b604051808273ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200191505060405180910390f35b6100ed6101c5565b604051808273ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200191505060405180910390f35b6101376101eb565b604051808273ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200191505060405180910390f35b600260009054906101000a900473ffffffffffffffffffffffffffffffffffffffff1681565b600160009054906101000a900473ffffffffffffffffffffffffffffffffffffffff1681565b600360009054906101000a900473ffffffffffffffffffffffffffffffffffffffff1681565b6000809054906101000a900473ffffffffffffffffffffffffffffffffffffffff168156fea265627a7a72315820eb96669f5d7c70d790eda709a3825e408f3fff421a0d6ce471480231c7a51b0a64736f6c63430005100032",
+  "deployedBytecode": "0x608060405234801561001057600080fd5b506004361061004c5760003560e01c80630de621b814610051578063747542821461009b578063bf9ce952146100e5578063d811fcf01461012f575b600080fd5b610059610179565b604051808273ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200191505060405180910390f35b6100a361019f565b604051808273ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200191505060405180910390f35b6100ed6101c5565b604051808273ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200191505060405180910390f35b6101376101eb565b604051808273ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200191505060405180910390f35b600260009054906101000a900473ffffffffffffffffffffffffffffffffffffffff1681565b600160009054906101000a900473ffffffffffffffffffffffffffffffffffffffff1681565b600360009054906101000a900473ffffffffffffffffffffffffffffffffffffffff1681565b6000809054906101000a900473ffffffffffffffffffffffffffffffffffffffff168156fea265627a7a72315820eb96669f5d7c70d790eda709a3825e408f3fff421a0d6ce471480231c7a51b0a64736f6c63430005100032",
   "sourceMap": "146:406:1:-;;;302:247;8:9:-1;5:2;;;30:1;27;20:12;5:2;302:247:1;;;;;;;;;;;;;;;13:3:-1;8;5:12;2:2;;;30:1;27;20:12;2:2;302:247:1;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;429:7;420:6;;:16;;;;;;;;;;;;;;;;;;462:13;447:12;;:28;;;;;;;;;;;;;;;;;;500:12;486:11;;:26;;;;;;;;;;;;;;;;;;533:8;523:7;;:18;;;;;;;;;;;;;;;;;;302:247;;;;146:406;;;;;;",
   "deployedSourceMap": "146:406:1:-;;;;8:9:-1;5:2;;;30:1;27;20:12;5:2;146:406:1;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;234:30;;;:::i;:::-;;;;;;;;;;;;;;;;;;;;;;;195:32;;;:::i;:::-;;;;;;;;;;;;;;;;;;;;;;;271:22;;;:::i;:::-;;;;;;;;;;;;;;;;;;;;;;;168:20;;;:::i;:::-;;;;;;;;;;;;;;;;;;;;;;;234:30;;;;;;;;;;;;;:::o;195:32::-;;;;;;;;;;;;;:::o;271:22::-;;;;;;;;;;;;;:::o;168:20::-;;;;;;;;;;;;;:::o",
   "source": "pragma solidity >=0.4.22 <0.9.0;\r\n\r\nimport './Farmer.sol';\r\nimport './Manufacturer.sol';\r\nimport './StakeHolder.sol';\r\nimport './Product.sol';\r\n\r\ncontract Main{\r\n\r\n    Farmer public farmer;\r\n    Manufacturer public manufacturer;\r\n    StakeHolder public stakeHolder;\r\n    Product public product;\r\n\r\n    constructor(Farmer _farmer, Manufacturer _manufacturer, StakeHolder _stakeHolder, Product _product) public {\r\n        farmer = _farmer;\r\n        manufacturer = _manufacturer;\r\n        stakeHolder = _stakeHolder;\r\n        product = _product;\r\n    }\r\n}",
@@ -137,7 +137,7 @@
         "id": 114,
         "nodeType": "ImportDirective",
         "scope": 154,
-        "sourceUnit": 327,
+        "sourceUnit": 425,
         "src": "60:28:1",
         "symbolAliases": [],
         "unitAlias": ""
@@ -148,7 +148,7 @@
         "id": 115,
         "nodeType": "ImportDirective",
         "scope": 154,
-        "sourceUnit": 489,
+        "sourceUnit": 587,
         "src": "90:27:1",
         "symbolAliases": [],
         "unitAlias": ""
@@ -159,7 +159,7 @@
         "id": 116,
         "nodeType": "ImportDirective",
         "scope": 154,
-        "sourceUnit": 428,
+        "sourceUnit": 526,
         "src": "119:23:1",
         "symbolAliases": [],
         "unitAlias": ""
@@ -215,7 +215,7 @@
             "stateVariable": true,
             "storageLocation": "default",
             "typeDescriptions": {
-              "typeIdentifier": "t_contract$_Manufacturer_$326",
+              "typeIdentifier": "t_contract$_Manufacturer_$424",
               "typeString": "contract Manufacturer"
             },
             "typeName": {
@@ -223,10 +223,10 @@
               "id": 119,
               "name": "Manufacturer",
               "nodeType": "UserDefinedTypeName",
-              "referencedDeclaration": 326,
+              "referencedDeclaration": 424,
               "src": "195:12:1",
               "typeDescriptions": {
-                "typeIdentifier": "t_contract$_Manufacturer_$326",
+                "typeIdentifier": "t_contract$_Manufacturer_$424",
                 "typeString": "contract Manufacturer"
               }
             },
@@ -243,7 +243,7 @@
             "stateVariable": true,
             "storageLocation": "default",
             "typeDescriptions": {
-              "typeIdentifier": "t_contract$_StakeHolder_$488",
+              "typeIdentifier": "t_contract$_StakeHolder_$586",
               "typeString": "contract StakeHolder"
             },
             "typeName": {
@@ -251,10 +251,10 @@
               "id": 121,
               "name": "StakeHolder",
               "nodeType": "UserDefinedTypeName",
-              "referencedDeclaration": 488,
+              "referencedDeclaration": 586,
               "src": "234:11:1",
               "typeDescriptions": {
-                "typeIdentifier": "t_contract$_StakeHolder_$488",
+                "typeIdentifier": "t_contract$_StakeHolder_$586",
                 "typeString": "contract StakeHolder"
               }
             },
@@ -271,7 +271,7 @@
             "stateVariable": true,
             "storageLocation": "default",
             "typeDescriptions": {
-              "typeIdentifier": "t_contract$_Product_$427",
+              "typeIdentifier": "t_contract$_Product_$525",
               "typeString": "contract Product"
             },
             "typeName": {
@@ -279,10 +279,10 @@
               "id": 123,
               "name": "Product",
               "nodeType": "UserDefinedTypeName",
-              "referencedDeclaration": 427,
+              "referencedDeclaration": 525,
               "src": "271:7:1",
               "typeDescriptions": {
-                "typeIdentifier": "t_contract$_Product_$427",
+                "typeIdentifier": "t_contract$_Product_$525",
                 "typeString": "contract Product"
               }
             },
@@ -358,7 +358,7 @@
                       "referencedDeclaration": 120,
                       "src": "447:12:1",
                       "typeDescriptions": {
-                        "typeIdentifier": "t_contract$_Manufacturer_$326",
+                        "typeIdentifier": "t_contract$_Manufacturer_$424",
                         "typeString": "contract Manufacturer"
                       }
                     },
@@ -373,13 +373,13 @@
                       "referencedDeclaration": 128,
                       "src": "462:13:1",
                       "typeDescriptions": {
-                        "typeIdentifier": "t_contract$_Manufacturer_$326",
+                        "typeIdentifier": "t_contract$_Manufacturer_$424",
                         "typeString": "contract Manufacturer"
                       }
                     },
                     "src": "447:28:1",
                     "typeDescriptions": {
-                      "typeIdentifier": "t_contract$_Manufacturer_$326",
+                      "typeIdentifier": "t_contract$_Manufacturer_$424",
                       "typeString": "contract Manufacturer"
                     }
                   },
@@ -404,7 +404,7 @@
                       "referencedDeclaration": 122,
                       "src": "486:11:1",
                       "typeDescriptions": {
-                        "typeIdentifier": "t_contract$_StakeHolder_$488",
+                        "typeIdentifier": "t_contract$_StakeHolder_$586",
                         "typeString": "contract StakeHolder"
                       }
                     },
@@ -419,13 +419,13 @@
                       "referencedDeclaration": 130,
                       "src": "500:12:1",
                       "typeDescriptions": {
-                        "typeIdentifier": "t_contract$_StakeHolder_$488",
+                        "typeIdentifier": "t_contract$_StakeHolder_$586",
                         "typeString": "contract StakeHolder"
                       }
                     },
                     "src": "486:26:1",
                     "typeDescriptions": {
-                      "typeIdentifier": "t_contract$_StakeHolder_$488",
+                      "typeIdentifier": "t_contract$_StakeHolder_$586",
                       "typeString": "contract StakeHolder"
                     }
                   },
@@ -450,7 +450,7 @@
                       "referencedDeclaration": 124,
                       "src": "523:7:1",
                       "typeDescriptions": {
-                        "typeIdentifier": "t_contract$_Product_$427",
+                        "typeIdentifier": "t_contract$_Product_$525",
                         "typeString": "contract Product"
                       }
                     },
@@ -465,13 +465,13 @@
                       "referencedDeclaration": 132,
                       "src": "533:8:1",
                       "typeDescriptions": {
-                        "typeIdentifier": "t_contract$_Product_$427",
+                        "typeIdentifier": "t_contract$_Product_$525",
                         "typeString": "contract Product"
                       }
                     },
                     "src": "523:18:1",
                     "typeDescriptions": {
-                      "typeIdentifier": "t_contract$_Product_$427",
+                      "typeIdentifier": "t_contract$_Product_$525",
                       "typeString": "contract Product"
                     }
                   },
@@ -530,7 +530,7 @@
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
-                    "typeIdentifier": "t_contract$_Manufacturer_$326",
+                    "typeIdentifier": "t_contract$_Manufacturer_$424",
                     "typeString": "contract Manufacturer"
                   },
                   "typeName": {
@@ -538,10 +538,10 @@
                     "id": 127,
                     "name": "Manufacturer",
                     "nodeType": "UserDefinedTypeName",
-                    "referencedDeclaration": 326,
+                    "referencedDeclaration": 424,
                     "src": "330:12:1",
                     "typeDescriptions": {
-                      "typeIdentifier": "t_contract$_Manufacturer_$326",
+                      "typeIdentifier": "t_contract$_Manufacturer_$424",
                       "typeString": "contract Manufacturer"
                     }
                   },
@@ -558,7 +558,7 @@
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
-                    "typeIdentifier": "t_contract$_StakeHolder_$488",
+                    "typeIdentifier": "t_contract$_StakeHolder_$586",
                     "typeString": "contract StakeHolder"
                   },
                   "typeName": {
@@ -566,10 +566,10 @@
                     "id": 129,
                     "name": "StakeHolder",
                     "nodeType": "UserDefinedTypeName",
-                    "referencedDeclaration": 488,
+                    "referencedDeclaration": 586,
                     "src": "358:11:1",
                     "typeDescriptions": {
-                      "typeIdentifier": "t_contract$_StakeHolder_$488",
+                      "typeIdentifier": "t_contract$_StakeHolder_$586",
                       "typeString": "contract StakeHolder"
                     }
                   },
@@ -586,7 +586,7 @@
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
-                    "typeIdentifier": "t_contract$_Product_$427",
+                    "typeIdentifier": "t_contract$_Product_$525",
                     "typeString": "contract Product"
                   },
                   "typeName": {
@@ -594,10 +594,10 @@
                     "id": 131,
                     "name": "Product",
                     "nodeType": "UserDefinedTypeName",
-                    "referencedDeclaration": 427,
+                    "referencedDeclaration": 525,
                     "src": "384:7:1",
                     "typeDescriptions": {
-                      "typeIdentifier": "t_contract$_Product_$427",
+                      "typeIdentifier": "t_contract$_Product_$525",
                       "typeString": "contract Product"
                     }
                   },
@@ -669,7 +669,7 @@
       },
       {
         "attributes": {
-          "SourceUnit": 327,
+          "SourceUnit": 425,
           "absolutePath": "project:/src/Contracts/Manufacturer.sol",
           "file": "./Manufacturer.sol",
           "scope": 154,
@@ -684,7 +684,7 @@
       },
       {
         "attributes": {
-          "SourceUnit": 489,
+          "SourceUnit": 587,
           "absolutePath": "project:/src/Contracts/StakeHolder.sol",
           "file": "./StakeHolder.sol",
           "scope": 154,
@@ -699,7 +699,7 @@
       },
       {
         "attributes": {
-          "SourceUnit": 428,
+          "SourceUnit": 526,
           "absolutePath": "project:/src/Contracts/Product.sol",
           "file": "./Product.sol",
           "scope": 154,
@@ -774,7 +774,7 @@
                 "attributes": {
                   "contractScope": null,
                   "name": "Manufacturer",
-                  "referencedDeclaration": 326,
+                  "referencedDeclaration": 424,
                   "type": "contract Manufacturer"
                 },
                 "id": 119,
@@ -802,7 +802,7 @@
                 "attributes": {
                   "contractScope": null,
                   "name": "StakeHolder",
-                  "referencedDeclaration": 488,
+                  "referencedDeclaration": 586,
                   "type": "contract StakeHolder"
                 },
                 "id": 121,
@@ -830,7 +830,7 @@
                 "attributes": {
                   "contractScope": null,
                   "name": "Product",
-                  "referencedDeclaration": 427,
+                  "referencedDeclaration": 525,
                   "type": "contract Product"
                 },
                 "id": 123,
@@ -904,7 +904,7 @@
                         "attributes": {
                           "contractScope": null,
                           "name": "Manufacturer",
-                          "referencedDeclaration": 326,
+                          "referencedDeclaration": 424,
                           "type": "contract Manufacturer"
                         },
                         "id": 127,
@@ -932,7 +932,7 @@
                         "attributes": {
                           "contractScope": null,
                           "name": "StakeHolder",
-                          "referencedDeclaration": 488,
+                          "referencedDeclaration": 586,
                           "type": "contract StakeHolder"
                         },
                         "id": 129,
@@ -960,7 +960,7 @@
                         "attributes": {
                           "contractScope": null,
                           "name": "Product",
-                          "referencedDeclaration": 427,
+                          "referencedDeclaration": 525,
                           "type": "contract Product"
                         },
                         "id": 131,
@@ -1222,12 +1222,12 @@
     "5777": {
       "events": {},
       "links": {},
-      "address": "0x947dE154a8B1f53DC43a826b67196F837788Be84",
-      "transactionHash": "0x23dcfc24d21e73177927ac9b0d722971a9ab5b7998daf9ac0cbb3bfbd42748d1"
+      "address": "0xBd132DEA211DA13fB12B2F718a9831B581d7767C",
+      "transactionHash": "0x307a27bc2b9bba64278a00f0c09ced645859a588aba53bcbb1ee2e500422d8ee"
     }
   },
   "schemaVersion": "3.4.3",
-  "updatedAt": "2021-12-19T14:18:18.152Z",
+  "updatedAt": "2021-12-21T12:15:37.528Z",
   "networkType": "ethereum",
   "devdoc": {
     "methods": {}
