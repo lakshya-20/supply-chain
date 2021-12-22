@@ -7,6 +7,7 @@ contract Product {
         address ownership;
         address manufacturer;
         string[] rawProducts;  
+        bool isValue; //to verify value exists in mapping or not
     }
     mapping(string => Product) public products;
 
@@ -17,10 +18,12 @@ contract Product {
         string[] memory rawProducts
     ) public {
         Product storage product = products[id];
+        require(product.isValue == false, "Product::add: Product with serial no already exists");
         product.name = name;
         product.ownership = msg.sender;
         product.manufacturer = msg.sender;
-        product.rawProducts = rawProducts;        
+        product.rawProducts = rawProducts;
+        product.isValue = true;        
     }
 
     //get product by id
