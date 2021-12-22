@@ -556,7 +556,7 @@
                         "name": "msg",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 601,
+                        "referencedDeclaration": 617,
                         "src": "643:3:2",
                         "typeDescriptions": {
                           "typeIdentifier": "t_magic_message",
@@ -858,7 +858,7 @@
                           "name": "msg",
                           "nodeType": "Identifier",
                           "overloadedDeclarations": [],
-                          "referencedDeclaration": 601,
+                          "referencedDeclaration": 617,
                           "src": "1220:3:2",
                           "typeDescriptions": {
                             "typeIdentifier": "t_magic_message",
@@ -964,7 +964,7 @@
                           "name": "msg",
                           "nodeType": "Identifier",
                           "overloadedDeclarations": [],
-                          "referencedDeclaration": 601,
+                          "referencedDeclaration": 617,
                           "src": "1272:3:2",
                           "typeDescriptions": {
                             "typeIdentifier": "t_magic_message",
@@ -1009,7 +1009,7 @@
                             "name": "msg",
                             "nodeType": "Identifier",
                             "overloadedDeclarations": [],
-                            "referencedDeclaration": 601,
+                            "referencedDeclaration": 617,
                             "src": "1299:3:2",
                             "typeDescriptions": {
                               "typeIdentifier": "t_magic_message",
@@ -1195,7 +1195,7 @@
                                         "name": "msg",
                                         "nodeType": "Identifier",
                                         "overloadedDeclarations": [],
-                                        "referencedDeclaration": 601,
+                                        "referencedDeclaration": 617,
                                         "src": "1460:3:2",
                                         "typeDescriptions": {
                                           "typeIdentifier": "t_magic_message",
@@ -1274,7 +1274,7 @@
                                       "name": "abi",
                                       "nodeType": "Identifier",
                                       "overloadedDeclarations": [],
-                                      "referencedDeclaration": 588,
+                                      "referencedDeclaration": 604,
                                       "src": "1443:3:2",
                                       "typeDescriptions": {
                                         "typeIdentifier": "t_magic_abi",
@@ -1753,7 +1753,7 @@
                                                   "name": "msg",
                                                   "nodeType": "Identifier",
                                                   "overloadedDeclarations": [],
-                                                  "referencedDeclaration": 601,
+                                                  "referencedDeclaration": 617,
                                                   "src": "1926:3:2",
                                                   "typeDescriptions": {
                                                     "typeIdentifier": "t_magic_message",
@@ -1838,7 +1838,7 @@
                                           "name": "abi",
                                           "nodeType": "Identifier",
                                           "overloadedDeclarations": [],
-                                          "referencedDeclaration": 588,
+                                          "referencedDeclaration": 604,
                                           "src": "1895:3:2",
                                           "typeDescriptions": {
                                             "typeIdentifier": "t_magic_abi",
@@ -1885,7 +1885,7 @@
                                     "name": "keccak256",
                                     "nodeType": "Identifier",
                                     "overloadedDeclarations": [],
-                                    "referencedDeclaration": 595,
+                                    "referencedDeclaration": 611,
                                     "src": "1885:9:2",
                                     "typeDescriptions": {
                                       "typeIdentifier": "t_function_keccak256_pure$_t_bytes_memory_ptr_$returns$_t_bytes32_$",
@@ -1968,7 +1968,7 @@
                                           "name": "abi",
                                           "nodeType": "Identifier",
                                           "overloadedDeclarations": [],
-                                          "referencedDeclaration": 588,
+                                          "referencedDeclaration": 604,
                                           "src": "1968:3:2",
                                           "typeDescriptions": {
                                             "typeIdentifier": "t_magic_abi",
@@ -2015,7 +2015,7 @@
                                     "name": "keccak256",
                                     "nodeType": "Identifier",
                                     "overloadedDeclarations": [],
-                                    "referencedDeclaration": 595,
+                                    "referencedDeclaration": 611,
                                     "src": "1958:9:2",
                                     "typeDescriptions": {
                                       "typeIdentifier": "t_function_keccak256_pure$_t_bytes_memory_ptr_$returns$_t_bytes32_$",
@@ -2089,7 +2089,7 @@
                                                     "name": "msg",
                                                     "nodeType": "Identifier",
                                                     "overloadedDeclarations": [],
-                                                    "referencedDeclaration": 601,
+                                                    "referencedDeclaration": 617,
                                                     "src": "2065:3:2",
                                                     "typeDescriptions": {
                                                       "typeIdentifier": "t_magic_message",
@@ -2168,7 +2168,7 @@
                                                   "name": "abi",
                                                   "nodeType": "Identifier",
                                                   "overloadedDeclarations": [],
-                                                  "referencedDeclaration": 588,
+                                                  "referencedDeclaration": 604,
                                                   "src": "2048:3:2",
                                                   "typeDescriptions": {
                                                     "typeIdentifier": "t_magic_abi",
@@ -2365,7 +2365,7 @@
                                     "name": "msg",
                                     "nodeType": "Identifier",
                                     "overloadedDeclarations": [],
-                                    "referencedDeclaration": 601,
+                                    "referencedDeclaration": 617,
                                     "src": "1811:3:2",
                                     "typeDescriptions": {
                                       "typeIdentifier": "t_magic_message",
@@ -2601,7 +2601,7 @@
                                     "name": "msg",
                                     "nodeType": "Identifier",
                                     "overloadedDeclarations": [],
-                                    "referencedDeclaration": 601,
+                                    "referencedDeclaration": 617,
                                     "src": "2204:3:2",
                                     "typeDescriptions": {
                                       "typeIdentifier": "t_magic_message",
@@ -2717,7 +2717,7 @@
                                         "name": "msg",
                                         "nodeType": "Identifier",
                                         "overloadedDeclarations": [],
-                                        "referencedDeclaration": 601,
+                                        "referencedDeclaration": 617,
                                         "src": "2303:3:2",
                                         "typeDescriptions": {
                                           "typeIdentifier": "t_magic_message",
@@ -2796,7 +2796,7 @@
                                       "name": "abi",
                                       "nodeType": "Identifier",
                                       "overloadedDeclarations": [],
-                                      "referencedDeclaration": 588,
+                                      "referencedDeclaration": 604,
                                       "src": "2286:3:2",
                                       "typeDescriptions": {
                                         "typeIdentifier": "t_magic_abi",
@@ -3247,7 +3247,7 @@
                               "name": "abi",
                               "nodeType": "Identifier",
                               "overloadedDeclarations": [],
-                              "referencedDeclaration": 588,
+                              "referencedDeclaration": 604,
                               "src": "2614:3:2",
                               "typeDescriptions": {
                                 "typeIdentifier": "t_magic_abi",
@@ -3471,7 +3471,7 @@
                             "name": "msg",
                             "nodeType": "Identifier",
                             "overloadedDeclarations": [],
-                            "referencedDeclaration": 601,
+                            "referencedDeclaration": 617,
                             "src": "2774:3:2",
                             "typeDescriptions": {
                               "typeIdentifier": "t_magic_message",
@@ -3547,10 +3547,10 @@
                       "name": "require",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [
-                        604,
-                        605
+                        620,
+                        621
                       ],
-                      "referencedDeclaration": 605,
+                      "referencedDeclaration": 621,
                       "src": "2766:7:2",
                       "typeDescriptions": {
                         "typeIdentifier": "t_function_require_pure$_t_bool_$_t_string_memory_ptr_$returns$__$",
@@ -4184,7 +4184,7 @@
                                   "overloadedDeclarations": [
                                     null
                                   ],
-                                  "referencedDeclaration": 601,
+                                  "referencedDeclaration": 617,
                                   "type": "msg",
                                   "value": "msg"
                                 },
@@ -4683,7 +4683,7 @@
                                   "overloadedDeclarations": [
                                     null
                                   ],
-                                  "referencedDeclaration": 601,
+                                  "referencedDeclaration": 617,
                                   "type": "msg",
                                   "value": "msg"
                                 },
@@ -4761,7 +4761,7 @@
                                       "overloadedDeclarations": [
                                         null
                                       ],
-                                      "referencedDeclaration": 601,
+                                      "referencedDeclaration": 617,
                                       "type": "msg",
                                       "value": "msg"
                                     },
@@ -4847,7 +4847,7 @@
                                       "overloadedDeclarations": [
                                         null
                                       ],
-                                      "referencedDeclaration": 601,
+                                      "referencedDeclaration": 617,
                                       "type": "msg",
                                       "value": "msg"
                                     },
@@ -5212,7 +5212,7 @@
                                                       "overloadedDeclarations": [
                                                         null
                                                       ],
-                                                      "referencedDeclaration": 588,
+                                                      "referencedDeclaration": 604,
                                                       "type": "abi",
                                                       "value": "abi"
                                                     },
@@ -5243,7 +5243,7 @@
                                                       "overloadedDeclarations": [
                                                         null
                                                       ],
-                                                      "referencedDeclaration": 601,
+                                                      "referencedDeclaration": 617,
                                                       "type": "msg",
                                                       "value": "msg"
                                                     },
@@ -5798,7 +5798,7 @@
                                                       "overloadedDeclarations": [
                                                         null
                                                       ],
-                                                      "referencedDeclaration": 601,
+                                                      "referencedDeclaration": 617,
                                                       "type": "msg",
                                                       "value": "msg"
                                                     },
@@ -5917,7 +5917,7 @@
                                                   "overloadedDeclarations": [
                                                     null
                                                   ],
-                                                  "referencedDeclaration": 595,
+                                                  "referencedDeclaration": 611,
                                                   "type": "function (bytes memory) pure returns (bytes32)",
                                                   "value": "keccak256"
                                                 },
@@ -5963,7 +5963,7 @@
                                                           "overloadedDeclarations": [
                                                             null
                                                           ],
-                                                          "referencedDeclaration": 588,
+                                                          "referencedDeclaration": 604,
                                                           "type": "abi",
                                                           "value": "abi"
                                                         },
@@ -6040,7 +6040,7 @@
                                                                       "overloadedDeclarations": [
                                                                         null
                                                                       ],
-                                                                      "referencedDeclaration": 601,
+                                                                      "referencedDeclaration": 617,
                                                                       "type": "msg",
                                                                       "value": "msg"
                                                                     },
@@ -6118,7 +6118,7 @@
                                                   "overloadedDeclarations": [
                                                     null
                                                   ],
-                                                  "referencedDeclaration": 595,
+                                                  "referencedDeclaration": 611,
                                                   "type": "function (bytes memory) pure returns (bytes32)",
                                                   "value": "keccak256"
                                                 },
@@ -6164,7 +6164,7 @@
                                                           "overloadedDeclarations": [
                                                             null
                                                           ],
-                                                          "referencedDeclaration": 588,
+                                                          "referencedDeclaration": 604,
                                                           "type": "abi",
                                                           "value": "abi"
                                                         },
@@ -6350,7 +6350,7 @@
                                                                       "overloadedDeclarations": [
                                                                         null
                                                                       ],
-                                                                      "referencedDeclaration": 588,
+                                                                      "referencedDeclaration": 604,
                                                                       "type": "abi",
                                                                       "value": "abi"
                                                                     },
@@ -6381,7 +6381,7 @@
                                                                       "overloadedDeclarations": [
                                                                         null
                                                                       ],
-                                                                      "referencedDeclaration": 601,
+                                                                      "referencedDeclaration": 617,
                                                                       "type": "msg",
                                                                       "value": "msg"
                                                                     },
@@ -6618,7 +6618,7 @@
                                                       "overloadedDeclarations": [
                                                         null
                                                       ],
-                                                      "referencedDeclaration": 601,
+                                                      "referencedDeclaration": 617,
                                                       "type": "msg",
                                                       "value": "msg"
                                                     },
@@ -6812,7 +6812,7 @@
                                                       "overloadedDeclarations": [
                                                         null
                                                       ],
-                                                      "referencedDeclaration": 588,
+                                                      "referencedDeclaration": 604,
                                                       "type": "abi",
                                                       "value": "abi"
                                                     },
@@ -6843,7 +6843,7 @@
                                                       "overloadedDeclarations": [
                                                         null
                                                       ],
-                                                      "referencedDeclaration": 601,
+                                                      "referencedDeclaration": 617,
                                                       "type": "msg",
                                                       "value": "msg"
                                                     },
@@ -7204,7 +7204,7 @@
                                           "overloadedDeclarations": [
                                             null
                                           ],
-                                          "referencedDeclaration": 588,
+                                          "referencedDeclaration": 604,
                                           "type": "abi",
                                           "value": "abi"
                                         },
@@ -7368,10 +7368,10 @@
                                 }
                               ],
                               "overloadedDeclarations": [
-                                604,
-                                605
+                                620,
+                                621
                               ],
-                              "referencedDeclaration": 605,
+                              "referencedDeclaration": 621,
                               "type": "function (bool,string memory) pure",
                               "value": "require"
                             },
@@ -7412,7 +7412,7 @@
                                       "overloadedDeclarations": [
                                         null
                                       ],
-                                      "referencedDeclaration": 601,
+                                      "referencedDeclaration": 617,
                                       "type": "msg",
                                       "value": "msg"
                                     },
@@ -7599,12 +7599,12 @@
     "5777": {
       "events": {},
       "links": {},
-      "address": "0x22e49F8ECBd4e36c10078b11DB49B3ED373cA4CF",
-      "transactionHash": "0xe692af87ce14463dccf5fb5a3f8ded5509453bebaed35ae0b635f65c5fa0ff88"
+      "address": "0x0d0ab494dB961817EB0a635433dBdE3FA68FCB08",
+      "transactionHash": "0xdea7e055fa30d29938b5127363633877be1b5c09e38c4683cfcad87df3e7370d"
     }
   },
   "schemaVersion": "3.4.3",
-  "updatedAt": "2021-12-21T12:15:37.535Z",
+  "updatedAt": "2021-12-22T08:29:57.210Z",
   "networkType": "ethereum",
   "devdoc": {
     "methods": {}

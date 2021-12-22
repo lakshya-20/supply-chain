@@ -15,7 +15,7 @@ contract StakeHolder {
     }
 
     //get stakeholder by id
-    function getStakeholder(address id) public view returns(Stakeholder memory){
+    function getStakeHolder(address id) public view returns(Stakeholder memory){
         return stakeholders[id];
     }
 
