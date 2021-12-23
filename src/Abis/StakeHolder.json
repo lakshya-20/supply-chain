@@ -118,14 +118,14 @@
     "absolutePath": "project:/src/Contracts/StakeHolder.sol",
     "exportedSymbols": {
       "StakeHolder": [
-        602
+        609
       ]
     },
-    "id": 603,
+    "id": 610,
     "nodeType": "SourceUnit",
     "nodes": [
       {
-        "id": 543,
+        "id": 550,
         "literals": [
           "solidity",
           ">=",
@@ -139,7 +139,7 @@
         "src": "0:32:4"
       },
       {
-        "id": 544,
+        "id": 551,
         "literals": [
           "experimental",
           "ABIEncoderV2"
@@ -153,23 +153,23 @@
         "contractKind": "contract",
         "documentation": null,
         "fullyImplemented": true,
-        "id": 602,
+        "id": 609,
         "linearizedBaseContracts": [
-          602
+          609
         ],
         "name": "StakeHolder",
         "nodeType": "ContractDefinition",
         "nodes": [
           {
             "canonicalName": "StakeHolder.Stakeholder",
-            "id": 553,
+            "id": 560,
             "members": [
               {
                 "constant": false,
-                "id": 546,
+                "id": 553,
                 "name": "id",
                 "nodeType": "VariableDeclaration",
-                "scope": 553,
+                "scope": 560,
                 "src": "126:10:4",
                 "stateVariable": false,
                 "storageLocation": "default",
@@ -178,7 +178,7 @@
                   "typeString": "address"
                 },
                 "typeName": {
-                  "id": 545,
+                  "id": 552,
                   "name": "address",
                   "nodeType": "ElementaryTypeName",
                   "src": "126:7:4",
@@ -193,10 +193,10 @@
               },
               {
                 "constant": false,
-                "id": 548,
+                "id": 555,
                 "name": "name",
                 "nodeType": "VariableDeclaration",
-                "scope": 553,
+                "scope": 560,
                 "src": "147:11:4",
                 "stateVariable": false,
                 "storageLocation": "default",
@@ -205,7 +205,7 @@
                   "typeString": "string"
                 },
                 "typeName": {
-                  "id": 547,
+                  "id": 554,
                   "name": "string",
                   "nodeType": "ElementaryTypeName",
                   "src": "147:6:4",
@@ -219,10 +219,10 @@
               },
               {
                 "constant": false,
-                "id": 550,
+                "id": 557,
                 "name": "role",
                 "nodeType": "VariableDeclaration",
-                "scope": 553,
+                "scope": 560,
                 "src": "169:11:4",
                 "stateVariable": false,
                 "storageLocation": "default",
@@ -231,7 +231,7 @@
                   "typeString": "string"
                 },
                 "typeName": {
-                  "id": 549,
+                  "id": 556,
                   "name": "string",
                   "nodeType": "ElementaryTypeName",
                   "src": "169:6:4",
@@ -245,10 +245,10 @@
               },
               {
                 "constant": false,
-                "id": 552,
+                "id": 559,
                 "name": "isValue",
                 "nodeType": "VariableDeclaration",
-                "scope": 553,
+                "scope": 560,
                 "src": "191:12:4",
                 "stateVariable": false,
                 "storageLocation": "default",
@@ -257,7 +257,7 @@
                   "typeString": "bool"
                 },
                 "typeName": {
-                  "id": 551,
+                  "id": 558,
                   "name": "bool",
                   "nodeType": "ElementaryTypeName",
                   "src": "191:4:4",
@@ -272,16 +272,16 @@
             ],
             "name": "Stakeholder",
             "nodeType": "StructDefinition",
-            "scope": 602,
+            "scope": 609,
             "src": "97:157:4",
             "visibility": "public"
           },
           {
             "constant": false,
-            "id": 555,
+            "id": 562,
             "name": "adminAddress",
             "nodeType": "VariableDeclaration",
-            "scope": 602,
+            "scope": 609,
             "src": "260:28:4",
             "stateVariable": true,
             "storageLocation": "default",
@@ -290,7 +290,7 @@
               "typeString": "address"
             },
             "typeName": {
-              "id": 554,
+              "id": 561,
               "name": "address",
               "nodeType": "ElementaryTypeName",
               "src": "260:7:4",
@@ -305,21 +305,21 @@
           },
           {
             "constant": false,
-            "id": 559,
+            "id": 566,
             "name": "stakeholders",
             "nodeType": "VariableDeclaration",
-            "scope": 602,
+            "scope": 609,
             "src": "295:51:4",
             "stateVariable": true,
             "storageLocation": "default",
             "typeDescriptions": {
-              "typeIdentifier": "t_mapping$_t_address_$_t_struct$_Stakeholder_$553_storage_$",
+              "typeIdentifier": "t_mapping$_t_address_$_t_struct$_Stakeholder_$560_storage_$",
               "typeString": "mapping(address => struct StakeHolder.Stakeholder)"
             },
             "typeName": {
-              "id": 558,
+              "id": 565,
               "keyType": {
-                "id": 556,
+                "id": 563,
                 "name": "address",
                 "nodeType": "ElementaryTypeName",
                 "src": "303:7:4",
@@ -331,18 +331,18 @@
               "nodeType": "Mapping",
               "src": "295:31:4",
               "typeDescriptions": {
-                "typeIdentifier": "t_mapping$_t_address_$_t_struct$_Stakeholder_$553_storage_$",
+                "typeIdentifier": "t_mapping$_t_address_$_t_struct$_Stakeholder_$560_storage_$",
                 "typeString": "mapping(address => struct StakeHolder.Stakeholder)"
               },
               "valueType": {
                 "contractScope": null,
-                "id": 557,
+                "id": 564,
                 "name": "Stakeholder",
                 "nodeType": "UserDefinedTypeName",
-                "referencedDeclaration": 553,
+                "referencedDeclaration": 560,
                 "src": "314:11:4",
                 "typeDescriptions": {
-                  "typeIdentifier": "t_struct$_Stakeholder_$553_storage_ptr",
+                  "typeIdentifier": "t_struct$_Stakeholder_$560_storage_ptr",
                   "typeString": "struct StakeHolder.Stakeholder"
                 }
               }
@@ -352,25 +352,25 @@
           },
           {
             "body": {
-              "id": 567,
+              "id": 574,
               "nodeType": "Block",
               "src": "377:44:4",
               "statements": [
                 {
                   "expression": {
                     "argumentTypes": null,
-                    "id": 565,
+                    "id": 572,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
                     "lValueRequested": false,
                     "leftHandSide": {
                       "argumentTypes": null,
-                      "id": 562,
+                      "id": 569,
                       "name": "adminAddress",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
-                      "referencedDeclaration": 555,
+                      "referencedDeclaration": 562,
                       "src": "388:12:4",
                       "typeDescriptions": {
                         "typeIdentifier": "t_address",
@@ -383,18 +383,18 @@
                       "argumentTypes": null,
                       "expression": {
                         "argumentTypes": null,
-                        "id": 563,
+                        "id": 570,
                         "name": "msg",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 617,
+                        "referencedDeclaration": 624,
                         "src": "403:3:4",
                         "typeDescriptions": {
                           "typeIdentifier": "t_magic_message",
                           "typeString": "msg"
                         }
                       },
-                      "id": 564,
+                      "id": 571,
                       "isConstant": false,
                       "isLValue": false,
                       "isPure": false,
@@ -414,32 +414,32 @@
                       "typeString": "address"
                     }
                   },
-                  "id": 566,
+                  "id": 573,
                   "nodeType": "ExpressionStatement",
                   "src": "388:25:4"
                 }
               ]
             },
             "documentation": null,
-            "id": 568,
+            "id": 575,
             "implemented": true,
             "kind": "constructor",
             "modifiers": [],
             "name": "",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 560,
+              "id": 567,
               "nodeType": "ParameterList",
               "parameters": [],
               "src": "367:2:4"
             },
             "returnParameters": {
-              "id": 561,
+              "id": 568,
               "nodeType": "ParameterList",
               "parameters": [],
               "src": "377:0:4"
             },
-            "scope": 602,
+            "scope": 609,
             "src": "355:66:4",
             "stateMutability": "nonpayable",
             "superFunction": null,
@@ -447,7 +447,7 @@
           },
           {
             "body": {
-              "id": 579,
+              "id": 586,
               "nodeType": "Block",
               "src": "533:42:4",
               "statements": [
@@ -456,25 +456,25 @@
                     "argumentTypes": null,
                     "baseExpression": {
                       "argumentTypes": null,
-                      "id": 575,
+                      "id": 582,
                       "name": "stakeholders",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
-                      "referencedDeclaration": 559,
+                      "referencedDeclaration": 566,
                       "src": "551:12:4",
                       "typeDescriptions": {
-                        "typeIdentifier": "t_mapping$_t_address_$_t_struct$_Stakeholder_$553_storage_$",
+                        "typeIdentifier": "t_mapping$_t_address_$_t_struct$_Stakeholder_$560_storage_$",
                         "typeString": "mapping(address => struct StakeHolder.Stakeholder storage ref)"
                       }
                     },
-                    "id": 577,
+                    "id": 584,
                     "indexExpression": {
                       "argumentTypes": null,
-                      "id": 576,
+                      "id": 583,
                       "name": "id",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
-                      "referencedDeclaration": 570,
+                      "referencedDeclaration": 577,
                       "src": "564:2:4",
                       "typeDescriptions": {
                         "typeIdentifier": "t_address",
@@ -488,34 +488,34 @@
                     "nodeType": "IndexAccess",
                     "src": "551:16:4",
                     "typeDescriptions": {
-                      "typeIdentifier": "t_struct$_Stakeholder_$553_storage",
+                      "typeIdentifier": "t_struct$_Stakeholder_$560_storage",
                       "typeString": "struct StakeHolder.Stakeholder storage ref"
                     }
                   },
-                  "functionReturnParameters": 574,
-                  "id": 578,
+                  "functionReturnParameters": 581,
+                  "id": 585,
                   "nodeType": "Return",
                   "src": "544:23:4"
                 }
               ]
             },
             "documentation": null,
-            "id": 580,
+            "id": 587,
             "implemented": true,
             "kind": "function",
             "modifiers": [],
             "name": "getStakeHolder",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 571,
+              "id": 578,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 570,
+                  "id": 577,
                   "name": "id",
                   "nodeType": "VariableDeclaration",
-                  "scope": 580,
+                  "scope": 587,
                   "src": "482:10:4",
                   "stateVariable": false,
                   "storageLocation": "default",
@@ -524,7 +524,7 @@
                     "typeString": "address"
                   },
                   "typeName": {
-                    "id": 569,
+                    "id": 576,
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
                     "src": "482:7:4",
@@ -541,31 +541,31 @@
               "src": "481:12:4"
             },
             "returnParameters": {
-              "id": 574,
+              "id": 581,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 573,
+                  "id": 580,
                   "name": "",
                   "nodeType": "VariableDeclaration",
-                  "scope": 580,
+                  "scope": 587,
                   "src": "514:18:4",
                   "stateVariable": false,
                   "storageLocation": "memory",
                   "typeDescriptions": {
-                    "typeIdentifier": "t_struct$_Stakeholder_$553_memory_ptr",
+                    "typeIdentifier": "t_struct$_Stakeholder_$560_memory_ptr",
                     "typeString": "struct StakeHolder.Stakeholder"
                   },
                   "typeName": {
                     "contractScope": null,
-                    "id": 572,
+                    "id": 579,
                     "name": "Stakeholder",
                     "nodeType": "UserDefinedTypeName",
-                    "referencedDeclaration": 553,
+                    "referencedDeclaration": 560,
                     "src": "514:11:4",
                     "typeDescriptions": {
-                      "typeIdentifier": "t_struct$_Stakeholder_$553_storage_ptr",
+                      "typeIdentifier": "t_struct$_Stakeholder_$560_storage_ptr",
                       "typeString": "struct StakeHolder.Stakeholder"
                     }
                   },
@@ -575,7 +575,7 @@
               ],
               "src": "513:20:4"
             },
-            "scope": 602,
+            "scope": 609,
             "src": "458:117:4",
             "stateMutability": "view",
             "superFunction": null,
@@ -583,14 +583,14 @@
           },
           {
             "body": {
-              "id": 600,
+              "id": 607,
               "nodeType": "Block",
               "src": "709:92:4",
               "statements": [
                 {
                   "expression": {
                     "argumentTypes": null,
-                    "id": 598,
+                    "id": 605,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
@@ -599,34 +599,34 @@
                       "argumentTypes": null,
                       "baseExpression": {
                         "argumentTypes": null,
-                        "id": 587,
+                        "id": 594,
                         "name": "stakeholders",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 559,
+                        "referencedDeclaration": 566,
                         "src": "720:12:4",
                         "typeDescriptions": {
-                          "typeIdentifier": "t_mapping$_t_address_$_t_struct$_Stakeholder_$553_storage_$",
+                          "typeIdentifier": "t_mapping$_t_address_$_t_struct$_Stakeholder_$560_storage_$",
                           "typeString": "mapping(address => struct StakeHolder.Stakeholder storage ref)"
                         }
                       },
-                      "id": 590,
+                      "id": 597,
                       "indexExpression": {
                         "argumentTypes": null,
                         "expression": {
                           "argumentTypes": null,
-                          "id": 588,
+                          "id": 595,
                           "name": "msg",
                           "nodeType": "Identifier",
                           "overloadedDeclarations": [],
-                          "referencedDeclaration": 617,
+                          "referencedDeclaration": 624,
                           "src": "733:3:4",
                           "typeDescriptions": {
                             "typeIdentifier": "t_magic_message",
                             "typeString": "msg"
                           }
                         },
-                        "id": 589,
+                        "id": 596,
                         "isConstant": false,
                         "isLValue": false,
                         "isPure": false,
@@ -647,7 +647,7 @@
                       "nodeType": "IndexAccess",
                       "src": "720:24:4",
                       "typeDescriptions": {
-                        "typeIdentifier": "t_struct$_Stakeholder_$553_storage",
+                        "typeIdentifier": "t_struct$_Stakeholder_$560_storage",
                         "typeString": "struct StakeHolder.Stakeholder storage ref"
                       }
                     },
@@ -660,18 +660,18 @@
                           "argumentTypes": null,
                           "expression": {
                             "argumentTypes": null,
-                            "id": 592,
+                            "id": 599,
                             "name": "msg",
                             "nodeType": "Identifier",
                             "overloadedDeclarations": [],
-                            "referencedDeclaration": 617,
+                            "referencedDeclaration": 624,
                             "src": "759:3:4",
                             "typeDescriptions": {
                               "typeIdentifier": "t_magic_message",
                               "typeString": "msg"
                             }
                           },
-                          "id": 593,
+                          "id": 600,
                           "isConstant": false,
                           "isLValue": false,
                           "isPure": false,
@@ -687,11 +687,11 @@
                         },
                         {
                           "argumentTypes": null,
-                          "id": 594,
+                          "id": 601,
                           "name": "name",
                           "nodeType": "Identifier",
                           "overloadedDeclarations": [],
-                          "referencedDeclaration": 582,
+                          "referencedDeclaration": 589,
                           "src": "770:4:4",
                           "typeDescriptions": {
                             "typeIdentifier": "t_string_memory_ptr",
@@ -700,11 +700,11 @@
                         },
                         {
                           "argumentTypes": null,
-                          "id": 595,
+                          "id": 602,
                           "name": "role",
                           "nodeType": "Identifier",
                           "overloadedDeclarations": [],
-                          "referencedDeclaration": 584,
+                          "referencedDeclaration": 591,
                           "src": "775:4:4",
                           "typeDescriptions": {
                             "typeIdentifier": "t_string_memory_ptr",
@@ -714,7 +714,7 @@
                         {
                           "argumentTypes": null,
                           "hexValue": "74727565",
-                          "id": 596,
+                          "id": 603,
                           "isConstant": false,
                           "isLValue": false,
                           "isPure": true,
@@ -749,18 +749,18 @@
                             "typeString": "bool"
                           }
                         ],
-                        "id": 591,
+                        "id": 598,
                         "name": "Stakeholder",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 553,
+                        "referencedDeclaration": 560,
                         "src": "747:11:4",
                         "typeDescriptions": {
-                          "typeIdentifier": "t_type$_t_struct$_Stakeholder_$553_storage_ptr_$",
+                          "typeIdentifier": "t_type$_t_struct$_Stakeholder_$560_storage_ptr_$",
                           "typeString": "type(struct StakeHolder.Stakeholder storage pointer)"
                         }
                       },
-                      "id": 597,
+                      "id": 604,
                       "isConstant": false,
                       "isLValue": false,
                       "isPure": false,
@@ -770,39 +770,39 @@
                       "nodeType": "FunctionCall",
                       "src": "747:38:4",
                       "typeDescriptions": {
-                        "typeIdentifier": "t_struct$_Stakeholder_$553_memory",
+                        "typeIdentifier": "t_struct$_Stakeholder_$560_memory",
                         "typeString": "struct StakeHolder.Stakeholder memory"
                       }
                     },
                     "src": "720:65:4",
                     "typeDescriptions": {
-                      "typeIdentifier": "t_struct$_Stakeholder_$553_storage",
+                      "typeIdentifier": "t_struct$_Stakeholder_$560_storage",
                       "typeString": "struct StakeHolder.Stakeholder storage ref"
                     }
                   },
-                  "id": 599,
+                  "id": 606,
                   "nodeType": "ExpressionStatement",
                   "src": "720:65:4"
                 }
               ]
             },
             "documentation": null,
-            "id": 601,
+            "id": 608,
             "implemented": true,
             "kind": "function",
             "modifiers": [],
             "name": "addStakeHolder",
             "nodeType": "FunctionDefinition",
             "parameters": {
-              "id": 585,
+              "id": 592,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 582,
+                  "id": 589,
                   "name": "name",
                   "nodeType": "VariableDeclaration",
-                  "scope": 601,
+                  "scope": 608,
                   "src": "647:18:4",
                   "stateVariable": false,
                   "storageLocation": "memory",
@@ -811,7 +811,7 @@
                     "typeString": "string"
                   },
                   "typeName": {
-                    "id": 581,
+                    "id": 588,
                     "name": "string",
                     "nodeType": "ElementaryTypeName",
                     "src": "647:6:4",
@@ -825,10 +825,10 @@
                 },
                 {
                   "constant": false,
-                  "id": 584,
+                  "id": 591,
                   "name": "role",
                   "nodeType": "VariableDeclaration",
-                  "scope": 601,
+                  "scope": 608,
                   "src": "676:18:4",
                   "stateVariable": false,
                   "storageLocation": "memory",
@@ -837,7 +837,7 @@
                     "typeString": "string"
                   },
                   "typeName": {
-                    "id": 583,
+                    "id": 590,
                     "name": "string",
                     "nodeType": "ElementaryTypeName",
                     "src": "676:6:4",
@@ -853,19 +853,19 @@
               "src": "636:65:4"
             },
             "returnParameters": {
-              "id": 586,
+              "id": 593,
               "nodeType": "ParameterList",
               "parameters": [],
               "src": "709:0:4"
             },
-            "scope": 602,
+            "scope": 609,
             "src": "613:188:4",
             "stateMutability": "nonpayable",
             "superFunction": null,
             "visibility": "public"
           }
         ],
-        "scope": 603,
+        "scope": 610,
         "src": "69:745:4"
       }
     ],
@@ -876,7 +876,7 @@
       "absolutePath": "project:/src/Contracts/StakeHolder.sol",
       "exportedSymbols": {
         "StakeHolder": [
-          602
+          609
         ]
       }
     },
@@ -893,7 +893,7 @@
             ".0"
           ]
         },
-        "id": 543,
+        "id": 550,
         "name": "PragmaDirective",
         "src": "0:32:4"
       },
@@ -904,7 +904,7 @@
             "ABIEncoderV2"
           ]
         },
-        "id": 544,
+        "id": 551,
         "name": "PragmaDirective",
         "src": "34:33:4"
       },
@@ -920,17 +920,17 @@
           "documentation": null,
           "fullyImplemented": true,
           "linearizedBaseContracts": [
-            602
+            609
           ],
           "name": "StakeHolder",
-          "scope": 603
+          "scope": 610
         },
         "children": [
           {
             "attributes": {
               "canonicalName": "StakeHolder.Stakeholder",
               "name": "Stakeholder",
-              "scope": 602,
+              "scope": 609,
               "visibility": "public"
             },
             "children": [
@@ -938,7 +938,7 @@
                 "attributes": {
                   "constant": false,
                   "name": "id",
-                  "scope": 553,
+                  "scope": 560,
                   "stateVariable": false,
                   "storageLocation": "default",
                   "type": "address",
@@ -952,12 +952,12 @@
                       "stateMutability": "nonpayable",
                       "type": "address"
                     },
-                    "id": 545,
+                    "id": 552,
                     "name": "ElementaryTypeName",
                     "src": "126:7:4"
                   }
                 ],
-                "id": 546,
+                "id": 553,
                 "name": "VariableDeclaration",
                 "src": "126:10:4"
               },
@@ -965,7 +965,7 @@
                 "attributes": {
                   "constant": false,
                   "name": "name",
-                  "scope": 553,
+                  "scope": 560,
                   "stateVariable": false,
                   "storageLocation": "default",
                   "type": "string",
@@ -978,12 +978,12 @@
                       "name": "string",
                       "type": "string"
                     },
-                    "id": 547,
+                    "id": 554,
                     "name": "ElementaryTypeName",
                     "src": "147:6:4"
                   }
                 ],
-                "id": 548,
+                "id": 555,
                 "name": "VariableDeclaration",
                 "src": "147:11:4"
               },
@@ -991,7 +991,7 @@
                 "attributes": {
                   "constant": false,
                   "name": "role",
-                  "scope": 553,
+                  "scope": 560,
                   "stateVariable": false,
                   "storageLocation": "default",
                   "type": "string",
@@ -1004,12 +1004,12 @@
                       "name": "string",
                       "type": "string"
                     },
-                    "id": 549,
+                    "id": 556,
                     "name": "ElementaryTypeName",
                     "src": "169:6:4"
                   }
                 ],
-                "id": 550,
+                "id": 557,
                 "name": "VariableDeclaration",
                 "src": "169:11:4"
               },
@@ -1017,7 +1017,7 @@
                 "attributes": {
                   "constant": false,
                   "name": "isValue",
-                  "scope": 553,
+                  "scope": 560,
                   "stateVariable": false,
                   "storageLocation": "default",
                   "type": "bool",
@@ -1030,17 +1030,17 @@
                       "name": "bool",
                       "type": "bool"
                     },
-                    "id": 551,
+                    "id": 558,
                     "name": "ElementaryTypeName",
                     "src": "191:4:4"
                   }
                 ],
-                "id": 552,
+                "id": 559,
                 "name": "VariableDeclaration",
                 "src": "191:12:4"
               }
             ],
-            "id": 553,
+            "id": 560,
             "name": "StructDefinition",
             "src": "97:157:4"
           },
@@ -1048,7 +1048,7 @@
             "attributes": {
               "constant": false,
               "name": "adminAddress",
-              "scope": 602,
+              "scope": 609,
               "stateVariable": true,
               "storageLocation": "default",
               "type": "address",
@@ -1062,12 +1062,12 @@
                   "stateMutability": "nonpayable",
                   "type": "address"
                 },
-                "id": 554,
+                "id": 561,
                 "name": "ElementaryTypeName",
                 "src": "260:7:4"
               }
             ],
-            "id": 555,
+            "id": 562,
             "name": "VariableDeclaration",
             "src": "260:28:4"
           },
@@ -1075,7 +1075,7 @@
             "attributes": {
               "constant": false,
               "name": "stakeholders",
-              "scope": 602,
+              "scope": 609,
               "stateVariable": true,
               "storageLocation": "default",
               "type": "mapping(address => struct StakeHolder.Stakeholder)",
@@ -1093,7 +1093,7 @@
                       "name": "address",
                       "type": "address"
                     },
-                    "id": 556,
+                    "id": 563,
                     "name": "ElementaryTypeName",
                     "src": "303:7:4"
                   },
@@ -1101,20 +1101,20 @@
                     "attributes": {
                       "contractScope": null,
                       "name": "Stakeholder",
-                      "referencedDeclaration": 553,
+                      "referencedDeclaration": 560,
                       "type": "struct StakeHolder.Stakeholder"
                     },
-                    "id": 557,
+                    "id": 564,
                     "name": "UserDefinedTypeName",
                     "src": "314:11:4"
                   }
                 ],
-                "id": 558,
+                "id": 565,
                 "name": "Mapping",
                 "src": "295:31:4"
               }
             ],
-            "id": 559,
+            "id": 566,
             "name": "VariableDeclaration",
             "src": "295:51:4"
           },
@@ -1128,7 +1128,7 @@
                 null
               ],
               "name": "",
-              "scope": 602,
+              "scope": 609,
               "stateMutability": "nonpayable",
               "superFunction": null,
               "visibility": "public"
@@ -1141,7 +1141,7 @@
                   ]
                 },
                 "children": [],
-                "id": 560,
+                "id": 567,
                 "name": "ParameterList",
                 "src": "367:2:4"
               },
@@ -1152,7 +1152,7 @@
                   ]
                 },
                 "children": [],
-                "id": 561,
+                "id": 568,
                 "name": "ParameterList",
                 "src": "377:0:4"
               },
@@ -1177,11 +1177,11 @@
                               "overloadedDeclarations": [
                                 null
                               ],
-                              "referencedDeclaration": 555,
+                              "referencedDeclaration": 562,
                               "type": "address",
                               "value": "adminAddress"
                             },
-                            "id": 562,
+                            "id": 569,
                             "name": "Identifier",
                             "src": "388:12:4"
                           },
@@ -1203,36 +1203,36 @@
                                   "overloadedDeclarations": [
                                     null
                                   ],
-                                  "referencedDeclaration": 617,
+                                  "referencedDeclaration": 624,
                                   "type": "msg",
                                   "value": "msg"
                                 },
-                                "id": 563,
+                                "id": 570,
                                 "name": "Identifier",
                                 "src": "403:3:4"
                               }
                             ],
-                            "id": 564,
+                            "id": 571,
                             "name": "MemberAccess",
                             "src": "403:10:4"
                           }
                         ],
-                        "id": 565,
+                        "id": 572,
                         "name": "Assignment",
                         "src": "388:25:4"
                       }
                     ],
-                    "id": 566,
+                    "id": 573,
                     "name": "ExpressionStatement",
                     "src": "388:25:4"
                   }
                 ],
-                "id": 567,
+                "id": 574,
                 "name": "Block",
                 "src": "377:44:4"
               }
             ],
-            "id": 568,
+            "id": 575,
             "name": "FunctionDefinition",
             "src": "355:66:4"
           },
@@ -1246,7 +1246,7 @@
                 null
               ],
               "name": "getStakeHolder",
-              "scope": 602,
+              "scope": 609,
               "stateMutability": "view",
               "superFunction": null,
               "visibility": "public"
@@ -1258,7 +1258,7 @@
                     "attributes": {
                       "constant": false,
                       "name": "id",
-                      "scope": 580,
+                      "scope": 587,
                       "stateVariable": false,
                       "storageLocation": "default",
                       "type": "address",
@@ -1272,17 +1272,17 @@
                           "stateMutability": "nonpayable",
                           "type": "address"
                         },
-                        "id": 569,
+                        "id": 576,
                         "name": "ElementaryTypeName",
                         "src": "482:7:4"
                       }
                     ],
-                    "id": 570,
+                    "id": 577,
                     "name": "VariableDeclaration",
                     "src": "482:10:4"
                   }
                 ],
-                "id": 571,
+                "id": 578,
                 "name": "ParameterList",
                 "src": "481:12:4"
               },
@@ -1292,7 +1292,7 @@
                     "attributes": {
                       "constant": false,
                       "name": "",
-                      "scope": 580,
+                      "scope": 587,
                       "stateVariable": false,
                       "storageLocation": "memory",
                       "type": "struct StakeHolder.Stakeholder",
@@ -1304,20 +1304,20 @@
                         "attributes": {
                           "contractScope": null,
                           "name": "Stakeholder",
-                          "referencedDeclaration": 553,
+                          "referencedDeclaration": 560,
                           "type": "struct StakeHolder.Stakeholder"
                         },
-                        "id": 572,
+                        "id": 579,
                         "name": "UserDefinedTypeName",
                         "src": "514:11:4"
                       }
                     ],
-                    "id": 573,
+                    "id": 580,
                     "name": "VariableDeclaration",
                     "src": "514:18:4"
                   }
                 ],
-                "id": 574,
+                "id": 581,
                 "name": "ParameterList",
                 "src": "513:20:4"
               },
@@ -1325,7 +1325,7 @@
                 "children": [
                   {
                     "attributes": {
-                      "functionReturnParameters": 574
+                      "functionReturnParameters": 581
                     },
                     "children": [
                       {
@@ -1344,11 +1344,11 @@
                               "overloadedDeclarations": [
                                 null
                               ],
-                              "referencedDeclaration": 559,
+                              "referencedDeclaration": 566,
                               "type": "mapping(address => struct StakeHolder.Stakeholder storage ref)",
                               "value": "stakeholders"
                             },
-                            "id": 575,
+                            "id": 582,
                             "name": "Identifier",
                             "src": "551:12:4"
                           },
@@ -1358,31 +1358,31 @@
                               "overloadedDeclarations": [
                                 null
                               ],
-                              "referencedDeclaration": 570,
+                              "referencedDeclaration": 577,
                               "type": "address",
                               "value": "id"
                             },
-                            "id": 576,
+                            "id": 583,
                             "name": "Identifier",
                             "src": "564:2:4"
                           }
                         ],
-                        "id": 577,
+                        "id": 584,
                         "name": "IndexAccess",
                         "src": "551:16:4"
                       }
                     ],
-                    "id": 578,
+                    "id": 585,
                     "name": "Return",
                     "src": "544:23:4"
                   }
                 ],
-                "id": 579,
+                "id": 586,
                 "name": "Block",
                 "src": "533:42:4"
               }
             ],
-            "id": 580,
+            "id": 587,
             "name": "FunctionDefinition",
             "src": "458:117:4"
           },
@@ -1396,7 +1396,7 @@
                 null
               ],
               "name": "addStakeHolder",
-              "scope": 602,
+              "scope": 609,
               "stateMutability": "nonpayable",
               "superFunction": null,
               "visibility": "public"
@@ -1408,7 +1408,7 @@
                     "attributes": {
                       "constant": false,
                       "name": "name",
-                      "scope": 601,
+                      "scope": 608,
                       "stateVariable": false,
                       "storageLocation": "memory",
                       "type": "string",
@@ -1421,12 +1421,12 @@
                           "name": "string",
                           "type": "string"
                         },
-                        "id": 581,
+                        "id": 588,
                         "name": "ElementaryTypeName",
                         "src": "647:6:4"
                       }
                     ],
-                    "id": 582,
+                    "id": 589,
                     "name": "VariableDeclaration",
                     "src": "647:18:4"
                   },
@@ -1434,7 +1434,7 @@
                     "attributes": {
                       "constant": false,
                       "name": "role",
-                      "scope": 601,
+                      "scope": 608,
                       "stateVariable": false,
                       "storageLocation": "memory",
                       "type": "string",
@@ -1447,17 +1447,17 @@
                           "name": "string",
                           "type": "string"
                         },
-                        "id": 583,
+                        "id": 590,
                         "name": "ElementaryTypeName",
                         "src": "676:6:4"
                       }
                     ],
-                    "id": 584,
+                    "id": 591,
                     "name": "VariableDeclaration",
                     "src": "676:18:4"
                   }
                 ],
-                "id": 585,
+                "id": 592,
                 "name": "ParameterList",
                 "src": "636:65:4"
               },
@@ -1468,7 +1468,7 @@
                   ]
                 },
                 "children": [],
-                "id": 586,
+                "id": 593,
                 "name": "ParameterList",
                 "src": "709:0:4"
               },
@@ -1503,11 +1503,11 @@
                                   "overloadedDeclarations": [
                                     null
                                   ],
-                                  "referencedDeclaration": 559,
+                                  "referencedDeclaration": 566,
                                   "type": "mapping(address => struct StakeHolder.Stakeholder storage ref)",
                                   "value": "stakeholders"
                                 },
-                                "id": 587,
+                                "id": 594,
                                 "name": "Identifier",
                                 "src": "720:12:4"
                               },
@@ -1529,21 +1529,21 @@
                                       "overloadedDeclarations": [
                                         null
                                       ],
-                                      "referencedDeclaration": 617,
+                                      "referencedDeclaration": 624,
                                       "type": "msg",
                                       "value": "msg"
                                     },
-                                    "id": 588,
+                                    "id": 595,
                                     "name": "Identifier",
                                     "src": "733:3:4"
                                   }
                                 ],
-                                "id": 589,
+                                "id": 596,
                                 "name": "MemberAccess",
                                 "src": "733:10:4"
                               }
                             ],
-                            "id": 590,
+                            "id": 597,
                             "name": "IndexAccess",
                             "src": "720:24:4"
                           },
@@ -1585,11 +1585,11 @@
                                   "overloadedDeclarations": [
                                     null
                                   ],
-                                  "referencedDeclaration": 553,
+                                  "referencedDeclaration": 560,
                                   "type": "type(struct StakeHolder.Stakeholder storage pointer)",
                                   "value": "Stakeholder"
                                 },
-                                "id": 591,
+                                "id": 598,
                                 "name": "Identifier",
                                 "src": "747:11:4"
                               },
@@ -1611,16 +1611,16 @@
                                       "overloadedDeclarations": [
                                         null
                                       ],
-                                      "referencedDeclaration": 617,
+                                      "referencedDeclaration": 624,
                                       "type": "msg",
                                       "value": "msg"
                                     },
-                                    "id": 592,
+                                    "id": 599,
                                     "name": "Identifier",
                                     "src": "759:3:4"
                                   }
                                 ],
-                                "id": 593,
+                                "id": 600,
                                 "name": "MemberAccess",
                                 "src": "759:10:4"
                               },
@@ -1630,11 +1630,11 @@
                                   "overloadedDeclarations": [
                                     null
                                   ],
-                                  "referencedDeclaration": 582,
+                                  "referencedDeclaration": 589,
                                   "type": "string memory",
                                   "value": "name"
                                 },
-                                "id": 594,
+                                "id": 601,
                                 "name": "Identifier",
                                 "src": "770:4:4"
                               },
@@ -1644,11 +1644,11 @@
                                   "overloadedDeclarations": [
                                     null
                                   ],
-                                  "referencedDeclaration": 584,
+                                  "referencedDeclaration": 591,
                                   "type": "string memory",
                                   "value": "role"
                                 },
-                                "id": 595,
+                                "id": 602,
                                 "name": "Identifier",
                                 "src": "775:4:4"
                               },
@@ -1665,42 +1665,42 @@
                                   "type": "bool",
                                   "value": "true"
                                 },
-                                "id": 596,
+                                "id": 603,
                                 "name": "Literal",
                                 "src": "780:4:4"
                               }
                             ],
-                            "id": 597,
+                            "id": 604,
                             "name": "FunctionCall",
                             "src": "747:38:4"
                           }
                         ],
-                        "id": 598,
+                        "id": 605,
                         "name": "Assignment",
                         "src": "720:65:4"
                       }
                     ],
-                    "id": 599,
+                    "id": 606,
                     "name": "ExpressionStatement",
                     "src": "720:65:4"
                   }
                 ],
-                "id": 600,
+                "id": 607,
                 "name": "Block",
                 "src": "709:92:4"
               }
             ],
-            "id": 601,
+            "id": 608,
             "name": "FunctionDefinition",
             "src": "613:188:4"
           }
         ],
-        "id": 602,
+        "id": 609,
         "name": "ContractDefinition",
         "src": "69:745:4"
       }
     ],
-    "id": 603,
+    "id": 610,
     "name": "SourceUnit",
     "src": "0:814:4"
   },
@@ -1712,12 +1712,12 @@
     "5777": {
       "events": {},
       "links": {},
-      "address": "0x78245316DF96F69020A6D68280FB5c208AD1e912",
-      "transactionHash": "0x20fedfeb85fa05ffdc1e2e5cee03c349bce0661a778260beb36a31666928d6b5"
+      "address": "0xC7698B4FD45CB0F651be20B11B417CAf44165Ef6",
+      "transactionHash": "0xd791d6454489016b7f050b26454732dd717af51378b76218051744ccdcd37984"
     }
   },
   "schemaVersion": "3.4.3",
-  "updatedAt": "2021-12-22T08:29:57.216Z",
+  "updatedAt": "2021-12-23T07:45:11.583Z",
   "networkType": "ethereum",
   "devdoc": {
     "methods": {}
