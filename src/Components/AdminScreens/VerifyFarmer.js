@@ -1,27 +1,27 @@
 import React, { useState, useEffect } from 'react';
 import { Card, Button, CardTitle, CardText, Row, Col, Input, FormText, CardSubtitle } from 'reactstrap';
-function VerifyFarmer({mainContract,account}) {
+function VerifyFarmer({farmerContract, account}) {
     const [farmerDetailsArray, setFarmerDetailsArray] = useState([])
     const verifyFarmer = async (farmerAddress) => {
         if(farmerAddress==null) {
             alert("Please provide a address");
             return;
         }
-        await mainContract.methods.verifyFarmer(farmerAddress).send({from: account});
+        await farmerContract.methods.verifyFarmer(farmerAddress).send({from: account});
         window.location.reload(false);
     }
     useEffect(()=>{
-        if(mainContract){            
+        if(farmerContract){            
             (async ()=>{
-                const addressArray =  await mainContract.methods.getFarmersArray().call();
+                const addressArray =  await farmerContract.methods.getFarmersList().call();
                 var temp=[];
                 for(var i=0;i<addressArray.length;i++){
-                    temp[i]=await mainContract.methods.findFarmer(addressArray[i]).call();
+                    temp[i] = await farmerContract.methods.getFarmer(addressArray[i]).call();
                 }                
                 setFarmerDetailsArray(temp);
             })();           
         }
-    },[mainContract])
+    },[farmerContract])
     const renderFarmerCard=(farmer)=>{
         return (
             <Card className="m-1">                

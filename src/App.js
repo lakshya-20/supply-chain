@@ -66,11 +66,12 @@ function App() {
       setStakeHolderContract(stakeHolder),
       setProductContract(product)
     ]);
-    setAdminAddress(await main.methods.adminAddress().call());
+    const adminAddressTemp = await main.methods.adminAddress().call();
+    setAdminAddress(adminAddressTemp);
     const farmerData = await farmer.methods.getFarmer(account).call();
     const manufacturerData = await manufacturer.methods.getManufacturer(account).call();
     const stakeHolderData = await stakeHolder.methods.getStakeHolder(account).call();
-    if(account == adminAddress){
+    if(account == adminAddressTemp){
       setCurrAddressRole("Admin");
     }
     else if(farmerData.isValue) {
@@ -108,14 +109,14 @@ function App() {
                 </CardText>
                 </>
               :
-                <CardText>Role: {stakeholder.role}</CardText>
+                <CardText>Role: {stakeholder.role==null?"Manufacturer":stakeholder.role}</CardText>
               }
             </Card>
           </div>
         </div>
       :
         ""
-      }            
+      }           
       {/* {role==="NewAddress"? <Register mainContract={mainContract} account={account}/> : ""}
       {role==="Admin"? <Admin mainContract={mainContract} account={account}/> : ""}
       {role==="Manufacturer"? <Manufacturer mainContract={mainContract} account={account}/> : ""}
@@ -127,6 +128,13 @@ function App() {
           manufacturerContract = {manufacturerContract} 
           stakeHolderContract = {stakeHolderContract}
           account={currAddress}
+        /> 
+      : ""}
+      {currAddressRole==="Admin"? 
+        <Admin 
+          farmerContract = {farmerContract} 
+          manufacturerContract = {manufacturerContract}
+          account = {currAddress}
         /> 
       : ""}
     </div>
