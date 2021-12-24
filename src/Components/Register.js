@@ -1,11 +1,12 @@
 import { useState } from 'react';
 import { Card, CardText} from 'reactstrap';
 import FarmerRegistration from './RegisterScreens/FarmerRegistration';
+import ManufacturerRegistration from './RegisterScreens/ManufacturerRegistration';
 import StakeholderRegistration from './RegisterScreens/StakeholderRegistration';
 
 
 
-const Register = ({farmerContract, mainContract, stakeHolderContract, account}) => {
+const Register = ({farmerContract, manufacturerContract, stakeHolderContract, account}) => {
     const [role, setRole] = useState(undefined);
     const [stakeholderData, setStakeholderData] = useState(undefined);
     const RenderRoleCard = ({role}) => {
@@ -24,7 +25,7 @@ const Register = ({farmerContract, mainContract, stakeHolderContract, account}) 
             return <FarmerRegistration farmerContract={farmerContract} account={account} role={role}/>
         }
         else if(role=="Manufacturer"){
-
+            return  <ManufacturerRegistration farmerContract={farmerContract} manufacturerContract={manufacturerContract} account={account} />
         }
         else{
            return <StakeholderRegistration stakeHolderContract={stakeHolderContract} account={account} role={role}/>
