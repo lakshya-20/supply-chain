@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import {Button, Form, FormGroup, Label, Input, CustomInput } from 'reactstrap';
 
-const FarmerRegistration = ({mainContract,account,role}) => {
+const FarmerRegistration = ({farmerContract, account}) => {
     const [values, setValues] = useState({
         name: "",
         region: "",
@@ -28,7 +28,7 @@ const FarmerRegistration = ({mainContract,account,role}) => {
     };
     const handleSubmit =async (e) =>{
         e.preventDefault();        
-        await mainContract.methods.registerFarmer(
+        await farmerContract.methods.addFarmer(
             values.name,
             values.region,
             values.rawProducts
