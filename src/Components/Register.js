@@ -5,7 +5,7 @@ import StakeholderRegistration from './RegisterScreens/StakeholderRegistration';
 
 
 
-const Register = ({mainContract,account}) => {
+const Register = ({farmerContract, mainContract, stakeHolderContract, account}) => {
     const [role, setRole] = useState(undefined);
     const [stakeholderData, setStakeholderData] = useState(undefined);
     const RenderRoleCard = ({role}) => {
@@ -18,6 +18,17 @@ const Register = ({mainContract,account}) => {
                 <CardText>{role}</CardText>
             </Card>
         )
+    }
+    const renderComponent = () =>{
+        if(role=="Farmer"){
+            return <FarmerRegistration farmerContract={farmerContract} account={account} role={role}/>
+        }
+        else if(role=="Manufacturer"){
+
+        }
+        else{
+           return <StakeholderRegistration stakeHolderContract={stakeHolderContract} account={account} role={role}/>
+        }
     }
     return (
         <div className="text-center">
@@ -34,11 +45,7 @@ const Register = ({mainContract,account}) => {
                 <strong >{role+" "}</strong> Registration
                 <br/>
                 <div className="d-flex justify-content-center">
-                    {role=="Farmer"?
-                        <FarmerRegistration mainContract={mainContract} account={account} role={role}/>
-                    :
-                        <StakeholderRegistration mainContract={mainContract} account={account} role={role}/>
-                    }
+                    {renderComponent()}
                 </div>
                 </>
             :

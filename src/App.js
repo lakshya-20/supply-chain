@@ -78,14 +78,14 @@ function App() {
       setStakeholder(farmerData);
     }
     else if(manufacturerData.isValue) {
-      setCurrAddressRole("manufacturer");
+      setCurrAddressRole("Manufacturer");
       setStakeholder(manufacturerData);
     }
     else if(stakeHolderData.isValue) {
       setCurrAddressRole(stakeHolderData.role);
       setStakeholder(stakeHolderData);
     }
-    else setCurrAddressRole("new_address");
+    else setCurrAddressRole("NewAddress");
   }
 
   return (
@@ -121,6 +121,14 @@ function App() {
       {role==="Manufacturer"? <Manufacturer mainContract={mainContract} account={account}/> : ""}
       {role==="Distributer"? <ConsumerComponent mainContract={mainContract} account={account} role={role}/> : ""}
       {role==="Consumer"? <ConsumerComponent mainContract={mainContract} account={account} role={role}/> : ""} */}
+      {currAddressRole==="NewAddress"? 
+        <Register 
+          farmerContract = {farmerContract} 
+          manufacturerContract = {manufacturerContract} 
+          stakeHolderContract = {stakeHolderContract}
+          account={currAddress}
+        /> 
+      : ""}
     </div>
     <FooterComponent 
       account={currAddress}

@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import {Button, Form, FormGroup, Input } from 'reactstrap';
 
-const StakeholderRegistration = ({mainContract,account,role}) => {
+const StakeholderRegistration = ({stakeHolderContract, account, role}) => {
     const [values, setValues] = useState({
         name: ""
     });
@@ -14,7 +14,7 @@ const StakeholderRegistration = ({mainContract,account,role}) => {
     };
     const handleSubmit =async (e) =>{        
         e.preventDefault();
-        await mainContract.methods.registerStakeHolder(
+        await stakeHolderContract.methods.addStakeHolder(
             values.name,
             role
         ).send({from: account})
