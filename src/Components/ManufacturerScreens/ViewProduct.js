@@ -1,19 +1,63 @@
-import { useState } from "react";
+import React, { useState } from "react";
 import {Button, Form, FormGroup, Input,
-    Card, CardTitle, CardText, Row } from 'reactstrap';
-const ViewProduct = ({mainContract, account}) => {
+    Card, CardTitle, CardText } from 'reactstrap';
+const ViewProduct = ({farmerContract, productContract, manufacturerContract, stakeHolderContract, account}) => {
     const [serialNo, setSerialNo] = useState(undefined);
-    const [productInfo, setProductInfo] = useState(undefined);
+    const [productInfo, setProductInfo] = useState({
+        id: undefined,
+        name: "",
+        rawProductsVerification: {},
+        manufacturer:{
+            id: "",
+            name: "",
+            isRenewableUsed: false
+        },
+        owner: {
+            id: "",
+            name: ""
+        }
+    });
+
     const handleSubmit = async (e) => {
         e.preventDefault();
-        const temp = await mainContract.methods.verifyProduct(serialNo).call();
-        // console.log(temp);
-        setProductInfo(temp);
+        const product = await productContract.methods.getProduct(serialNo).call();
+        console.log(product)
+        const manufacturer = await manufacturerContract.methods.getManufacturer(product.manufacturer).call();
+        var owner;
+        if(product.manufacturer === product.ownership){
+            owner = manufacturer;
+        }
+        else{
+            owner = await stakeHolderContract.methods.getStakeHolder(product.ownership).call();
+        }
+        const rawProductsVerification = {};
+        for(var i=0; i<product.rawProducts.length; i++){
+            const rawProduct = product.rawProducts[i];
+            const farmerAddress = await manufacturerContract.methods.getRawProductInfo(product.manufacturer, rawProduct).call();
+            const farmer = await farmerContract.methods.getFarmer(farmerAddress).call();
+            rawProductsVerification[rawProduct] = farmer.isVerified;
+        }
+        setProductInfo({
+            ...productInfo,
+            id: product.id,
+            name: product.name,
+            rawProductsVerification: rawProductsVerification,
+            manufacturer: {
+                id: manufacturer.id,
+                name: manufacturer.name,
+                isRenewableUsed: manufacturer.isRenewableUsed,
+            },
+            owner:{
+                id: owner.id,
+                name: owner.name   
+            }
+        })
     }
-    const renderRawProduct = (product, isVerified) => {
+
+    const renderRawProduct = (rawProduct, isVerified) => {
         return (
             <div className="d-flex justify-content-around">
-                <span>{product}&nbsp;</span>
+                <span>{rawProduct}&nbsp;</span>
                 {isVerified?
                     <i className="fa fa-check-circle fa-lg" style={{color:"green"}}></i>
                 :
@@ -39,11 +83,11 @@ const ViewProduct = ({mainContract, account}) => {
                     <br/>
                     <Button>View Product</Button>
                 </Form>
-                <br/>                
-                {productInfo?
+                <br/>
+                {productInfo.id?
                     <Card body className="text-left">
                         <div>
-                            <CardTitle tag="h5">{productInfo[0].name}</CardTitle>
+                            <CardTitle tag="h5">{productInfo.name}</CardTitle>
                         </div>
                         
                         <CardText>
@@ -51,26 +95,30 @@ const ViewProduct = ({mainContract, account}) => {
                                 <div className="col-10">
                                     <strong>Raw Products</strong>
                                     <span>
-                                        {productInfo[0].rawProducts.map((rawProduct, index)=>{
-                                            return (
-                                                renderRawProduct(rawProduct,productInfo[0].rawProductsVerification[index])
-                                            )
-                                        })}
+                                        {React.Children.toArray(
+                                            Object.keys(productInfo.rawProductsVerification).map((rawProduct)=>{
+                                                return (
+                                                    renderRawProduct(rawProduct,productInfo.rawProductsVerification[rawProduct])
+                                                )
+                                            })
+                                        )}
                                     </span>
+                                    <p/>
                                     <strong>Manufacturer</strong> 
                                     <span className="d-flex justify-content-around">
-                                        {productInfo[1]}                        
-                                        {productInfo[2]?
+                                        {productInfo.manufacturer.name}                        
+                                        {productInfo.manufacturer.isRenewableUsed?
                                             <i className="fa fa-fire" style={{color:"green"}}></i> 
                                         :
                                             <i className="fa fa-fire" style={{color:"red"}}></i> 
                                         }
                                     </span>
+                                    <p/>
                                     <strong>Current Owner</strong> 
                                     <br/>
-                                    Name: {productInfo[3].name}
+                                    Name: {productInfo.owner.name}
                                     <br/>
-                                    Address: {productInfo[3].id}
+                                    Address: {productInfo.owner.id}
                                 </div>
                             </div>                            
                         </CardText>

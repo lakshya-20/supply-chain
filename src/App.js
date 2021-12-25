@@ -145,6 +145,16 @@ function App() {
         account = {currAddress}
         /> 
       : ""}
+      {["Distributer","Consumer"].includes(currAddressRole) ? 
+        <ConsumerComponent 
+          farmerContract = {farmerContract}
+          productContract = {productContract}
+          manufacturerContract = {manufacturerContract}
+          stakeHolderContract = {stakeHolderContract}
+          account={currAddress} 
+          role={currAddressRole}
+        /> 
+      : ""}
     </div>
     <FooterComponent 
       account={currAddress}
