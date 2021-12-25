@@ -46,14 +46,18 @@ contract Manufacturer {
         address[] memory farmerAddress
     ) public {
         for(uint i = 0;i< rawProducts.length; i++){
+            bool isExist = false;
             for(uint j=0; j<manufacturers[msg.sender].rawProducts.length; j++){                
                 if(keccak256(abi.encodePacked(manufacturers[msg.sender].rawProducts[j])) == keccak256(abi.encodePacked(rawProducts[i]))){
                     farmerAddresses[string(abi.encodePacked(msg.sender, rawProducts[i]))] = farmerAddress[i];
+                    isExist = true;
                     break;
                 }
             }
-            manufacturers[msg.sender].rawProducts.push(rawProducts[i]);
-            farmerAddresses[string(abi.encodePacked(msg.sender, rawProducts[i]))] = farmerAddress[i];
+            if(isExist==false){
+                manufacturers[msg.sender].rawProducts.push(rawProducts[i]);
+                farmerAddresses[string(abi.encodePacked(msg.sender, rawProducts[i]))] = farmerAddress[i];
+            }
         }
     }
 
