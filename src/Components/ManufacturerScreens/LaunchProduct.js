@@ -1,11 +1,20 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import {Button, Form, FormGroup, Label, Input, CustomInput } from 'reactstrap';
-const LaunchProductComponent  = ({productContract, account}) => {
+const LaunchProductComponent  = ({productContract, manufacturerContract, account}) => {
     const [values, setValues] = useState({
         name: "",
         serialNo: "",
         rawProducts: []
     });
+    const [rawProducts, setRawProducts] = useState([]);
+
+    useEffect(()=>{
+        (async ()=>{
+            const temp = await manufacturerContract.methods.getManufacturer(account).call();
+            setRawProducts(temp.rawProducts);
+        })();
+    },[])
+
     const handleChange = (event) => {
         const { name, value, checked } = event.target;
         if(name==="raw"){
@@ -61,42 +70,19 @@ const LaunchProductComponent  = ({productContract, account}) => {
                     <FormGroup>
                         <Label for="exampleCheckbox">Raw Material</Label>
                         <div className="d-flex justify-content-around">
-                            <CustomInput 
-                                type="checkbox" 
-                                value="Cocoa" 
-                                name="raw" 
-                                id="cocoaCustomCheckbox" 
-                                label="Cocoa" 
-                                className="p-2"
-                                onChange={(e) => {handleChange(e)}}
-                            />
-                            <CustomInput 
-                                type="checkbox" 
-                                value="Sugar" 
-                                name="raw" 
-                                id="sugarCustomCheckbox" 
-                                label="Sugar" 
-                                className="p-2"
-                                onChange={(e) => {handleChange(e)}}
-                            />
-                            <CustomInput 
-                                type="checkbox" 
-                                value="Milk" 
-                                name="raw" 
-                                id="milkCustomCheckbox" 
-                                label="Milk" 
-                                className="p-2"
-                                onChange={(e) => {handleChange(e)}}
-                            />
-                            <CustomInput 
-                                type="checkbox" 
-                                value="Apple" 
-                                name="raw"
-                                id="appleCustomCheckbox" 
-                                label="Apple" 
-                                className="p-2"
-                                onChange={(e) => {handleChange(e)}}
-                            />
+                            {rawProducts.map(rawProduct=>{
+                                return (
+                                    <CustomInput 
+                                        type="checkbox" 
+                                        value={rawProduct} 
+                                        name="raw" 
+                                        id={rawProduct+"CustomCheckbox"}
+                                        label={rawProduct} 
+                                        className="p-2"
+                                        onChange={(e) => {handleChange(e)}}
+                                    />
+                                )
+                            })}                            
                         </div>
                     </FormGroup>
                     <Button>Launch</Button>
