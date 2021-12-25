@@ -45,7 +45,7 @@ contract Manufacturer {
         string[] memory rawProducts,
         address[] memory farmerAddress
     ) public {
-        for(uint i = 0;i< 2; i++){
+        for(uint i = 0;i< rawProducts.length; i++){
             for(uint j=0; j<manufacturers[msg.sender].rawProducts.length; j++){                
                 if(keccak256(abi.encodePacked(manufacturers[msg.sender].rawProducts[j])) == keccak256(abi.encodePacked(rawProducts[i]))){
                     farmerAddresses[string(abi.encodePacked(msg.sender, rawProducts[i]))] = farmerAddress[i];

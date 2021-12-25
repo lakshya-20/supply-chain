@@ -137,6 +137,14 @@ function App() {
           account = {currAddress}
         /> 
       : ""}
+      {currAddressRole==="Manufacturer"? 
+        <Manufacturer 
+        farmerContract = {farmerContract}
+        manufacturerContract = {manufacturerContract}
+        productContract = {productContract}
+        account = {currAddress}
+        /> 
+      : ""}
     </div>
     <FooterComponent 
       account={currAddress}

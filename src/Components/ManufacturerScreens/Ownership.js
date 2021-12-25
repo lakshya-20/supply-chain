@@ -1,11 +1,11 @@
 import { useState } from "react";
-import {Button, Form, FormGroup, Label, Input, CustomInput } from 'reactstrap';
-const OwnershipComponent = ({mainContract, account}) => {
+import {Button, Form, FormGroup, Input} from 'reactstrap';
+const OwnershipComponent = ({productContract, account}) => {
     const [newAddress, setNewAddress] = useState(undefined);
     const [serialNo, setSerialNo] = useState(undefined);
     const handleSubmit = async (e) => {
         e.preventDefault();
-        await mainContract.methods.transferOwnership(newAddress,serialNo).send({from: account});
+        await productContract.methods.updateOwnership(newAddress,serialNo).send({from: account});
         window.location.reload(false);
     }
     return (
