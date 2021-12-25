@@ -1,6 +1,6 @@
 import { useState } from "react";
 import {Button, Form, FormGroup, Label, Input, CustomInput } from 'reactstrap';
-const LaunchProductComponent  = ({mainContract, account}) => {
+const LaunchProductComponent  = ({productContract, account}) => {
     const [values, setValues] = useState({
         name: "",
         serialNo: "",
@@ -27,10 +27,10 @@ const LaunchProductComponent  = ({mainContract, account}) => {
     };
     const handleSubmit = async(e) => {
         e.preventDefault();
-        await mainContract.methods.launchProduct(
+        await productContract.methods.addProduct(
+            values.serialNo,
             values.name,
-            values.rawProducts,
-            values.serialNo
+            values.rawProducts
         ).send({from: account});
         window.location.reload(false);
     }

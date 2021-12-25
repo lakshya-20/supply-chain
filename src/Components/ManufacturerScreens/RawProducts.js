@@ -1,33 +1,32 @@
 import { useState, useEffect } from "react";
 import {Button, Form, FormGroup, Label, Input, CustomInput } from 'reactstrap';
-const RawProductsComponent = ({mainContract,account}) => {
+const RawProductsComponent = ({farmerContract, manufacturerContract, account}) => {
     const [rawProducts, setRawProducts] = useState([]);
     const [farmerAddresses, setFarmerAddress] = useState({});
     const [farmerDetailsArray, setFarmerDetailsArray] = useState([])
+    
     useEffect(()=>{
-        if(mainContract){            
+        if(farmerContract){            
             (async ()=>{
-                const addressArray =  await mainContract.methods.getFarmersArray().call();
-                var temp=[];
-                for(var i=0;i<addressArray.length;i++){
-                    temp[i]=await mainContract.methods.findFarmer(addressArray[i]).call();
-                }                
+                const temp = await farmerContract.methods.getFarmersList().call();
                 setFarmerDetailsArray(temp);
             })();           
         }
-    },[mainContract])
+    },[farmerContract])
+    
     const handleSubmit = async(e) => {     
         e.preventDefault();   
         const farmerAddressesArr = [];
         for(var i =0;i<rawProducts.length;i++){
             farmerAddressesArr.push(farmerAddresses[rawProducts[i]]);
         }        
-        await mainContract.methods.updateManufacturerRawProducts(
+        await manufacturerContract.methods.updateRawProducts(
             rawProducts,
             farmerAddressesArr
         ).send({from:account})
         window.location.reload(false);
     }
+    
     const handleChange = (event) => {
         const { name, value, checked} = event.target;
         if(name==="rawProduct"){
@@ -97,8 +96,8 @@ const RawProductsComponent = ({mainContract,account}) => {
                                         onChange={(e) => {handleChange(e)}}
                                     >
                                         <option>Select Farmer</option>
-                                        {farmerDetailsArray.map(farmerDetails=>{
-                                            return (<option value={farmerDetails[0]}>{farmerDetails[1] + " (" + farmerDetails[0] + ")"}</option>)
+                                        {farmerDetailsArray.map(farmerAddress=>{
+                                            return (<option value={farmerAddress}>{farmerAddress}</option>)
                                         })}
                                     </Input>
                                 </div>
