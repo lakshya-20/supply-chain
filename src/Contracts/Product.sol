@@ -19,6 +19,7 @@ contract Product {
     ) public {
         Product storage product = products[id];
         require(product.isValue == false, "Product::add: Product with serial no already exists");
+        product.id = id;
         product.name = name;
         product.ownership = msg.sender;
         product.manufacturer = msg.sender;

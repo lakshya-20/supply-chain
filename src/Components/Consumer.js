@@ -3,7 +3,7 @@ import { Card, CardText, Row} from 'reactstrap';
 import OwnershipComponent from "./ManufacturerScreens/Ownership";
 import ViewProduct from "./ManufacturerScreens/ViewProduct";
 
-const ConsumerComponent = ({mainContract,account,role}) => {
+const ConsumerComponent = ({farmerContract, productContract, manufacturerContract, stakeHolderContract, account, role}) => {
     const [actionItem, setActionItem] = useState(undefined);
     const actionItems = ["View Product", "Transfer Ownership"];
     const RenderActionCard = ({actionItem}) => {
@@ -28,8 +28,16 @@ const ConsumerComponent = ({mainContract,account,role}) => {
                 })}
             </Row>
             <h5 className="text-center">{actionItem}</h5>
-            {actionItem===actionItems[0]? <ViewProduct mainContract={mainContract} account={account}/> : ""}
-            {actionItem===actionItems[1]? <OwnershipComponent mainContract={mainContract} account={account}/>: ""}
+            {actionItem===actionItems[0]? 
+                <ViewProduct 
+                    productContract = {productContract} 
+                    farmerContract = {farmerContract}
+                    manufacturerContract = {manufacturerContract}
+                    stakeHolderContract = {stakeHolderContract}
+                    account={account}
+                /> 
+            : ""}
+            {actionItem===actionItems[1]? <OwnershipComponent productContract={productContract}  account={account}/>: ""}
         </div>
     )
 }
