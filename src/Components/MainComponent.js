@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useContext } from 'react';
 import { Card, CardTitle, CardText } from 'reactstrap';
 import Web3 from 'web3';
 
@@ -14,8 +14,12 @@ import Manufacturer from './Manufacturer';
 import Register from './Register';
 
 import styles from './Styles/home.module.css';
+import { AuthContext } from '../Context/Contexts/AuthContext';
+import * as AuthActionCreators from "../Context/ActionCreators/AuthActionCreater";
 
 const MainComponent = () =>{
+    const { authState, authDispatch } = useContext(AuthContext);
+
     const [mainContract, setMainContract] = useState(undefined);
     const [farmerContract, setFarmerContract] = useState(undefined);
     const [manufacturerContract, setManufacturerContract] = useState(undefined);
@@ -76,14 +80,17 @@ const MainComponent = () =>{
         else if(farmerData.isValue) {
             setCurrAddressRole("Farmer");
             setStakeholder(farmerData);
+            await authDispatch(AuthActionCreators.authStateUpdate(farmerData));
         }
         else if(manufacturerData.isValue) {
             setCurrAddressRole("Manufacturer");
             setStakeholder(manufacturerData);
+            await authDispatch(AuthActionCreators.authStateUpdate(manufacturerData));
         }
         else if(stakeHolderData.isValue) {
             setCurrAddressRole(stakeHolderData.role);
             setStakeholder(stakeHolderData);
+            await authDispatch(AuthActionCreators.authStateUpdate(stakeHolderData));
         }
         else setCurrAddressRole("NewAddress");
     }

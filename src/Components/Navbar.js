@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useContext } from 'react'
 import {
     Collapse,
     Navbar,
@@ -8,27 +8,40 @@ import {
     NavItem,
     NavLink,
   } from 'reactstrap';
-import logo from '../logo.png';
-const NavbarComponent = ({mainContract, account}) => {
+import { AuthContext } from '../Context/Contexts/AuthContext';
+const NavbarComponent = () => {
     const [isOpen, setIsOpen] = useState(false);
+    const {authState} = useContext(AuthContext);
     return (            
-        <Navbar color="dark" dark expand="md">
-            <NavbarBrand className="col-sm-3 col-md-2 mr-0">
-                <img src={logo} width="30" height="30" className="d-inline-block align-top" alt="" />
-                &nbsp; FOOD SUPPLY CHAIN
+        <Navbar color='dark' dark expand="md" className='px-3'>
+            <NavbarBrand className="mr-auto" href="/">
+                <img src='https://res.cloudinary.com/dstmsi8qv/image/upload/v1642107674/Supply%20Chain/logo_small_tjpurs.png'/> 
+                <span> Global Supply Solutions </span>
             </NavbarBrand>
-            {/* <NavbarToggler onClick={()=>setIsOpen(!isOpen)} /> */}
+            <NavbarToggler onClick={()=>{setIsOpen(!isOpen)}} className="navbar-wrapper">
+                {isOpen?
+                    <i className="fa fa-times"></i>
+                :
+                    <i className="fa fa-bars"></i>
+                }
+            </NavbarToggler>
             <Collapse isOpen={isOpen} navbar>
                 <Nav className="ms-auto" navbar>
-                    {/* <NavItem>
-                        <NavLink href="/components/">Trasnfer Ownership</NavLink>
+                    <NavItem>
+                        <NavLink href="/transfer">Trasnfer Ownership</NavLink>
                     </NavItem>
                     <NavItem>
-                        <NavLink href="/components/">Product Info</NavLink>
-                    </NavItem> */}
-                    <small className="text-secondary">
-                        <small id="account">{account}</small>
-                    </small>
+                        <NavLink href="/product">Product Info</NavLink>
+                    </NavItem>
+                    {authState && authState.auth.id?
+                        <NavItem>
+                            <NavLink href="#">{authState.auth.name}</NavLink>
+                        </NavItem>
+                        :
+                        <NavItem>
+                            <NavLink href="/register">Register</NavLink>
+                        </NavItem>
+                    }
                 </Nav>                
             </Collapse>
         </Navbar>
