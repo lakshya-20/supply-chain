@@ -15,3 +15,8 @@ export const authStateUpdate=(authState)=>({
     type:ActionTypes.AUTH_STATE_UPDATE,
     payload:authState
 })
+
+export const authStateUpdateRole=(role)=>({
+    type:ActionTypes.AUTH_STATE_UPDATE_ROLE,
+    payload:role
+})

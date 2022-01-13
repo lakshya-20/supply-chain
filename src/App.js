@@ -4,6 +4,7 @@ import FooterComponent from './Components/Footer';
 import NavbarComponent from './Components/Navbar';
 import Routing from './Routing';
 import AuthContextProvider from './Context/Contexts/AuthContext';
+import ContractContextProvider from './Context/Contexts/ContractContext';
 
 
 function App() {
@@ -12,7 +13,9 @@ function App() {
     <AuthContextProvider>
       <NavbarComponent account="{currAddress}" />
       <BrowserRouter>
-        <Routing/>
+        <ContractContextProvider>
+          <Routing/>
+        </ContractContextProvider>
       </BrowserRouter>
       <FooterComponent 
         account="{currAddress}"
