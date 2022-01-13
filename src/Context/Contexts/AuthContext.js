@@ -6,7 +6,8 @@ const AuthContextProvider = (props) => {
     const [authState,authDispatch] = useReducer(authReducer,{
         isLoading:true,
         errMess:null,
-        auth:{}
+        auth:{},
+        role:undefined
     });
     return ( 
         <AuthContext.Provider value={{authState,authDispatch}}>

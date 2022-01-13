@@ -15,21 +15,14 @@ import Register from './Register';
 
 import styles from './Styles/home.module.css';
 import { AuthContext } from '../Context/Contexts/AuthContext';
+import { ContractContext } from '../Context/Contexts/ContractContext';
 import * as AuthActionCreators from "../Context/ActionCreators/AuthActionCreater";
+import * as ContractActionCreators from "../Context/ActionCreators/ContractActionCreater";
+
 
 const MainComponent = () =>{
     const { authState, authDispatch } = useContext(AuthContext);
-
-    const [mainContract, setMainContract] = useState(undefined);
-    const [farmerContract, setFarmerContract] = useState(undefined);
-    const [manufacturerContract, setManufacturerContract] = useState(undefined);
-    const [stakeHolderContract, setStakeHolderContract] = useState(undefined);
-    const [productContract, setProductContract] = useState(undefined);
-    
-    const [adminAddress, setAdminAddress] = useState(undefined);
-    const [currAddress, setCurrAddress] = useState(undefined);
-    const [currAddressRole, setCurrAddressRole] = useState(undefined);
-    const [stakeholder, setStakeholder] = useState(undefined);
+    const { contractState, contractDispatch} = useContext(ContractContext);    
 
     useEffect(()=>{
         (async () => {
@@ -54,45 +47,53 @@ const MainComponent = () =>{
     const loadBlockchainData = async () =>{
         const web3 = window.web3;
         const accounts = await web3.eth.getAccounts();
-        const account = accounts[0];
-        setCurrAddress(account);
+        const account = accounts[0];        
         const networkId = await web3.eth.net.getId();   
         const main = new web3.eth.Contract(MainContract.abi, MainContract.networks[networkId].address);
         const farmer = new web3.eth.Contract(FarmerContract.abi, FarmerContract.networks[networkId].address); 
         const manufacturer = new web3.eth.Contract(ManufacturerContract.abi, ManufacturerContract.networks[networkId].address);
-        const stakeHolder = new web3.eth.Contract(StakeHolderContract.abi, StakeHolderContract.networks[networkId].address);
-        const product = new web3.eth.Contract(ProductContract.abi, ProductContract.networks[networkId].address);
-        await Promise.all([
-            setMainContract(main),
-            setFarmerContract(farmer),
-            setManufacturerContract(manufacturer),
-            setStakeHolderContract(stakeHolder),
-            setProductContract(product)
-        ]);
+        const stakeholder = new web3.eth.Contract(StakeHolderContract.abi, StakeHolderContract.networks[networkId].address);
+        const product = new web3.eth.Contract(ProductContract.abi, ProductContract.networks[networkId].address);        
+        await contractDispatch(ContractActionCreators.contractMainUpdate(main));
+        await contractDispatch(ContractActionCreators.contractFarmerUpdate(farmer));
+        await contractDispatch(ContractActionCreators.contractManufacturerUpdate(manufacturer));
+        await contractDispatch(ContractActionCreators.contractStakeholderUpdate(stakeholder));
+        await contractDispatch(ContractActionCreators.contractProductUpdate(product));
         const adminAddressTemp = await main.methods.adminAddress().call();
-        setAdminAddress(adminAddressTemp);
         const farmerData = await farmer.methods.getFarmer(account).call();
         const manufacturerData = await manufacturer.methods.getManufacturer(account).call();
-        const stakeHolderData = await stakeHolder.methods.getStakeHolder(account).call();
+        const stakeHolderData = await stakeholder.methods.getStakeHolder(account).call();
         if(account == adminAddressTemp){
-            setCurrAddressRole("Admin");
+            await authDispatch(AuthActionCreators.authStateUpdateRole("Admin"));
         }
-        else if(farmerData.isValue) {
-            setCurrAddressRole("Farmer");
-            setStakeholder(farmerData);
+        else if(farmerData.isValue) {            
             await authDispatch(AuthActionCreators.authStateUpdate(farmerData));
+            await authDispatch(AuthActionCreators.authStateUpdateRole("Farmer"));
         }
         else if(manufacturerData.isValue) {
-            setCurrAddressRole("Manufacturer");
-            setStakeholder(manufacturerData);
             await authDispatch(AuthActionCreators.authStateUpdate(manufacturerData));
+            await authDispatch(AuthActionCreators.authStateUpdateRole("Manufacturer"));
         }
         else if(stakeHolderData.isValue) {
-            setCurrAddressRole(stakeHolderData.role);
-            setStakeholder(stakeHolderData);
             await authDispatch(AuthActionCreators.authStateUpdate(stakeHolderData));
+            await authDispatch(AuthActionCreators.authStateUpdateRole(stakeHolderData.role));
         }
-        else setCurrAddressRole("NewAddress");
+        else await authDispatch(AuthActionCreators.authStateUpdateRole("New Address"));
+    }
+
+    const renderComponent = (role) =>{
+        if(role==="New Address"){
+            return <Register/> 
+        }
+        else if(role==="Manufacturer"){
+            return  <Manufacturer/>
+        }
+        else if(role==="Consumer"){
+            return <ConsumerComponent/>
+        }
+        else if(role==="Admin"){
+            return <Admin/>
+        }
     }
 
     return (
@@ -117,65 +118,31 @@ const MainComponent = () =>{
                 </div>
                 </div>
             </div>
-            <div className="App" style={{marginBottom: "100px", minHeight:"500px"}}>
-                {stakeholder?
-                <div className="d-flex justify-content-center text-center">
-                    <div className="col-10 col-sm-8">
-                    <Card inverse style={{ backgroundColor: '#333', borderColor: '#333' }}>
-                        <CardTitle tag="h5">{stakeholder.name}</CardTitle>
-                        {currAddressRole=="Farmer"?
-                        <>
-                        <CardText>
-                            Role: Farmer
-                            <br/>
-                            Verification: {stakeholder.isVerified?"Done":"Not Done"}
-                            <br/>
-                            Raw Products: {JSON.stringify(stakeholder.rawProducts)}
-                        </CardText>
-                        </>
-                        :
-                        <CardText>Role: {stakeholder.role==null?"Manufacturer":stakeholder.role}</CardText>
-                        }
-                    </Card>
-                    </div>
+            {renderComponent(authState.role)}
+            {/* {stakeholder?
+            <div className="d-flex justify-content-center text-center">
+                <div className="col-10 col-sm-8">
+                <Card inverse style={{ backgroundColor: '#333', borderColor: '#333' }}>
+                    <CardTitle tag="h5">{stakeholder.name}</CardTitle>
+                    {currAddressRole=="Farmer"?
+                    <>
+                    <CardText>
+                        Role: Farmer
+                        <br/>
+                        Verification: {stakeholder.isVerified?"Done":"Not Done"}
+                        <br/>
+                        Raw Products: {JSON.stringify(stakeholder.rawProducts)}
+                    </CardText>
+                    </>
+                    :
+                    <CardText>Role: {stakeholder.role==null?"Manufacturer":stakeholder.role}</CardText>
+                    }
+                </Card>
                 </div>
-                :
-                ""
-                }           
-                {currAddressRole==="NewAddress"? 
-                <Register 
-                    farmerContract = {farmerContract} 
-                    manufacturerContract = {manufacturerContract} 
-                    stakeHolderContract = {stakeHolderContract}
-                    account={currAddress}
-                /> 
-                : ""}
-                {currAddressRole==="Admin"? 
-                <Admin 
-                    farmerContract = {farmerContract} 
-                    manufacturerContract = {manufacturerContract}
-                    account = {currAddress}
-                /> 
-                : ""}
-                {currAddressRole==="Manufacturer"? 
-                <Manufacturer 
-                farmerContract = {farmerContract}
-                manufacturerContract = {manufacturerContract}
-                productContract = {productContract}
-                account = {currAddress}
-                /> 
-                : ""}
-                {["Distributer","Consumer"].includes(currAddressRole) ? 
-                <ConsumerComponent 
-                    farmerContract = {farmerContract}
-                    productContract = {productContract}
-                    manufacturerContract = {manufacturerContract}
-                    stakeHolderContract = {stakeHolderContract}
-                    account={currAddress} 
-                    role={currAddressRole}
-                /> 
-                : ""}
             </div>
+            :
+            ""
+            }            */}                
         </div>
     )
 }
