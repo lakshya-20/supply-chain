@@ -5,23 +5,21 @@ import NavbarComponent from './Components/Navbar';
 import Routing from './Routing';
 import AuthContextProvider from './Context/Contexts/AuthContext';
 import ContractContextProvider from './Context/Contexts/ContractContext';
+import JumbotronComponent from './Components/JombotronComponent';
 
 
 function App() {
   return (
     <div className='App'>
     <AuthContextProvider>
-      <NavbarComponent account="{currAddress}" />
+      <NavbarComponent/>
+      <JumbotronComponent/>
       <BrowserRouter>
         <ContractContextProvider>
           <Routing/>
         </ContractContextProvider>
       </BrowserRouter>
-      <FooterComponent 
-        account="{currAddress}"
-        adminAddress = "{adminAddress}"
-        role="{currAddressRole}"
-      />
+      <FooterComponent/>
     </AuthContextProvider>
     </div>
   );
