@@ -48,7 +48,8 @@ const NavbarComponent = () => {
     const loadBlockchainData = async () =>{
         const web3 = window.web3;
         const accounts = await web3.eth.getAccounts();
-        const account = accounts[0];        
+        const account = accounts[0]; 
+        await authDispatch(AuthActionCreators.authStateUpdateAddress(account));       
         const networkId = await web3.eth.net.getId();   
         const main = new web3.eth.Contract(MainContract.abi, MainContract.networks[networkId].address);
         const farmer = new web3.eth.Contract(FarmerContract.abi, FarmerContract.networks[networkId].address); 

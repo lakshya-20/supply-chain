@@ -10,6 +10,8 @@ export const authReducer = (state,action) =>{
         case ActionTypes.AUTH_STATE_LOGOUT:
             return {...state, isLoading:false, errMess:null, auth:{}}
         case ActionTypes.AUTH_STATE_UPDATE_ROLE:
-            return {...state, isLoading:false, errMess:null, auth:state.auth, role:action.payload}
+            return {...state, isLoading:false, errMess:null, role:action.payload}
+        case ActionTypes.AUTH_STATE_UPDATE_ADDRESS:
+            return {...state, isLoading:false, errMess:null, address: action.payload}
     }
 }
