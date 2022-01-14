@@ -1,4 +1,5 @@
 import * as ActionTypes from '../ActionTypes'
+
 export const contractMainUpdate= (payload) => ({
     type: ActionTypes.CONTRACT_MAIN_UPDATE,
     payload

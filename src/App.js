@@ -12,14 +12,16 @@ function App() {
   return (
     <div className='App'>
     <AuthContextProvider>
+    <ContractContextProvider>
       <NavbarComponent/>
       <JumbotronComponent/>
-      <BrowserRouter>
-        <ContractContextProvider>
-          <Routing/>
-        </ContractContextProvider>
+      <BrowserRouter>        
+          <div className='container'>
+            <Routing/>
+          </div>        
       </BrowserRouter>
-      <FooterComponent/>
+      {/* <FooterComponent/> */}
+      </ContractContextProvider>
     </AuthContextProvider>
     </div>
   );
