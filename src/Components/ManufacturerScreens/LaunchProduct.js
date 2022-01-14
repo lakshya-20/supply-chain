@@ -1,6 +1,13 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useContext } from "react";
 import {Button, Form, FormGroup, Label, Input, CustomInput } from 'reactstrap';
-const LaunchProductComponent  = ({productContract, manufacturerContract, account}) => {
+
+import { AuthContext } from '../../Context/Contexts/AuthContext';
+import { ContractContext } from "../../Context/Contexts/ContractContext";
+import * as ContractActionCreators from "../../Context/ActionCreators/ContractActionCreater";
+
+const LaunchProductComponent  = () => {
+    const { authState, authDispatch } = useContext(AuthContext);
+    const {contractState, contractDispatch} = useContext(ContractContext);
     const [values, setValues] = useState({
         name: "",
         serialNo: "",
@@ -10,7 +17,7 @@ const LaunchProductComponent  = ({productContract, manufacturerContract, account
 
     useEffect(()=>{
         (async ()=>{
-            const temp = await manufacturerContract.methods.getManufacturer(account).call();
+            const temp = await contractState.manufacturer.methods.getManufacturer(authState.auth.id).call();
             setRawProducts(temp.rawProducts);
         })();
     },[])
@@ -36,11 +43,11 @@ const LaunchProductComponent  = ({productContract, manufacturerContract, account
     };
     const handleSubmit = async(e) => {
         e.preventDefault();
-        await productContract.methods.addProduct(
+        await contractState.product.methods.addProduct(
             values.serialNo,
             values.name,
             values.rawProducts
-        ).send({from: account});
+        ).send({from: authState.auth.id});
         window.location.reload(false);
     }
     return (

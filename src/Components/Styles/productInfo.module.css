@@ -1,0 +1,82 @@
+:root{
+    --primary-bg: #28559A;
+    --primary-color:  #ffffff;
+    --col1: #150734;
+    --col2: #0F2557;
+    --col3: #28559A;
+    --col4: #63BCE5;
+}
+.search {
+    width: 100%;
+    position: relative;
+    display: flex;
+}
+.searchTerm {
+    width: 100%;
+    padding: 5px;
+    height: 36px;
+    outline: none;
+    color: var(--primary-bg);
+    border: 3px solid var(--primary-bg);
+    border-right: none;
+    border-radius: 5px 0 0 5px;
+}
+.searchTerm:focus{
+    color: var(--primary-bg);
+    border: 3px solid var(--primary-bg);
+    border-right: none;
+    border-radius: 5px 0 0 5px;    
+}
+.searchButton {
+    width: 40px;
+    height: 36px;
+    border: 1px solid var(--primary-bg);
+    background: var(--primary-bg);
+    text-align: center;
+    color: var(--primary-color);
+    border-radius: 0 5px 5px 0;
+    cursor: pointer;
+    font-size: 20px;
+}
+.firstHeading{
+    font-weight: bold;
+    font-size: 2vw;
+    text-transform: uppercase;
+    color: black;
+    border-bottom: var(--col1) double;
+}
+.productImg{
+    max-width: 400px;
+}
+.secondHeading{
+    font-weight: bold;
+    font-size: 1.5vw;
+    color: var(--col1);
+}
+.thirdHeading{
+    font-weight: 400;
+    font-size: 1vw;
+    color: var(--col2);
+}
+.rawProductVerified{
+    background-color: green;
+    border-radius: 50px;
+    padding: 0px 10px;
+}
+.rawProductNotVerified{
+    background-color: yellow;
+    border-radius: 50px;
+    padding: 0px 10px;
+}
+.statusImg{
+    max-width: 400px;
+    border-radius: 20px;
+}
+@media only screen and (max-width: 768px) {
+    
+}
+
+
+@media only screen and (max-width: 576px) {
+    
+}
