@@ -68,6 +68,7 @@ const NavbarComponent = () => {
         const manufacturerData = await manufacturer.methods.getManufacturer(account).call();
         const stakeHolderData = await stakeholder.methods.getStakeHolder(account).call();
         if(account == adminAddressTemp){
+            await authDispatch(AuthActionCreators.authStateUpdate({id: account}));
             await authDispatch(AuthActionCreators.authStateUpdateRole("Admin"));
         }
         else if(farmerData.isValue) {            
@@ -100,19 +101,25 @@ const NavbarComponent = () => {
             <Collapse isOpen={isOpen} navbar>
                 <Nav className="ms-auto" navbar>
                     <NavItem>
-                        <NavLink href="/transfer">Trasnfer Ownership</NavLink>
+                        <NavLink href="/transfer">Transfer Ownership</NavLink>
                     </NavItem>
                     <NavItem>
                         <NavLink href="/product">Product Info</NavLink>
                     </NavItem>
-                    {authState && authState.auth.id?
+                    {authState && authState.role==="Admin"?
                         <NavItem>
-                            <NavLink href="#">{authState.auth.name}</NavLink>
+                            <NavLink href="/register">{authState.role}</NavLink>
                         </NavItem>
-                        :
-                        <NavItem>
-                            <NavLink href="/register">Register</NavLink>
-                        </NavItem>
+                    :
+                        authState && authState.auth.id?
+                            <NavItem>
+                                <NavLink href="#">{authState.auth.name}</NavLink>
+                            </NavItem>
+                            :
+                            <NavItem>
+                                <NavLink href="/register">Register</NavLink>
+                            </NavItem>
+                        
                     }
                 </Nav>                
             </Collapse>
