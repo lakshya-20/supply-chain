@@ -7,7 +7,8 @@ const AuthContextProvider = (props) => {
         isLoading:true,
         errMess:null,
         auth:{},
-        role:undefined
+        role:undefined,
+        address: undefined
     });
     return ( 
         <AuthContext.Provider value={{authState,authDispatch}}>

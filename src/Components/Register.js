@@ -1,52 +1,86 @@
 import { useState } from 'react';
-import { Card, CardText} from 'reactstrap';
 import FarmerRegistration from './RegisterScreens/FarmerRegistration';
 import ManufacturerRegistration from './RegisterScreens/ManufacturerRegistration';
 import StakeholderRegistration from './RegisterScreens/StakeholderRegistration';
 
+import styles from './Styles/register.module.css';
 
-
-const Register = ({farmerContract, manufacturerContract, stakeHolderContract, account}) => {
+const Register = () => {
     const [role, setRole] = useState(undefined);
-    const [stakeholderData, setStakeholderData] = useState(undefined);
-    const RenderRoleCard = ({role}) => {
+    const RenderRoleCard = ({r}) => {
         return (
-            <Card body inverse
-                style={{ backgroundColor: '#333', borderColor: '#333', height: "100px" }}
-                className="col-5 col-xl-5 m-1"
-                onClick={()=>setRole(role)}    
+            <span 
+                className={`${styles.registerBox} col-10 col-md-5 col-lg-2 m-1`} 
+                onClick={()=>setRole(r)} 
+                style={{border: r===role? "#150734 3px outset": "none"}}    
             >
-                <CardText>{role}</CardText>
-            </Card>
+                {r}
+            </span>
         )
-    }
+    }   
     const renderComponent = () =>{
         if(role=="Farmer"){
-            return <FarmerRegistration farmerContract={farmerContract} account={account} role={role}/>
+            return <FarmerRegistration/>
         }
         else if(role=="Manufacturer"){
-            return  <ManufacturerRegistration farmerContract={farmerContract} manufacturerContract={manufacturerContract} account={account} />
+            return  <ManufacturerRegistration/>
         }
         else{
-           return <StakeholderRegistration stakeHolderContract={stakeHolderContract} account={account} role={role}/>
+           return <StakeholderRegistration role={role}/>
         }
+    }
+    const renderImage = () =>{
+        if(role=="Farmer"){
+            return <img 
+                src='https://res.cloudinary.com/dstmsi8qv/image/upload/v1642177624/Supply%20Chain/farmer_twwmov.jpg'
+                className={styles.registerImg}
+                />
+        }
+        else if(role=="Manufacturer"){
+            return <img 
+                src='https://res.cloudinary.com/dstmsi8qv/image/upload/v1642177660/Supply%20Chain/manufacturer_ncfl8b.jpg'
+                className={styles.registerImg}
+                />
+        }
+        else if(role=="Distributer"){
+            return <img 
+                src='https://res.cloudinary.com/dstmsi8qv/image/upload/v1642177562/Supply%20Chain/distributer_tevsrc.jpg'
+                className={styles.registerImg}
+                />
+        }
+        else if(role=="Consumer"){
+            return <img 
+                src='https://res.cloudinary.com/dstmsi8qv/image/upload/v1642177573/Supply%20Chain/consumer_q8kmbm.jpg'
+                className={styles.registerImg}
+                />
+        }        
     }
     return (
         <div className="text-center">
-            <h4>Registration Panel</h4>
-            <div className="row">
-                {["Distributer", "Retailer", "Manufacturer", "Farmer", "Consumer"].map(role => {
+            <span className={`${styles.firstHeading}`}>Registration Panel</span>
+            <div className="row justify-content-between">
+                {["Farmer", "Manufacturer", "Distributer", "Consumer"].map(role => {
                     return (
-                        <RenderRoleCard role={role}/>
+                        <RenderRoleCard r={role}/>
                     )
                 })}
             </div>            
             {role?
-                <>
-                <strong >{role+" "}</strong> Registration
-                <br/>
-                <div className="d-flex justify-content-center">
-                    {renderComponent()}
+                <>                
+                <div className='my-4'>                    
+                    <span className={`${styles.secondHeading}`}>
+                        <strong >{role+" "}</strong> Registration
+                    </span>
+                    <div className='row mt-3'>
+                        <div className="col-12 col-md-6 d-flex justify-content-center">
+                            {renderImage()}
+                        </div>
+                        <div className="col-12 col-md-6 d-flex justify-content-center">   
+                            <div className='col-6'>
+                                {renderComponent()}
+                            </div>
+                        </div>                    
+                    </div>
                 </div>
                 </>
             :

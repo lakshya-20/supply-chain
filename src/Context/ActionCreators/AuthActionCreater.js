@@ -20,3 +20,8 @@ export const authStateUpdateRole=(role)=>({
     type:ActionTypes.AUTH_STATE_UPDATE_ROLE,
     payload:role
 })
+
+export const authStateUpdateAddress = (address) =>({
+    type: ActionTypes.AUTH_STATE_UPDATE_ADDRESS,
+    payload: address
+})
