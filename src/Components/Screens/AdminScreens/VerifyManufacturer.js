@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react';
 import { Card, CardSubtitle, CardTitle, CardText} from 'reactstrap';
-import Manufacturer from '../Manufacturer';
 const VerifyManufacturer = ({manufacturerContract, account}) => {
     const [manufacturerDetailArray, setManufacturerDetailArray] = useState([]);
     

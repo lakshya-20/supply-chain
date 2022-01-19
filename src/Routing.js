@@ -1,9 +1,10 @@
 import { useContext } from "react";
 import { Navigate, Routes, Route} from "react-router-dom";
 import MainComponent from "./Components/MainComponent";
-import ProductInfo from "./Components/ProductInfo.Component";
-import Register from "./Components/Register";
-import TransferOwnership from "./Components/TransferOwnership.Component";
+import ProductInfo from "./Components/Screens/ProductInfo";
+import Register from "./Components/Screens/RegisterScreens";
+import TransferOwnership from "./Components/Screens/TransferOwnership";
+
 import { AuthContext } from "./Context/Contexts/AuthContext";
 
 const Routing = () => {

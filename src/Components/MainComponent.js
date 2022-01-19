@@ -1,17 +1,14 @@
-import { useEffect, useState, useContext } from 'react';
-import { Card, CardTitle, CardText } from 'reactstrap';
+import { useContext } from 'react';
+import { Card, CardTitle, CardText, CardGroup, CardBody, CardImg } from 'reactstrap';
 
-import Admin from './AdminScreens/Admin';
-import ConsumerComponent from './Consumer';
-import Manufacturer from './Manufacturer';
-import Register from './Register';
+import Admin from './Screens/AdminScreens/Admin';
+import Manufacturer from './Screens/ManufacturerScreens';
+import Register from './Screens/RegisterScreens';
 
 import { AuthContext } from '../Context/Contexts/AuthContext';
-import { ContractContext } from '../Context/Contexts/ContractContext';
 
 const MainComponent = () =>{
-    const { authState, authDispatch } = useContext(AuthContext);
-    const { contractState, contractDispatch} = useContext(ContractContext);    
+    const { authState } = useContext(AuthContext);    
 
     const renderComponent = (role) =>{
         if(role==="New Address"){
@@ -22,39 +19,65 @@ const MainComponent = () =>{
         }        
         else if(role==="Admin"){
             return <Admin/>
-        }
-        else{
-            return <ConsumerComponent/>
-        }
+        }        
     }
 
     return (
-        <div className=''>
-            {renderComponent(authState.role)}
-            {/* {stakeholder?
-            <div className="d-flex justify-content-center text-center">
-                <div className="col-10 col-sm-8">
-                <Card inverse style={{ backgroundColor: '#333', borderColor: '#333' }}>
-                    <CardTitle tag="h5">{stakeholder.name}</CardTitle>
-                    {currAddressRole=="Farmer"?
-                    <>
+        <div className=''>            
+            <CardGroup>
+                <Card className='border-0'>
+                    <CardImg
+                        alt="Transparency"
+                        src="https://res.cloudinary.com/dstmsi8qv/image/upload/v1642606117/Supply%20Chain/Homescreen/transparency_cw4chx.jpg"
+                        top
+                        width="100%"
+                        height="300px"
+                    />
+                    <CardBody>
+                    <CardTitle tag="h5">
+                        Transparency
+                    </CardTitle>                    
                     <CardText>
-                        Role: Farmer
-                        <br/>
-                        Verification: {stakeholder.isVerified?"Done":"Not Done"}
-                        <br/>
-                        Raw Products: {JSON.stringify(stakeholder.rawProducts)}
-                    </CardText>
-                    </>
-                    :
-                    <CardText>Role: {stakeholder.role==null?"Manufacturer":stakeholder.role}</CardText>
-                    }
+                        Blockchain builds communication between partners. This builds a streamlined process with shorter lead times, reduced redundancy, fewer delays, and ultimately a leaner supply chain.
+                    </CardText>                    
+                    </CardBody>
                 </Card>
-                </div>
-            </div>
-            :
-            ""
-            }            */}                
+                <Card className='border-0'>
+                    <CardImg
+                        alt="Card image cap"
+                        src="https://res.cloudinary.com/dstmsi8qv/image/upload/v1642606134/Supply%20Chain/Homescreen/security_kshfuh.jpg"
+                        top
+                        width="100%"
+                        height="300px"
+                    />
+                    <CardBody>
+                    <CardTitle tag="h5">
+                        Security
+                    </CardTitle>                    
+                    <CardText>
+                        Blockchain ensure the supply chain data stays guarded against cyber attacks (which are becoming more regular these days), blockchain is an ideal solution.
+                    </CardText>                    
+                    </CardBody>
+                </Card>
+                <Card className='border-0'>
+                    <CardImg
+                        alt="Customer Engagement"
+                        src="https://res.cloudinary.com/dstmsi8qv/image/upload/v1642606121/Supply%20Chain/Homescreen/customerEngagement_upd3d5.jpg"
+                        top
+                        width="100%"
+                        height="300px"
+                    />
+                    <CardBody>
+                    <CardTitle tag="h5">
+                        Customer Engagement
+                    </CardTitle>                    
+                    <CardText>
+                        Data sharing creates a new level of transparency with the consumer in a way that builds deeper client relationships and loyalty
+                    </CardText>                    
+                    </CardBody>
+                </Card>
+            </CardGroup>      
+            {renderComponent(authState.role)}         
         </div>
     )
 }

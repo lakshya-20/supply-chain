@@ -1,9 +1,9 @@
 import { useState } from 'react';
-import FarmerRegistration from './RegisterScreens/FarmerRegistration';
-import ManufacturerRegistration from './RegisterScreens/ManufacturerRegistration';
-import StakeholderRegistration from './RegisterScreens/StakeholderRegistration';
+import FarmerRegistration from './Farmer';
+import ManufacturerRegistration from './Manufacturer';
+import StakeholderRegistration from './Stakeholder';
 
-import styles from './Styles/register.module.css';
+import styles from '../../Styles/register.module.css'
 
 const Register = () => {
     const [role, setRole] = useState(undefined);
@@ -58,7 +58,7 @@ const Register = () => {
     return (
         <div className="text-center">
             <span className={`${styles.firstHeading}`}>Registration Panel</span>
-            <div className="row justify-content-between">
+            <div className="row justify-content-center">
                 {["Farmer", "Manufacturer", "Distributer", "Consumer"].map(role => {
                     return (
                         <RenderRoleCard r={role}/>

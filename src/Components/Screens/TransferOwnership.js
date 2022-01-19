@@ -1,7 +1,7 @@
 import React, { useState, useContext } from "react";
-import { AuthContext } from "../Context/Contexts/AuthContext";
-import { ContractContext } from "../Context/Contexts/ContractContext";
-import styles from './Styles/transferOwnership.module.css';
+import styles from '.././Styles/transferOwnership.module.css';
+import { AuthContext } from "../../Context/Contexts/AuthContext";
+import { ContractContext } from "../../Context/Contexts/ContractContext";
 const TransferOwnership = () =>{
     const {contractState} = useContext(ContractContext);
     const {authState} = useContext(AuthContext);
