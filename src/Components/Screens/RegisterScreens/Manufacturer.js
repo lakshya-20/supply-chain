@@ -1,7 +1,7 @@
 import { useEffect, useState, useContext } from 'react';
 import {Button, Form, FormGroup, Label, Input, CustomInput } from 'reactstrap';
-import { AuthContext } from '../../Context/Contexts/AuthContext';
-import { ContractContext } from '../../Context/Contexts/ContractContext';
+import { AuthContext } from '../../../Context/Contexts/AuthContext';
+import { ContractContext } from '../../../Context/Contexts/ContractContext';
 const ManufacturerRegistration = () => {
     const { authState, authDispatch } = useContext(AuthContext);
     const { contractState, contractDispatch} = useContext(ContractContext);    

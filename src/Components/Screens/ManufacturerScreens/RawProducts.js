@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import {Button, Form, FormGroup, Label, Input, CustomInput } from 'reactstrap';
+
 const RawProductsComponent = ({farmerContract, manufacturerContract, account}) => {
     const [rawProducts, setRawProducts] = useState([]);
     const [farmerAddresses, setFarmerAddress] = useState({});

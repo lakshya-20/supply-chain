@@ -1,8 +1,6 @@
 import React, { useState, useContext } from "react";
-import {Button, Form, FormGroup, Input,
-    Card, CardTitle, CardText } from 'reactstrap';
-import { ContractContext } from "../Context/Contexts/ContractContext";
-import styles from './Styles/productInfo.module.css';
+import { ContractContext } from "../../Context/Contexts/ContractContext";
+import styles from "../Styles/productInfo.module.css"
 
 const ProductInfo = () => {
     const {contractState, contractDispatch} = useContext(ContractContext);

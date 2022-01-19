@@ -1,7 +1,7 @@
 import { useState, useContext } from 'react';
 import {Button, Form, FormGroup, Input } from 'reactstrap';
-import { AuthContext } from '../../Context/Contexts/AuthContext';
-import { ContractContext } from '../../Context/Contexts/ContractContext';
+import { AuthContext } from '../../../Context/Contexts/AuthContext';
+import { ContractContext } from '../../../Context/Contexts/ContractContext';
 
 const StakeholderRegistration = ({role}) => {
     const { authState, authDispatch } = useContext(AuthContext);
