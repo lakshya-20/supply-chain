@@ -1,11 +1,12 @@
 import { useContext } from 'react';
-import { Card, CardTitle, CardText, CardGroup, CardBody, CardImg } from 'reactstrap';
+import { Card, CardTitle, CardText, CardGroup, CardBody, CardImg, Row } from 'reactstrap';
 
 import Admin from './Screens/AdminScreens/Admin';
 import Manufacturer from './Screens/ManufacturerScreens';
 import Register from './Screens/RegisterScreens';
 
 import { AuthContext } from '../Context/Contexts/AuthContext';
+import ActionCard from './Utils/ActionCard';
 
 const MainComponent = () =>{
     const { authState } = useContext(AuthContext);    
@@ -20,10 +21,24 @@ const MainComponent = () =>{
         else if(role==="Admin"){
             return <Admin/>
         }        
+        else{
+            return(
+                <Row className="justify-content-center">               
+                    <ActionCard                    
+                        actionItem="Transfer Ownership"
+                        navigationHandle={()=>window.location.href="/transfer"}
+                    />
+                    <ActionCard                    
+                        actionItem="Product Info"
+                        navigationHandle={()=>window.location.href="/product"}
+                    />                
+                </Row>
+            )
+        }
     }
 
     return (
-        <div className=''>            
+        <div className=''>
             <CardGroup>
                 <Card className='border-0'>
                     <CardImg
@@ -81,5 +96,4 @@ const MainComponent = () =>{
         </div>
     )
 }
-
 export default MainComponent;
