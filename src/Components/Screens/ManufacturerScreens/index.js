@@ -1,32 +1,33 @@
 import { useState } from "react";
-import { Card, CardText, Row} from 'reactstrap';
+import { Row} from 'reactstrap';
 import RawProductsComponent from "./RawProducts";
 import LaunchProductComponent from "./LaunchProduct";
+import ActionCard from "../../Utils/ActionCard";
 const Manufacturer = () => {
     const [actionItem, setActionItem] = useState(undefined);
-    const actionItems = ["Update Raw Products", "Launch Product", "Transfer Ownership"];  
-
-    const RenderActionCard = ({actionItem}) => {
-        return (
-            <Card body inverse
-                style={{ backgroundColor: '#333', borderColor: '#333', height: "100px" }}
-                className="col-12 col-sm-3 m-1"
-                onClick={()=>setActionItem(actionItem)}    
-            >
-                <CardText>{actionItem}</CardText>
-            </Card>
-        )
-    }
+    const actionItems = ["Update Raw Products", "Launch Product", "Transfer Ownership", "Product Info"];  
 
     return(
         <div className="text-center">
             <h4>Manufacturer Panel</h4>
-            <Row>
-                {actionItems.map(actionItem => {
-                    return (
-                        <RenderActionCard actionItem={actionItem}/>
-                    )
-                })}
+
+            <Row className="justify-content-center">
+                <ActionCard                    
+                    actionItem={actionItems[0]}
+                    setActionItem={()=>setActionItem(actionItems[0])}                    
+                />                
+                <ActionCard                    
+                    actionItem={actionItems[1]}
+                    setActionItem={()=>setActionItem(actionItems[1])}                    
+                />                
+                <ActionCard                    
+                    actionItem={actionItems[2]}
+                    navigationHandle={()=>window.location.href="/transfer"}
+                />
+                <ActionCard                    
+                    actionItem={actionItems[3]}
+                    navigationHandle={()=>window.location.href="/product"}
+                />                
             </Row>
             <h5>{actionItem}</h5>
             {actionItem===actionItems[0]? <RawProductsComponent /> : ""}
