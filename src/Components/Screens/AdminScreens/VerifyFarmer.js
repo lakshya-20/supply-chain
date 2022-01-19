@@ -1,27 +1,32 @@
-import React, { useState, useEffect } from 'react';
-import { Card, Button, CardTitle, CardText, Row, Col, Input, FormText, CardSubtitle } from 'reactstrap';
-function VerifyFarmer({farmerContract, account}) {
+import React, { useState, useEffect, useContext } from 'react';
+import { Card, CardTitle, CardText, CardSubtitle } from 'reactstrap';
+import { AuthContext } from '../../../Context/Contexts/AuthContext';
+import { ContractContext } from '../../../Context/Contexts/ContractContext';
+
+function VerifyFarmer() {
+    const { authState } = useContext(AuthContext);
+    const { contractState } = useContext(ContractContext);
     const [farmerDetailsArray, setFarmerDetailsArray] = useState([])
     const verifyFarmer = async (farmerAddress) => {
         if(farmerAddress==null) {
             alert("Please provide a address");
             return;
         }
-        await farmerContract.methods.verifyFarmer(farmerAddress).send({from: account});
+        await contractState.farmer.methods.verifyFarmer(farmerAddress).send({from: authState.auth.id});
         window.location.reload(false);
     }
     useEffect(()=>{
-        if(farmerContract){            
+        if(contractState.farmer){            
             (async ()=>{
-                const addressArray =  await farmerContract.methods.getFarmersList().call();
+                const addressArray =  await contractState.farmer.methods.getFarmersList().call();
                 var temp=[];
                 for(var i=0;i<addressArray.length;i++){
-                    temp[i] = await farmerContract.methods.getFarmer(addressArray[i]).call();
+                    temp[i] = await contractState.farmer.methods.getFarmer(addressArray[i]).call();
                 }                
                 setFarmerDetailsArray(temp);
             })();           
         }
-    },[farmerContract])
+    },[contractState])
     const renderFarmerCard=(farmer)=>{
         return (
             <Card className="m-1">                

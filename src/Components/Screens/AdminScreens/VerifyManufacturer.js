@@ -1,27 +1,32 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import { Card, CardSubtitle, CardTitle, CardText} from 'reactstrap';
-const VerifyManufacturer = ({manufacturerContract, account}) => {
+import { AuthContext } from '../../../Context/Contexts/AuthContext';
+import { ContractContext } from '../../../Context/Contexts/ContractContext';
+
+const VerifyManufacturer = () => {
+    const { authState } = useContext(AuthContext);
+    const { contractState } = useContext(ContractContext);
     const [manufacturerDetailArray, setManufacturerDetailArray] = useState([]);
     
     useEffect(()=>{
-        if(manufacturerContract){
+        if(contractState.manufacturer){
             (async()=>{
-                const addressArray =  await manufacturerContract.methods.getManufacturersList().call();
+                const addressArray =  await contractState.manufacturer.methods.getManufacturersList().call();
                 var temp=[];
                 for(var i=0;i<addressArray.length;i++){
-                    temp[i]=await manufacturerContract.methods.getManufacturer(addressArray[i]).call();
+                    temp[i]=await contractState.manufacturer.methods.getManufacturer(addressArray[i]).call();
                 }                
                 setManufacturerDetailArray(temp);
             })();
         }
-    },[manufacturerContract])
+    },[contractState])
 
     const verifyManufacturer = async (manufacturerAddress) => {
         if(manufacturerAddress==null) {
             alert("Please provide a address");
             return;
         }
-        await manufacturerContract.methods.verifyManufacturer(manufacturerAddress).send({from: account});
+        await contractState.manufacturer.methods.verifyManufacturer(manufacturerAddress).send({from: authState.auth.id});
         window.location.reload(false);
     }
     
