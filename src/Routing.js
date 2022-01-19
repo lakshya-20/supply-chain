@@ -3,6 +3,7 @@ import { Navigate, Routes, Route} from "react-router-dom";
 import MainComponent from "./Components/MainComponent";
 import ProductInfo from "./Components/ProductInfo.Component";
 import Register from "./Components/Register";
+import TransferOwnership from "./Components/TransferOwnership.Component";
 import { AuthContext } from "./Context/Contexts/AuthContext";
 
 const Routing = () => {
@@ -13,7 +14,7 @@ const Routing = () => {
                 <>
                 <Route exact path="/" element={<MainComponent />} />
                 <Route exact path="/product" element={<ProductInfo />} />
-                <Route exact path="/transfer" element={<MainComponent />} />
+                <Route exact path="/transfer" element={<TransferOwnership />} />
                 <Route path="*" element={<Navigate to="/" />} />
                 </>
             :
@@ -21,7 +22,7 @@ const Routing = () => {
                 <Route exact path="/" element={<MainComponent />} />
                 <Route exact path="/product" element={<ProductInfo />} />
                 <Route exact path="/register" element={<Register />} />
-                <Route exact path="/transfer" element={<MainComponent />} />
+                <Route exact path="/transfer" element={<TransferOwnership />} />
                 <Route path="*" element={<Navigate to="/" />} />
                 </>
             }            
