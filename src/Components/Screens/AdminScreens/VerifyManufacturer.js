@@ -1,8 +1,7 @@
 import React, { useState, useEffect, useContext } from 'react';
-import { Card, CardSubtitle, CardTitle, CardText} from 'reactstrap';
 import { AuthContext } from '../../../Context/Contexts/AuthContext';
 import { ContractContext } from '../../../Context/Contexts/ContractContext';
-
+import styles from '../../Styles/admin.module.css';
 const VerifyManufacturer = () => {
     const { authState } = useContext(AuthContext);
     const { contractState } = useContext(ContractContext);
@@ -32,11 +31,26 @@ const VerifyManufacturer = () => {
     
     const renderManufacturerCard=(manufacturer)=>{
         return (
-            <Card className="m-1">                
-                <CardTitle>{manufacturer.name}</CardTitle>   
-                <CardSubtitle className="text-secondary">{manufacturer.id}</CardSubtitle>             
-                <CardSubtitle>Raw Products: {JSON.stringify(manufacturer.rawProducts)}</CardSubtitle>           
-                <div className="">
+            <div className='col-12 d-flex border-bottom'>
+                <div className={`col-3 ${styles.icon}`}>
+                    <img 
+                        src='https://res.cloudinary.com/dstmsi8qv/image/upload/v1642177660/Supply%20Chain/manufacturer_ncfl8b.jpg'
+                        className={styles.icon}
+                    />
+                </div>
+                <div className='col-9'>
+                    <div className={styles.title}>
+                        {manufacturer.name}
+                    </div>
+                    <div className={styles.address}>
+                        {manufacturer.id}
+                    </div>
+                    <div>
+                        {manufacturer.rawProducts.map(rawProduct => {
+                            return <span className={styles.raw_product}>{rawProduct}</span>
+                        })}
+                    </div>
+                    <div>
                     {manufacturer.isRenewableUsed?
                         <span className="text-success">
                             Renewable Resources
@@ -46,24 +60,21 @@ const VerifyManufacturer = () => {
                             Verify
                         </span>
                     }
+                    </div>
                 </div>
-            </Card>
+            </div>
         )
     }
     return ( 
-        <Card body>
-            <CardTitle tag="h5">Verify Manufacturer</CardTitle>
-            <CardText>Feature to mark the Manufacturer energy resource</CardText>            
-            <div>
-                {manufacturerDetailArray.length>0?
-                    manufacturerDetailArray.map(manufacturer=>{
-                        return renderManufacturerCard(manufacturer)
-                    })
-                :
-                    <span>No Manufacturer Exists</span>
-                }
-            </div>
-        </Card>
+        <div>                
+            {manufacturerDetailArray.length>0?
+                manufacturerDetailArray.map(manufacturer=>{
+                    return renderManufacturerCard(manufacturer)
+                })
+            :
+                <span className={styles.title}>No Manufacturer Exists</span>
+            }
+        </div>
     );
 }
  
