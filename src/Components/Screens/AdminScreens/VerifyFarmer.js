@@ -1,8 +1,7 @@
 import React, { useState, useEffect, useContext } from 'react';
-import { Card, CardTitle, CardText, CardSubtitle } from 'reactstrap';
 import { AuthContext } from '../../../Context/Contexts/AuthContext';
 import { ContractContext } from '../../../Context/Contexts/ContractContext';
-
+import styles from '../../Styles/admin.module.css';
 function VerifyFarmer() {
     const { authState } = useContext(AuthContext);
     const { contractState } = useContext(ContractContext);
@@ -29,11 +28,26 @@ function VerifyFarmer() {
     },[contractState])
     const renderFarmerCard=(farmer)=>{
         return (
-            <Card className="m-1">                
-                <CardTitle>{farmer.name}</CardTitle>
-                <CardSubtitle className="text-secondary">{farmer.id}</CardSubtitle>
-                <CardSubtitle>Raw Products: {JSON.stringify(farmer.rawProducts)}</CardSubtitle>           
-                <div className="">
+            <div className='col-12 d-flex border-bottom'>
+                <div className={`col-3 ${styles.icon}`}>
+                    <img 
+                        src='https://res.cloudinary.com/dstmsi8qv/image/upload/v1642164799/Supply%20Chain/rawProducts_o0t5az.jpg'
+                        className={styles.icon}
+                    />
+                </div>
+                <div className='col-9'>
+                    <div className={styles.title}>
+                        {farmer.name}
+                    </div>
+                    <div className={styles.address}>
+                        {farmer.id}
+                    </div>
+                    <div>
+                        {farmer.rawProducts.map(rawProduct => {
+                            return <span className={styles.raw_product}>{rawProduct}</span>
+                        })}
+                    </div>
+                    <div>
                     {farmer.isVerified?
                         <span className="text-success">
                             Verified
@@ -43,24 +57,21 @@ function VerifyFarmer() {
                             Verify
                         </span>
                     }
+                    </div>
                 </div>
-            </Card>
+            </div>
         )
     }
     return ( 
-        <Card body>
-            <CardTitle tag="h5">Verify Farmer</CardTitle>
-            <CardText>Feature to mark the farmer as a verified farmer.</CardText>            
-            <div>                
-                {farmerDetailsArray.length>0?
-                    farmerDetailsArray.map(farmer=>{
-                        return renderFarmerCard(farmer)
-                    })
-                :
-                    <span>No Farmer Exists</span>
-                }
-            </div>
-        </Card>
+        <div>                
+            {farmerDetailsArray.length>0?
+                farmerDetailsArray.map(farmer=>{
+                    return renderFarmerCard(farmer)
+                })
+            :
+                <span className={styles.title}>No Farmer Exists</span>
+            }
+        </div>
      );
 }
 
