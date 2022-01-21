@@ -88,7 +88,7 @@ const NavbarComponent = () => {
     return (            
         <Navbar color='dark' dark expand="md" className='px-3'>
             <NavbarBrand className="mr-auto" href="/">
-                <img src='https://res.cloudinary.com/dstmsi8qv/image/upload/v1642107674/Supply%20Chain/logo_small_tjpurs.png'/> 
+                <img src='https://res.cloudinary.com/dstmsi8qv/image/upload/v1642792443/Supply%20Chain/logo_mini_zes3bk.png'/> 
                 <span> Global Supply Solutions </span>
             </NavbarBrand>
             <NavbarToggler onClick={()=>{setIsOpen(!isOpen)}} className="navbar-wrapper">
