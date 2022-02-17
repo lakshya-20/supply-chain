@@ -2,7 +2,7 @@ import { useState, useEffect, useContext } from "react";
 import {Button, Form, FormGroup, Label, Input, CustomInput } from 'reactstrap';
 import { AuthContext } from "../../../Context/Contexts/AuthContext";
 import { ContractContext } from "../../../Context/Contexts/ContractContext";
-
+import { toast } from "react-toastify";
 const RawProductsComponent = () => {
     const { authState } = useContext(AuthContext);
     const { contractState } = useContext(ContractContext);
@@ -29,7 +29,10 @@ const RawProductsComponent = () => {
             rawProducts,
             farmerAddressesArr
         ).send({from: authState.auth.id})
-        window.location.reload(false);
+        toast.success("Raw products updated!");
+        setRawProducts([]);
+        setFarmerAddress({});
+        setFarmerDetailsArray([]);
     }
     
     const handleChange = (event) => {

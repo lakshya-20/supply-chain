@@ -3,7 +3,7 @@ import {Button, Form, FormGroup, Label, Input, CustomInput } from 'reactstrap';
 
 import { AuthContext } from "../../../Context/Contexts/AuthContext";
 import { ContractContext } from "../../../Context/Contexts/ContractContext";
-
+import { toast } from "react-toastify";
 const LaunchProductComponent  = () => {
     const { authState } = useContext(AuthContext);
     const {contractState } = useContext(ContractContext);
@@ -47,7 +47,13 @@ const LaunchProductComponent  = () => {
             values.name,
             values.rawProducts
         ).send({from: authState.auth.id});
-        window.location.reload(false);
+        toast.success("Launched Product");
+        setValues({
+            ...values,
+            "name": "",
+            "serialNo": "",
+            "rawProducts": []
+        })
     }
     return (
         <div className="d-flex justify-content-center">
