@@ -2,6 +2,7 @@ import React, { useState, useContext } from "react";
 import styles from '.././Styles/transferOwnership.module.css';
 import { AuthContext } from "../../Context/Contexts/AuthContext";
 import { ContractContext } from "../../Context/Contexts/ContractContext";
+import { toast } from "react-toastify";
 const TransferOwnership = () =>{
     const {contractState} = useContext(ContractContext);
     const {authState} = useContext(AuthContext);
@@ -12,8 +13,9 @@ const TransferOwnership = () =>{
         else if(newAddress==undefined) alert("New Owner Address required");
         else {
             await contractState.product.methods.updateOwnership(newAddress,serialNo).send({from: authState.auth.id});
-            alert("Updated Ownership");
-            window.location.href = "/";            
+            toast.success("Ownership Updated!")
+            setNewAddress(undefined);
+            setSerialNo(undefined);            
         }        
     }
     return (
