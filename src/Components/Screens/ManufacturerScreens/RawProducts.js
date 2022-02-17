@@ -1,18 +1,23 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useContext } from "react";
 import {Button, Form, FormGroup, Label, Input, CustomInput } from 'reactstrap';
-const RawProductsComponent = ({farmerContract, manufacturerContract, account}) => {
+import { AuthContext } from "../../../Context/Contexts/AuthContext";
+import { ContractContext } from "../../../Context/Contexts/ContractContext";
+import { toast } from "react-toastify";
+const RawProductsComponent = () => {
+    const { authState } = useContext(AuthContext);
+    const { contractState } = useContext(ContractContext);
     const [rawProducts, setRawProducts] = useState([]);
     const [farmerAddresses, setFarmerAddress] = useState({});
     const [farmerDetailsArray, setFarmerDetailsArray] = useState([])
     
     useEffect(()=>{
-        if(farmerContract){            
+        if(contractState.farmer){            
             (async ()=>{
-                const temp = await farmerContract.methods.getFarmersList().call();
+                const temp = await contractState.farmer.methods.getFarmersList().call();
                 setFarmerDetailsArray(temp);
             })();           
         }
-    },[farmerContract])
+    },[contractState])
     
     const handleSubmit = async(e) => {     
         e.preventDefault();   
@@ -20,11 +25,14 @@ const RawProductsComponent = ({farmerContract, manufacturerContract, account}) =
         for(var i =0;i<rawProducts.length;i++){
             farmerAddressesArr.push(farmerAddresses[rawProducts[i]]);
         }        
-        await manufacturerContract.methods.updateRawProducts(
+        await contractState.manufacturer.methods.updateRawProducts(
             rawProducts,
             farmerAddressesArr
-        ).send({from:account})
-        window.location.reload(false);
+        ).send({from: authState.auth.id})
+        toast.success("Raw products updated!");
+        setRawProducts([]);
+        setFarmerAddress({});
+        setFarmerDetailsArray([]);
     }
     
     const handleChange = (event) => {
