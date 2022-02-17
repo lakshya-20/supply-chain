@@ -1,23 +1,18 @@
-import { useState, useEffect, useContext } from "react";
+import { useState, useEffect } from "react";
 import {Button, Form, FormGroup, Label, Input, CustomInput } from 'reactstrap';
-import { AuthContext } from "../../../Context/Contexts/AuthContext";
-import { ContractContext } from "../../../Context/Contexts/ContractContext";
-
-const RawProductsComponent = () => {
-    const { authState } = useContext(AuthContext);
-    const { contractState } = useContext(ContractContext);
+const RawProductsComponent = ({farmerContract, manufacturerContract, account}) => {
     const [rawProducts, setRawProducts] = useState([]);
     const [farmerAddresses, setFarmerAddress] = useState({});
     const [farmerDetailsArray, setFarmerDetailsArray] = useState([])
     
     useEffect(()=>{
-        if(contractState.farmer){            
+        if(farmerContract){            
             (async ()=>{
-                const temp = await contractState.farmer.methods.getFarmersList().call();
+                const temp = await farmerContract.methods.getFarmersList().call();
                 setFarmerDetailsArray(temp);
             })();           
         }
-    },[contractState])
+    },[farmerContract])
     
     const handleSubmit = async(e) => {     
         e.preventDefault();   
@@ -25,10 +20,10 @@ const RawProductsComponent = () => {
         for(var i =0;i<rawProducts.length;i++){
             farmerAddressesArr.push(farmerAddresses[rawProducts[i]]);
         }        
-        await contractState.manufacturer.methods.updateRawProducts(
+        await manufacturerContract.methods.updateRawProducts(
             rawProducts,
             farmerAddressesArr
-        ).send({from: authState.auth.id})
+        ).send({from:account})
         window.location.reload(false);
     }
     

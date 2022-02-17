@@ -1,12 +1,7 @@
-import { useState, useContext } from 'react';
+import { useState } from 'react';
 import {Button, Form, FormGroup, Label, Input, CustomInput } from 'reactstrap';
-import { AuthContext } from '../../../Context/Contexts/AuthContext';
-import { ContractContext } from '../../../Context/Contexts/ContractContext';
 
-const FarmerRegistration = () => {
-    const { authState, authDispatch } = useContext(AuthContext);
-    const { contractState, contractDispatch} = useContext(ContractContext);    
-
+const FarmerRegistration = ({farmerContract, account}) => {
     const [values, setValues] = useState({
         name: "",
         region: "",
@@ -33,11 +28,11 @@ const FarmerRegistration = () => {
     };
     const handleSubmit =async (e) =>{
         e.preventDefault();        
-        await contractState.farmer.methods.addFarmer(
+        await farmerContract.methods.addFarmer(
             values.name,
             values.region,
             values.rawProducts
-        ).send({from: authState.address})
+        ).send({from: account})
         window.location.reload(false);
     }
     return(

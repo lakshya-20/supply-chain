@@ -1,11 +1,7 @@
-import { useState, useContext } from 'react';
+import { useState } from 'react';
 import {Button, Form, FormGroup, Input } from 'reactstrap';
-import { AuthContext } from '../../../Context/Contexts/AuthContext';
-import { ContractContext } from '../../../Context/Contexts/ContractContext';
 
-const StakeholderRegistration = ({role}) => {
-    const { authState, authDispatch } = useContext(AuthContext);
-    const { contractState, contractDispatch} = useContext(ContractContext);    
+const StakeholderRegistration = ({stakeHolderContract, account, role}) => {
     const [values, setValues] = useState({
         name: ""
     });
@@ -18,10 +14,10 @@ const StakeholderRegistration = ({role}) => {
     };
     const handleSubmit =async (e) =>{        
         e.preventDefault();
-        await contractState.stakeholder.methods.addStakeHolder(
+        await stakeHolderContract.methods.addStakeHolder(
             values.name,
             role
-        ).send({from: authState.address})
+        ).send({from: account})
         window.location.reload(false);
     }
     return(

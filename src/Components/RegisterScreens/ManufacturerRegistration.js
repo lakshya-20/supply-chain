@@ -1,10 +1,6 @@
-import { useEffect, useState, useContext } from 'react';
+import { useEffect, useState } from 'react';
 import {Button, Form, FormGroup, Label, Input, CustomInput } from 'reactstrap';
-import { AuthContext } from '../../../Context/Contexts/AuthContext';
-import { ContractContext } from '../../../Context/Contexts/ContractContext';
-const ManufacturerRegistration = () => {
-    const { authState, authDispatch } = useContext(AuthContext);
-    const { contractState, contractDispatch} = useContext(ContractContext);    
+const ManufacturerRegistration = ({farmerContract, manufacturerContract, account}) => {
     const [values, setValues] = useState({
         name: "",
         region: "",
@@ -14,9 +10,9 @@ const ManufacturerRegistration = () => {
     const [rawFarmerAddresses, setRawFarmerAddress] = useState({});
     const [farmerAddressArray, setFarmerAddressArray] = useState([]);
     useEffect(()=>{
-        if(contractState.farmer){
+        if(farmerContract){
             (async ()=>{
-                const temp = await contractState.farmer.methods.getFarmersList().call();
+                const temp = await farmerContract.methods.getFarmersList().call();
                 setFarmerAddressArray(temp);
             })();
         }
@@ -53,11 +49,11 @@ const ManufacturerRegistration = () => {
         for(var i=0; i<values.rawProducts.length; i++){
             values.farmerAddress.push(rawFarmerAddresses[values.rawProducts[i]]);
         } 
-        await contractState.manufacturer.methods.addManufacturer(
+        await manufacturerContract.methods.addManufacturer(
             values.name,
             values.rawProducts,
             values.farmerAddress
-        ).send({from: authState.address})
+        ).send({from: account})
         window.location.reload(false);
     }
     return ( 
