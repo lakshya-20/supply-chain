@@ -1,0 +1,38 @@
+:root{
+    --primary-bg: #28559A;
+    --primary-color:  #ffffff;
+    --col1: #150734;
+    --col2: #0F2557;
+    --col3: #28559A;
+    --col4: #63BCE5;
+    --col5: #7ED5EA;
+}
+.firstHeading{
+    color: var(--col1);
+    font-weight: bold;
+    font-size: 2vw;
+    text-transform: uppercase;
+    border-bottom: var(--col1) double;
+}
+.secondHeading{
+    font-weight: bold;
+    font-size: 1.5vw;
+    color: var(--col1);
+}
+.registerBox{
+    /* background-color: var(--col5);     */
+    background: rgb(40,85,154);
+    background: linear-gradient(90deg, rgba(40,85,154,1) 0%, rgba(75,159,225,1) 35%, rgba(126,213,234,1) 100%);
+    height: 80px;
+    text-align: center;
+    vertical-align: middle;
+    line-height: 80px; 
+    color: var(--col1);
+    font-weight: 500;
+    font-size: large;
+    border-radius: 10px;
+}
+.registerImg {
+    width: 400px;
+    height: 400px;
+}
