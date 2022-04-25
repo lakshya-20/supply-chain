@@ -2,7 +2,7 @@ pragma solidity >=0.4.22 <0.9.0;
 
 import './Farmer.sol';
 import './Manufacturer.sol';
-import './StakeHolder.sol';
+import './Stakeholder.sol';
 import './Product.sol';
 
 contract Main{
@@ -10,13 +10,13 @@ contract Main{
     address public adminAddress;
     Farmer public farmer;
     Manufacturer public manufacturer;
-    StakeHolder public stakeHolder;
+    Stakeholder public stakeholder;
     Product public product;
     
-    constructor(Farmer _farmer, Manufacturer _manufacturer, StakeHolder _stakeHolder, Product _product) public {
+    constructor(Farmer _farmer, Manufacturer _manufacturer, Stakeholder _stakeholder, Product _product) public {
         farmer = _farmer;
         manufacturer = _manufacturer;
-        stakeHolder = _stakeHolder;
+        stakeholder = _stakeholder;
         product = _product;
         adminAddress = msg.sender;
     }
