@@ -10,7 +10,7 @@ contract Stakeholder is Admin{
     string role;
   }
 
-  mapping(address => stakeholder) private _stakeholders;
+  mapping(address => stakeholder) _stakeholders;
   mapping(address => mapping(uint256 => bool)) _stakeholderProductOwnership;
   mapping(address => mapping(address => bool)) _operatorApprovals;
 
@@ -25,7 +25,7 @@ contract Stakeholder is Admin{
     return true;
   }
   
-  function get(address _id) public view virtual onlyStakeholder(_id) returns(stakeholder memory){
+  function get(address _id) public view onlyStakeholder(_id) returns(stakeholder memory){
     return _stakeholders[_id];
   }
 
