@@ -1,6 +1,8 @@
 // SPDX-License-Identifier: MIT
 pragma solidity ^0.8.0;
 import './Stakeholder.sol';
+import './Farmer.sol';
+
 contract Manufacturer is Stakeholder {
 
   struct rawProduct{
@@ -9,22 +11,31 @@ contract Manufacturer is Stakeholder {
     bool isVerified;
   }
 
+  struct supplier{
+    address id;
+    bool isVerified;
+  }
+
   mapping(address => bool) public _isRenewableUsed;
   mapping(address => string[]) public _rawProducts;
-  mapping(string => address[]) public _rawProductSuppliers;
-  mapping(string => bool) public _rawProductVerified;
+  mapping(address => mapping(string => address[])) public _rawProductSuppliers;
+  mapping(address => mapping(string => bool)) public _rawProductVerified;
   mapping(address => uint256[]) public _launchedProducts;
 
   constructor() Stakeholder() {}
 
-  function register(string memory _name, string memory _location) public override returns (bool) {
+  function register(
+    string memory _name, 
+    string memory _location,
+    string memory _role
+  ) public override returns (bool) {
     require (_stakeholders[msg.sender].id ==  address(0), "Manufacturer::registerManufacturer: Manufacturer already registered");
-    _stakeholders[msg.sender] = stakeholder(msg.sender, _name, _location, "manufacturer", false);
+    _stakeholders[msg.sender] = stakeholder(msg.sender, _name, _location, _role, false);
     _isRenewableUsed[msg.sender] = false;
     return true;
   }
 
-  function addRawProduct(string memory _name, address _supplier) public returns (bool){
+  function addRawProduct(string memory _name, supplier[] memory _suppliers) public returns (bool){
     bool productAlreadyAdded = false;
     for (uint i = 0; i < _rawProducts[msg.sender].length; i++) {
       if (keccak256(abi.encodePacked((_rawProducts[msg.sender][i]))) == keccak256(abi.encodePacked((_name)))) {
@@ -34,8 +45,27 @@ contract Manufacturer is Stakeholder {
     if(!productAlreadyAdded){
       _rawProducts[msg.sender].push(_name);
     }
-    _rawProductSuppliers[_name].push(_supplier);
-    _rawProductVerified[_name] = super.get(_supplier).isVerified && _rawProductVerified[_name];
+    _rawProductVerified[msg.sender][_name] = true;
+    for(uint i =0; i < _suppliers.length; i++){
+      _rawProductSuppliers[msg.sender][_name].push(_suppliers[i].id);
+      _rawProductVerified[msg.sender][_name] = _rawProductVerified[msg.sender][_name] && _suppliers[i].isVerified;
+    }
+    return true;
+  }
+
+  function getManufacturerRawProductDetails(address _id) public view returns (rawProduct[] memory){
+    rawProduct[] memory rawProducts = new rawProduct[](_rawProducts[_id].length);
+    for (uint i = 0; i < _rawProducts[_id].length; i++) {
+      rawProducts[i].name = _rawProducts[_id][i];
+      rawProducts[i].boughtFromIds = _rawProductSuppliers[_id][_rawProducts[_id][i]];
+      rawProducts[i].isVerified = _rawProductVerified[_id][_rawProducts[_id][i]];
+    }
+    return rawProducts;
+  }
+
+  function launchProduct(uint256 _id) public returns (bool) {
+    _launchedProducts[msg.sender].push(_id);
+    _stakeholderProductOwnership[msg.sender][_id] = true;
     return true;
   }
 
