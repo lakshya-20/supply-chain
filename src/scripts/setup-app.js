@@ -79,5 +79,13 @@ module.exports = async (callback) => {
   console.log(await productContract.get(123, {from: consumer}));
   await productContract.transfer(consumer, 123, {from: retailer});
   console.log(await productContract.get(123, {from: consumer}));
+
+  await productContract.addReview(123, 70, "Good product", {from: consumer});
+  console.log(await productContract.get(123, {from: consumer}));
+  await productContract.addReview(123, 90, "Value for money", {from: consumer});
+  console.log(await productContract.get(123, {from: consumer}));
+  await productContract.addReview(123, 60, "Useful", {from: consumer});
+  console.log(await productContract.get(123, {from: consumer}));
+
   callback();
 }
