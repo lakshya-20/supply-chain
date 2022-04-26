@@ -71,7 +71,7 @@ contract Product {
     for (uint256 i = 0; i < _itemTransactions[_id].length; i++){
       transactions[i] = _transactions[_itemTransactions[_id][i]];
     }
-    reviews = new Review[](0);
+    reviews = new Review[](_itemReviews[_id].length);
     for (uint256 i = 0; i < _itemReviews[_id].length; i++){
       reviews[i] = _reviews[_itemReviews[_id][i]];
     }
@@ -105,6 +105,9 @@ contract Product {
       comment: _comment,
       reviewer: msg.sender
     });
+    _items[_id].rating = (_items[_id].rating * _itemReviews[_id].length + _rating) / (_itemReviews[_id].length + 1);
+    _itemReviews[_id].push(_nextReviewId);
+    _nextReviewId++;
     return true;
   }
 
