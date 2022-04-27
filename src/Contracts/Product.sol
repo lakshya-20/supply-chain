@@ -34,10 +34,10 @@ contract Product {
   mapping(uint256 => Item) public _items;
   mapping(uint256 => Review) _reviews;
   mapping(uint256 => Transaction) _transactions;
-  mapping(uint256 => mapping(string => bool)) _rawMaterials;
 
   mapping(uint256 => uint256[]) _itemTransactions;
   mapping(uint256 => uint256[]) _itemReviews;
+  mapping(uint256 => RawProduct[]) _itemRawProducts;
 
   uint256 _nextTransactionId;
   uint256 _nextReviewId;
@@ -47,7 +47,7 @@ contract Product {
     _nextReviewId = 0;
   }
 
-  function add(uint256 _id, string memory _title) public returns (bool){
+  function add(uint256 _id, string memory _title, RawProduct[] memory _rawProducts) public returns (bool){
     address _manufacturer = msg.sender;
     require (_manufacturer != address(0), "Product::add: Manufacturer cannot be null");
     _items[_id] = Item({
@@ -58,13 +58,17 @@ contract Product {
       lastOwner: address(0),
       rating: 0
     });
+    for(uint i = 0; i < _rawProducts.length; i++){
+      _itemRawProducts[_id].push(_rawProducts[i]);
+    }
     return true;
   }
 
   function get(uint256 _id) public view returns (
     Item memory item, 
     Transaction[] memory transactions, 
-    Review[] memory reviews
+    Review[] memory reviews,
+    RawProduct[] memory rawProducts
   ){
     item = _items[_id];
     transactions = new Transaction[](_itemTransactions[_id].length);
@@ -75,6 +79,7 @@ contract Product {
     for (uint256 i = 0; i < _itemReviews[_id].length; i++){
       reviews[i] = _reviews[_itemReviews[_id][i]];
     }
+    rawProducts = _itemRawProducts[_id];
   }
 
   function transfer(address _to, uint256 _id) public returns (bool){
