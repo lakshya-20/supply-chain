@@ -6,6 +6,10 @@ contract Admin{
   constructor(address _admin){
     admin = _admin;
   }
+
+  function isAdmin(address _account) public view returns (bool){
+    return _account == admin;
+  }
   
   modifier onlyAdmin{
     require(msg.sender == admin);
