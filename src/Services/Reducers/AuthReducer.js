@@ -38,7 +38,7 @@ export const authReducuer = (state, action) => {
         ...state, 
         isLoading: false, 
         errMess: null, 
-        isAuthenticated: false, 
+        isAuthenticated: true, 
         address: action.payload.address, 
         role: null
       }
