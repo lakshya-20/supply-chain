@@ -22,6 +22,7 @@ module.exports = async (callback) => {
   const retailer = accounts[5];
   const consumer = accounts[6];
 
+  await stakeholderContract.register("Admin", "Internet", "admin", { from: admin });
   await farmerContract.registerFarmer("Farmer 1", "West India", "farmer", ["Milk", "Cocoa", "Sugar", "Apple"], { from: farmer1 });
   await farmerContract.registerFarmer("Farmer 2", "North India", "farmer", ["Rice", "Cocoa", "Wheat", "Tomato", "Sugar"], { from: farmer2 });
   await manufacturerContract.register("Cadbury", "Uxbridge, United Kingdom", "manufacturer", { from: manufacturer });
