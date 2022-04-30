@@ -1,8 +1,8 @@
+import Routes from "../../Routes";
+
 const Main  = () => {
   return (
-    <div>
-      Main Component
-    </div>
+    <Routes/>
   )
 }
 export default Main;
