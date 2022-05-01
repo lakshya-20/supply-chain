@@ -1,8 +1,10 @@
 import { useContext, useState } from "react";
 import { Collapse, Nav, Navbar, NavbarBrand, NavbarText, NavbarToggler, NavItem } from "reactstrap";
-import { AuthContext } from "../../Services/Contexts/AuthContext";
 import { NavLink } from 'react-router-dom';
+
 import logo from '../../Assests/Images/logo_mini.png';
+import { AuthContext } from "../../Services/Contexts/AuthContext";
+
 const Header = () => {
   const {authState, connectWallet, logout}  = useContext(AuthContext);
   const [isNavOpen, setIsNavOpen] = useState(false);
@@ -23,7 +25,48 @@ const Header = () => {
   }
 
   const roleNavLinks = () => {
-    
+    switch(role) {
+      case 'admin':
+        return (
+          <>
+          <NavItem>
+            <NavLink to="/admin/verify/farmer" className="nav-link">Verify Farmer</NavLink>
+          </NavItem>
+          <NavItem>
+            <NavLink to="/admin/verify/manufacturer" className="nav-link">Verify Manufacturer</NavLink>
+          </NavItem>
+          </>
+        )
+      case 'farmer':
+        return (
+          <>
+          <NavItem>
+            <NavLink to={`/farmers/${authState.stakeholder.id}`} className="nav-link">Profile</NavLink>
+          </NavItem>
+          </>
+        )
+      case 'manufacturer':
+        return (
+          <>
+          <NavItem>
+            <NavLink to={`/manufacturers/${authState.stakeholder.id}`} className="nav-link">Profile</NavLink>
+          </NavItem>
+          <NavItem>
+            <NavLink to="/manufacturers/launchProduct" className="nav-link">Launch Product</NavLink>
+          </NavItem>
+          </>
+        )
+      case 'new': 
+        return (
+          <>
+          <NavItem>
+            <NavLink to="register" className="nav-link">Register</NavLink>
+          </NavItem>
+          </>
+        )
+      default:
+        return null;
+    }
   }
 
   return (
