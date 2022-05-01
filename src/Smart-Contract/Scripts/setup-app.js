@@ -34,6 +34,7 @@ module.exports = async (callback) => {
   console.log(await farmerContract.getFarmer(farmer2, { from: farmer2 }));
   console.log(await manufacturerContract.get(manufacturer, { from: manufacturer }));
   console.log(await stakeholderContract.get(distributer, { from: distributer }));
+  console.log(await stakeholderContract.get(accounts[7], { from: accounts[7] }));
   console.log(await farmerContract.getRawProductFarmers("Cocoa", { from: farmer1 }));
   
   await farmerContract.verify(farmer2, { from: admin });
