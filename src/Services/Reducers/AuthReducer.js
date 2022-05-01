@@ -54,7 +54,7 @@ export const authReducuer = (state, action) => {
     case ActionTypes.AUTH_STATE_STAKEHOLDER:
       return {
         ...state,
-        role: action.payload.stakeholder
+        stakeholder: action.payload.stakeholder
       }
   }
 }
