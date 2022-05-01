@@ -22,7 +22,7 @@ export const authStateLogout = () => ({
   type: ActionTypes.AUTH_STATE_LOGOUT
 })
 
-export const authStateRole = (stakeholder) => ({
+export const authStateStakeholder = (stakeholder) => ({
   type: ActionTypes.AUTH_STATE_STAKEHOLDER,
   payload: { stakeholder }
 })
