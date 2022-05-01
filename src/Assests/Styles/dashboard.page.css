@@ -17,3 +17,12 @@
   font-weight: 500;
   color: #482673;
 }
+
+.mw-heading {
+  color: #023B59;
+  text-transform: uppercase;
+}
+
+.mw-sub-heading {
+  color: #ED0870;
+}
