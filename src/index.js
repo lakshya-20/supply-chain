@@ -10,13 +10,12 @@ ReactDOM.render(
   <React.StrictMode>
     <App />
     <ToastContainer
-      position="top-right"
+      position="bottom-center"
       autoClose={3000}
       hideProgressBar={false}
       newestOnTop={false}
       closeOnClick
       rtl={false}
-      pauseOnFocusLoss
       draggable
       pauseOnHover
     />
