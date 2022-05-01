@@ -23,3 +23,8 @@ export const contractStateProduct = (contract) => ({
   type: ActionTypes.CONTRACT_STATE_PRODUCT,
   payload: { contract }
 })
+
+export const contractStateStats = (stats) => ({
+  type: ActionTypes.CONTRACT_STATE_STATS,
+  payload: {stats}
+})

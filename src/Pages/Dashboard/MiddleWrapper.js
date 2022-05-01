@@ -39,7 +39,7 @@ const MiddleWrapper = () => {
   ]
   return (
     <div className="middle-wrapper">
-      <h5 className="text-center mw-heading" >
+      <h5 className="mw-heading" >
         Stay <b>"Consumer Ready"</b> with Blockchain Powered End To End Consumer Experience Platform
       </h5>
       <Carousel responsive={responsive}>
