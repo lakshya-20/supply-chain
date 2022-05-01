@@ -7,7 +7,7 @@ import Products from '../Pages/Products';
 import Product from '../Pages/Products/product';
 import Register from '../Pages/Register';
 import Admin from '../Pages/Admin';
-import VerifyFarmer from '../Pages/Admin/verifyFarmer';
+import VerifyFarmer from '../Pages/Admin/VerifyFarmer';
 import VerifyManufacturer from '../Pages/Admin/verifyManufacturer';
 import Farmers from '../Pages/Farmers';
 import Farmer from '../Pages/Farmers/farmer';

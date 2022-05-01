@@ -14,6 +14,16 @@ export const contractStateMain = (contract) => ({
   payload: { contract }
 })
 
+export const contractStateFarmer = (contract) => ({
+  type: ActionTypes.CONTRACT_STATE_FARMER,
+  payload: { contract }
+})
+
+export const contractStateManufacturer = (contract) => ({
+  type: ActionTypes.CONTRACT_STATE_MANUFACTURER,
+  payload: { contract }
+})
+
 export const contractStateStakeholder = (contract) => ({
   type: ActionTypes.CONTRACT_STATE_STAKEHOLDER,
   payload: { contract }
