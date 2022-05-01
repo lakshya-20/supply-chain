@@ -110,6 +110,14 @@ module.exports = async (callback) => {
   await productContract.addReview(123, 60, "Useful", {from: consumer});
   console.log(await productContract.get(123, {from: consumer}));
 
+  console.log("Stats: ")
+  var count = await productContract.getProductsCount({from: consumer});
+  console.log("Products: " + count.words[0]);
+  count = await productContract.getTransactionsCount({from: consumer});
+  console.log("Transactions: " + count.words[0]);
+  count = await productContract.getReviewsCount({from: consumer});
+  console.log("Reviews: " + count.words[0]);
+
   console.log(await mainContract.getRole(admin));
   console.log(await mainContract.getRole(farmer1));
   console.log(await mainContract.getRole(farmer2));
