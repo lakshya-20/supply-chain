@@ -1,5 +1,5 @@
 import { useContext } from 'react';
-import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
+import { Routes, Route, Navigate } from 'react-router-dom';
 
 import { AuthContext } from '../Services/Contexts/AuthContext';
 import Dashboard from '../Pages/Dashboard';
@@ -19,19 +19,22 @@ const Routing = () => {
   const {authState}  = useContext(AuthContext);
   const isAuthenticated = authState.isAuthenticated;
   const role = authState.stakeholder.role;
+  const isRegistered = authState.stakeholder.isRegistered;
   const authRoutes = () => {
-    if(isAuthenticated && role){
+    if(isAuthenticated && !isRegistered) {
       return(
         <>
         <Route path="/products" element={<Products/>} />
         <Route path="/products/:id" element={<Product/>} />
+        <Route path="/register" element={<Register/>} />
         </>
       )
     }
     else if(isAuthenticated){
       return(
         <>
-        <Route path="/register" element={<Register/>} />
+        <Route path="/products" element={<Products/>} />
+        <Route path="/products/:id" element={<Product/>} />
         </>
       )
     }
