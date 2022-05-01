@@ -32,6 +32,7 @@ contract Manufacturer is Stakeholder {
     require (_stakeholders[msg.sender].id ==  address(0), "Manufacturer::registerManufacturer: Manufacturer already registered");
     _stakeholders[msg.sender] = stakeholder(msg.sender, _name, _location, _role, false);
     _isRenewableUsed[msg.sender] = false;
+    _stakeholderAddresses.push(msg.sender);
     return true;
   }
 

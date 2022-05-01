@@ -19,6 +19,7 @@ contract Farmer is Stakeholder {
     for (uint i = 0; i < _rawProducts.length; i++) {
       _rawProductFarmers[_rawProducts[i]].push(msg.sender);
     }
+    _stakeholderAddresses.push(msg.sender);
     return true;
   }
 
