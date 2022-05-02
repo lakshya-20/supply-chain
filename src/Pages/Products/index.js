@@ -40,9 +40,11 @@ const Products = () => {
       <div className="heading">Products</div>
       <div className="row">
         {productIds.map((id, index) => (
-          <NavLink className="nav-link" to={`/products/${id}`}>
-            <ProductCard key={index} product={products[id]} />
-          </NavLink>
+          <div className="col-12 col-md-6">
+            <NavLink className="nav-link" to={`/products/${id}`} state={{product: products[id]}}>
+              <ProductCard key={index} product={products[id]} />
+            </NavLink>
+          </div>
         ))}
       </div>
 
