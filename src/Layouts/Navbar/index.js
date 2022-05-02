@@ -76,7 +76,7 @@ const Header = () => {
         expand='md' 
         dark
       >
-        <NavbarBrand href="/" >
+        <NavbarBrand>
           <img src={logo} />
           Global Supply Solutions
         </NavbarBrand>
