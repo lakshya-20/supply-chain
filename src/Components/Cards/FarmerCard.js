@@ -3,7 +3,7 @@ import { useContext, useState, useEffect } from "react";
 import { AuthContext } from "../../Services/Contexts/AuthContext";
 import { ContractContext } from "../../Services/Contexts/ContractContext";
 import Toast from '../Toast';
-import '../../Assests/Styles/stakeholder.card.css';
+import '../../Assests/Styles/card.css';
 import farmer_default from '../../Assests/Images/farmer_default.jpg';
 import { fetchFarmer } from "../../Services/Utils/stakeholder";
 
