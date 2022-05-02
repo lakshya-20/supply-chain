@@ -1,20 +1,22 @@
-import { useContext, useEffect, useState } from "react";
+import { useContext, useState, useEffect } from "react";
 
-import { AuthContext } from "../../../Services/Contexts/AuthContext";
-import { ContractContext } from "../../../Services/Contexts/ContractContext";
-import '../../../Assests/Styles/verify.page.css';
-import Toast from "../../../Components/Toast";
-import farmer_default from "../../../Assests/Images/admin/farmer_default.jpg";
+import { AuthContext } from "../../Services/Contexts/AuthContext";
+import { ContractContext } from "../../Services/Contexts/ContractContext";
+import Toast from '../Toast';
+import '../../Assests/Styles/stakeholder.card.css';
+import farmer_default from '../../Assests/Images/farmer_default.jpg';
 
-const RenderFarmer = ({id}) => {
+const FarmerCard = ({id}) => {
   const {authState} = useContext(AuthContext);
   const {contractState} = useContext(ContractContext);
+  const role = authState.stakeholder.role;
   const [farmer, setFarmer] = useState({
     id: "00000",
     name: "",
     location: "",
     rawProducts: [],
   });
+
   useEffect(() => {
     if(contractState.farmerContract){
       (async() => {
@@ -78,14 +80,16 @@ const RenderFarmer = ({id}) => {
             :
               <span className="">
                 <span className="badge bg-warning">Not Verified</span>
-                <span 
-                  className="badge bg-dark mx-1" 
-                  type="button"
-                  onClick={verify}
-                >
-                  <i class="fa fa-certificate"/>
-                  Verify
-                </span>
+                {role === "admin"?
+                  <span 
+                    className="badge bg-dark mx-1" 
+                    type="button"
+                    onClick={verify}
+                  >
+                    <i class="fa fa-certificate"/>
+                    Verify
+                  </span>
+                : "" }
               </span>
             }
           </span>
@@ -95,4 +99,4 @@ const RenderFarmer = ({id}) => {
     </div>
   )
 }
-export default RenderFarmer;
+export default FarmerCard;
