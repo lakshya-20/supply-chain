@@ -5,10 +5,12 @@ import { ContractContext } from "../../Services/Contexts/ContractContext";
 import '../../Assests/Styles/stakeholder.card.css';
 import Toast from "../Toast";
 import manufacturer_default from "../../Assests/Images/manufacturer_default.jpg";
+import { fetchManufacturer } from "../../Services/Utils/stakeholder";
 
 const ManufacturerCard = ({id}) => {
   const {authState} = useContext(AuthContext);
   const {contractState} = useContext(ContractContext);
+  const role = authState.role;
   const [manufacturer, setManufacturer] = useState({
     id: "00000",
     name: "",
@@ -20,15 +22,11 @@ const ManufacturerCard = ({id}) => {
   useEffect(() => {
     if(contractState.manufacturerContract){
       (async() => {
-        const response = await contractState.manufacturerContract.methods.getManufacturer(id).call({from: id});
-        setManufacturer(manufacturer => {
-          return {
-            ...response.manufacturer,
-            isRenewableUsed: response.isRenewableUsed,
-            formattedAddress: id.substring(0, 6) + "..." + id.substring(id.length - 4, id.length),
-            rawProducts: response.rawProducts
-          }
-        });
+        setManufacturer(await fetchManufacturer(
+          authState.address,
+          contractState.manufacturerContract,
+          id
+        ))
       })();
     }
   }, [])
@@ -91,14 +89,17 @@ const ManufacturerCard = ({id}) => {
             :
               <span className="">
                 <span className="badge bg-warning">Non Renewable</span>
-                <span 
-                  className="badge bg-dark mx-1" 
-                  type="button"
-                  onClick={update}
-                >
-                  <i class="fa fa-fire"/>
-                  Update
-                </span>
+                {role === "admin"?
+                  <span 
+                    className="badge bg-dark mx-1" 
+                    type="button"
+                    onClick={update}
+                  >
+                    <i class="fa fa-fire"/>
+                    Update
+                  </span>
+                : ""
+                }
               </span>
             }
           </span>
@@ -112,14 +113,17 @@ const ManufacturerCard = ({id}) => {
             :
               <span className="">
                 <span className="badge bg-warning">Not Verified</span>
-                <span 
-                  className="badge bg-dark mx-1" 
-                  type="button"
-                  onClick={verify}
-                >
-                  <i class="fa fa-certificate"/>
-                  Verify
-                </span>
+                {role === "admin"? 
+                  <span 
+                    className="badge bg-dark mx-1" 
+                    type="button"
+                    onClick={verify}
+                  >
+                    <i class="fa fa-certificate"/>
+                    Verify
+                  </span>
+                : ""
+                }
               </span>
             }
           </span>
