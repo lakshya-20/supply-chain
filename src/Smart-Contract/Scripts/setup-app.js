@@ -81,6 +81,8 @@ module.exports = async (callback) => {
   }
   console.log(manufacturerRawProductsMap);
 
+  console.log(await manufacturerContract.getManufacturer(manufacturer, {from : admin}));
+
   await productContract.add(
     123, 
     "Dairy Milk", 
