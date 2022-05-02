@@ -31,6 +31,7 @@ contract Product {
     uint256 rating;
   }
 
+  uint256[] public _itemIds;
   mapping(uint256 => Item) public _items;
   mapping(uint256 => Review) _reviews;
   mapping(uint256 => Transaction) _transactions;
@@ -41,12 +42,10 @@ contract Product {
 
   uint256 _nextTransactionId;
   uint256 _nextReviewId;
-  uint256 _productsCount;
 
   constructor() {
     _nextTransactionId = 0;
     _nextReviewId = 0;
-    _productsCount = 0;
   }
 
   function add(uint256 _id, string memory _title, RawProduct[] memory _rawProducts) public returns (bool){
@@ -63,7 +62,7 @@ contract Product {
     for(uint i = 0; i < _rawProducts.length; i++){
       _itemRawProducts[_id].push(_rawProducts[i]);
     }
-    _productsCount++;
+    _itemIds.push(_id);
     return true;
   }
 
@@ -119,8 +118,12 @@ contract Product {
     return true;
   }
 
+  function getItemIds() public view returns (uint256[] memory){
+    return _itemIds;
+  }
+
   function getProductsCount() public view returns (uint256){
-    return _productsCount;
+    return _itemIds.length;
   }
 
   function getTransactionsCount() public view returns (uint256){
