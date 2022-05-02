@@ -1,8 +1,7 @@
 import product_default from '../../Assests/Images/product_default.jpg';
 const ProductCard = ({product}) => {
-  console.log(product)
   return (
-    <div className="col-12 col-lg-6 my-1">
+    <div className="my-1">
       <div className="row d-flex justify-content-around align-items-center">
         <div className="col-12 col-md-4">
           <img 
