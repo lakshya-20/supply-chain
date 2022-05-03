@@ -93,7 +93,7 @@ const Product = () => {
     },
     {
       "icon": <i className="fa fa-check fa-2x"/>,
-      "label": "Verified Products"
+      "label": "Genuine Products"
     }
   ]
   return (

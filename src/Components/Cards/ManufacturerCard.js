@@ -10,7 +10,7 @@ import { fetchManufacturer } from "../../Services/Utils/stakeholder";
 const ManufacturerCard = ({id}) => {
   const {authState} = useContext(AuthContext);
   const {contractState} = useContext(ContractContext);
-  const role = authState.role;
+  const role = authState.stakeholder.role;
   const [manufacturer, setManufacturer] = useState({
     id: "00000",
     name: "",
