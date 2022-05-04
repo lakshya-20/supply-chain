@@ -137,7 +137,8 @@ const Product = () => {
           </span>
           <br/>
           <div className='tw-transfer-wrapper'>
-            <input type="text" placeholder='address' onChange={
+            <input type="text" placeholder='address' disabled={!isOwner}
+            onChange={
               (e) => {
                 setTransferState({
                   ...transfer,
@@ -147,7 +148,10 @@ const Product = () => {
             }/>
             &nbsp;
             &nbsp;
-            <button onClick={transfer}>Transfer</button>
+            <button 
+              disabled={!isOwner}
+              onClick={transfer}
+            >Transfer</button>
           </div>
         </div>
       </div>
