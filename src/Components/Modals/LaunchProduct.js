@@ -8,7 +8,7 @@ import Toast from "../Toast";
 
 const LaunchProduct = ({isModalOpen, toggleModal}) => {
   const { authState } = useContext(AuthContext);
-  const { contractState } = useContext(ContractContext);
+  const { contractState, updateStats } = useContext(ContractContext);
   const [product, setProduct] = useState({
     id: "",
     title: "",
@@ -68,6 +68,7 @@ const LaunchProduct = ({isModalOpen, toggleModal}) => {
       selectedRawProducts: {}
     })
     toggleModal();
+    updateStats();
   }
 
   return (
