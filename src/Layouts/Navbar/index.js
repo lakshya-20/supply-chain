@@ -51,9 +51,6 @@ const Header = () => {
           <NavItem>
             <NavLink to={`/manufacturers/${authState.stakeholder.id}`} className="nav-link">Profile</NavLink>
           </NavItem>
-          <NavItem>
-            <NavLink to="/manufacturers/launchProduct" className="nav-link">Launch Product</NavLink>
-          </NavItem>
           </>
         )
       case 'new': 
