@@ -67,11 +67,13 @@ contract Manufacturer is Stakeholder {
   function getManufacturer(address id) public view returns (
     stakeholder memory manufacturer,
     bool isRenewableUsed,
-    rawProduct[] memory rawProducts
+    rawProduct[] memory rawProducts,
+    uint256[] memory launchedProductIds
   ){
     manufacturer = stakeholder(id, _stakeholders[id].name, _stakeholders[id].location, _stakeholders[id].role, _stakeholders[id].isVerified);
     isRenewableUsed = _isRenewableUsed[id];
     rawProducts = getManufacturerRawProductDetails(id);
+    launchedProductIds = _launchedProducts[id];
   }
 
   function launchProduct(uint256 _id) public returns (bool) {
