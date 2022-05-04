@@ -40,20 +40,20 @@ const Farmer = () => {
   }
 
   return (
-    <div className="" align="center">
-      <div className = "">
+    <div className="">
+      <div className = "d-flex justify-content-center">
         {farmer.formattedAddress?
           <FarmerCard id={farmerAddress} farmerObject={farmer}/>
         :
         <div>Loading...</div>}
-        <div>
-          <input type="text" placeholder="Raw product" onChange={
-            (e) => {
-              setAddRPState(e.target.value);
-            }
-          }/>
-          <button onClick={addRawProduct}>Add</button>
-        </div>
+      </div>
+      <div className="d-flex justify-content-center">
+        <input type="text" placeholder="Raw product" onChange={
+          (e) => {
+            setAddRPState(e.target.value);
+          }
+        }/>
+        <button onClick={addRawProduct}>Add</button>
       </div>
     </div>
   )
