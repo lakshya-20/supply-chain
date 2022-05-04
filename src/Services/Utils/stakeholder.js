@@ -13,7 +13,8 @@ export const fetchManufacturer = async (curr_address, manufacturerContract, id) 
     ...response.manufacturer,
     isRenewableUsed: response.isRenewableUsed,
     formattedAddress: id.substring(0, 6) + "..." + id.substring(id.length - 4, id.length),
-    rawProducts: response.rawProducts
+    rawProducts: response.rawProducts,
+    launchedProductIds: response.launchedProductIds
   }
 }
 
