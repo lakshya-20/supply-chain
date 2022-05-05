@@ -6,7 +6,7 @@ import { AuthContext } from "../../Services/Contexts/AuthContext"
 import { ContractContext } from "../../Services/Contexts/ContractContext";
 import Toast from "../Toast";
 
-const LaunchProduct = ({isModalOpen, toggleModal}) => {
+const LaunchProduct = ({isModalOpen, toggleModal, manufacturerRP}) => {
   const { authState } = useContext(AuthContext);
   const { contractState, updateStats } = useContext(ContractContext);
   const [product, setProduct] = useState({
@@ -14,22 +14,6 @@ const LaunchProduct = ({isModalOpen, toggleModal}) => {
     title: "",
     selectedRawProducts: {}
   })
-
-  const [manufacturerRP, setManufacturerRP] = useState({});
-
-  useEffect(() => {
-    if (contractState.manufacturerContract) {
-      (async () => {
-        const rawProducts = await contractState.manufacturerContract.methods.getManufacturerRawProductDetails(authState.address).call();
-        const manufacturerRP = {};
-        for(var i = 0; i<rawProducts.length; i++){
-          manufacturerRP[i] = rawProducts[i];
-        }
-        setManufacturerRP(manufacturerRP);
-      }
-      )()
-    }
-  }, [])
 
   const toggleRP = (rawProductIndex) => {
     setProduct(product => {
