@@ -16,7 +16,3 @@ export const fetchManufacturer = async (curr_address, manufacturerContract, id) 
     rawProducts: response.rawProducts
   }
 }
-
-export const formattedAddress = (address) => {
-  return address.substring(0,6) + "..." + address.substring(address.length - 4);
-}
