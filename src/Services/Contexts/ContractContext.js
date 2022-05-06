@@ -1,14 +1,13 @@
 import { createContext, useContext, useEffect, useReducer, useState } from "react";
 import { contractReducer } from "../Reducers/ContractReducer";
+import { contractStateMain, contractStateProduct, contractStateStakeholder } from '../Actions/ContractActionCreator';
+import { AuthContext } from "./AuthContext";
 
 import MainContract from '../../Smart-Contract/ABI/Main.json';
 import StakeholderContract from '../../Smart-Contract/ABI/Stakeholder.json';
 import FarmerContract from '../../Smart-Contract/ABI/Farmer.json';
 import ManufacturerContract from '../../Smart-Contract/ABI/Manufacturer.json';
 import ProductContract from '../../Smart-Contract/ABI/Product.json';
-import { contractStateMain, contractStateProduct, contractStateStakeholder } from '../Actions/ContractActionCreator';
-import { authStateStakeholder } from '../Actions/AuthActionCreator';
-import { AuthContext } from "./AuthContext";
 
 export const ContractContext = createContext();
 export const ContractContextProvider = ({children}) => {
@@ -59,17 +58,7 @@ export const ContractContextProvider = ({children}) => {
 
   useEffect(() => {
     (async () => {
-      if(contractState.stakeholderContract){
-        let stakeholderDetails = await contractState.stakeholderContract.methods.get(authState.address).call({from: authState.address});
-        stakeholderDetails = {
-          id: stakeholderDetails.id,
-          name: stakeholderDetails.name,
-          location: stakeholderDetails.location,
-          role: stakeholderDetails.role == "" ? "new" : stakeholderDetails.role,
-          isVerified: stakeholderDetails.isVerified
-        }
-        authDispatch(authStateStakeholder(stakeholderDetails));
-      }
+      //dispatch stakeholder details
     })();
   }, [contractState.stakeholderContract])
 
