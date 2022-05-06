@@ -1,0 +1,18 @@
+.supplier-wrapper-label {
+  font-size: large;
+  text-transform: uppercase;
+}
+
+.raw-product-card {
+  border-radius: 5px;
+  box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.2);
+  background-color: #fff;
+}
+
+.raw-product-card-selected {
+  background-color: #999999;
+}
+
+.raw-product-card-name {
+  font-weight: bold;
+}
