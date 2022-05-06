@@ -80,9 +80,4 @@ contract Manufacturer is Stakeholder {
     return true;
   }
 
-  function updateEnergy(address id) public onlyAdmin returns (bool) {
-    _isRenewableUsed[id] = true;
-    return true;
-  }
-
 }
