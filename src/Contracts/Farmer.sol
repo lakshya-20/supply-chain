@@ -1,52 +1,45 @@
-// SPDX-License-Identifier: MIT
-pragma solidity ^0.8.0;
-import './Stakeholder.sol';
-contract Farmer is Stakeholder {
-  mapping(address => bool) public _farmerVerified;
-  mapping(address => string[]) public _farmerRawProducts;
-  mapping(string => address[]) public _rawProductFarmers;
-
-  constructor() Stakeholder() {}
-
-  function register(string memory _name, string memory _location) public override returns (bool) {
-    require (_stakeholders[msg.sender].id ==  address(0), "Farmer::registerFarmer: Farmer already registered");
-    _stakeholders[msg.sender] = stakeholder(msg.sender, _name, _location, "farmer");
-    _farmerVerified[msg.sender] = false;
-    _farmerRawProducts[msg.sender] = new string[](0);
-    return true;
-  }
-
-  function addRawProduct(string memory _rawProduct) public returns (bool) {
-    bool productAlreadyAdded = false;
-    for (uint i = 0; i < _farmerRawProducts[msg.sender].length; i++) {
-      if (keccak256(abi.encodePacked((_farmerRawProducts[msg.sender][i]))) == keccak256(abi.encodePacked((_rawProduct)))) {
-        productAlreadyAdded = true;
-      }
+pragma solidity >=0.4.22 <0.9.0;
+pragma experimental ABIEncoderV2;
+contract Farmer {
+    struct Farmer{
+        address id;
+        string name;
+        string region;
+        bool isVerified;
+        bool isValue; //to verify value exists in mapping or not
+        string [] rawProducts;         
     }
-    require(!productAlreadyAdded, "Farmer::addRawProduct: Raw product already added");
-    _farmerRawProducts[msg.sender].push(_rawProduct);
-    _rawProductFarmers[_rawProduct].push(msg.sender);
-    return true;
-  }
+    address private adminAddress;
+    address [] private farmersList;
+    mapping(address => Farmer) private farmers;    
 
-  function verify(address farmer) public onlyAdmin returns (bool){
-    _farmerVerified[farmer] = true;
-    return true;
-  }
+    constructor() public {
+        adminAddress = msg.sender;
+    }
 
-  function getFarmer(address _id) public view onlyStakeholder(_id) returns(
-    stakeholder memory,
-    bool farmerVerified,
-    string[] memory farmerRawProducts
-  ){
-    stakeholder memory stakeholder = super.get(_id);
-    farmerVerified = _farmerVerified[_id];
-    farmerRawProducts = _farmerRawProducts[_id];
-    return (stakeholder, farmerVerified, farmerRawProducts);
-  }
+    //get list of ids of all farmers
+    function getFarmersList() public view returns(address[] memory){
+        return farmersList;
+    }
 
-  function getRawProductFarmers(string memory _rawProduct) public view returns (address[] memory) {
-    return _rawProductFarmers[_rawProduct];
-  }
+    //get farmer by id
+    function getFarmer(address id) public view returns(Farmer memory){
+        return farmers[id];
+    }
 
+    //Adding new farmer
+    function addFarmer(
+        string memory name,
+        string memory region,
+        string[] memory rawProducts
+    ) public {
+        farmers[msg.sender] = Farmer(msg.sender,name,region,false,true,rawProducts);
+        farmersList.push(msg.sender);
+    }
+
+    //Verify farmer
+    function verifyFarmer(address id) public {
+        require(msg.sender == adminAddress, "Farmer::verify: Only admin can verify an identity");
+        farmers[id].isVerified = true;
+    }
 }
