@@ -63,6 +63,7 @@ const Routing = () => {
         <>
         <Route path="/manufacturers" element={<Manufacturers/>} />
         <Route path="/manufacturers/:id" element={<Manufacturer/>} />
+        <Route path="/manufacturers/launchProduct" element={<LaunchProduct/>} />
         </>
       )
     }
