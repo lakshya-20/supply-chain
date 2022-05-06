@@ -41,10 +41,5 @@ export const contractReducer = (state, action) => {
         errMess: null,
         productContract: action.payload.contract
       }
-    case ActionTypes.CONTRACT_STATE_STATS:
-      return {
-        ...state,
-        stats: action.payload.stats
-      }
   }
 }
