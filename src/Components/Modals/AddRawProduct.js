@@ -101,12 +101,7 @@ const AddRawProduct = ({isModalOpen, toggleModalOpen}) => {
             {Object.keys(rawProduct.suppliers).map((supplierIndex) => {
               const supplier = rawProduct.suppliers[supplierIndex];
               return (
-                <div key={supplierIndex} 
-                  className={`my-2 p-1 supplier-card 
-                    ${rawProduct.selectedSuppliers[supplierIndex]? "supplier-card-selected" : "" }
-                  `} 
-                  onClick={() => toggleSupplier(supplierIndex)}
-                >
+                <div key={supplierIndex} className={`my-2 p-1 supplier-card ${rawProduct.selectedSuppliers[supplierIndex]? "supplier-card-selected" : ""}`} onClick={() => toggleSupplier(supplierIndex)}>
                   <span className="d-flex justify-content-between align-items-center">
                     <span className="supplier-card-address">{supplier.formattedAddress}</span>
                     {supplier.isVerified?
