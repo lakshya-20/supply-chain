@@ -1,95 +1,22 @@
-import { useContext, useState } from "react";
-import { Collapse, Nav, Navbar, NavbarBrand, NavbarText, NavbarToggler, NavItem } from "reactstrap";
+import { useContext } from "react";
 import { AuthContext } from "../../Services/Contexts/AuthContext";
-import { NavLink } from 'react-router-dom';
-import logo from '../../Assests/Images/logo_mini.png';
-const Header = () => {
+
+const Navbar = () => {
   const {authState, connectWallet, logout}  = useContext(AuthContext);
-  const [isNavOpen, setIsNavOpen] = useState(false);
-  const isAuthenticated = authState.isAuthenticated;
-  const role = authState.stakeholder.role;
-  const style = {
-    authButton: {
-      fontWeight: 'bolder',
-      color: '#fff',
-    },
-    authText: {
-      color: '#fff',
-    }
-  }
-
-  const toggleNav = () => {
-    setIsNavOpen(!isNavOpen);
-  }
-
-  const roleNavLinks = () => {
-    
-  }
-
   return (
-    <div className="container">
-      <Navbar 
-        color="warning"
-        expand='md' 
-        dark
-      >
-        <NavbarBrand href="/" >
-          <img src={logo} />
-          Global Supply Solutions
-        </NavbarBrand>
-        <NavbarToggler onClick={toggleNav} >
-          {isNavOpen?
-            <i className="fa fa-times"></i>
-          :
-            <i className="fa fa-bars"></i>
-          }
-        </NavbarToggler>
-        <Collapse navbar isOpen={isNavOpen}>
-          <Nav className="mx-auto" navbar >
-            { isAuthenticated?
-              <>
-              <NavItem>
-                <NavLink className="nav-link" to="/">
-                  Dashboard
-                </NavLink>
-              </NavItem>
-              <NavItem>
-                <NavLink className="nav-link" to="/products">
-                  Products
-                </NavLink>
-              </NavItem>
-              { roleNavLinks() }
-              </>
-            :
-              ""
-            }
-          </Nav>
-          <Nav className="ms-auto" navbar>
-            { isAuthenticated?
-              <>
-              <NavbarText style={style.authText}>
-                {authState.formattedAddress} &nbsp;
-              </NavbarText>
-              <NavItem>
-                <NavbarText type="button" onClick={logout} style={style.authButton}>
-                  <i className="fa fa-sign-out fa-lg"/>Logout
-                </NavbarText>
-              </NavItem>
-              </>
-            :
-              <>
-              <NavItem>
-                <NavbarText type="button" onClick={connectWallet} style={style.authButton}>
-                <i className="fa fa-sign-in fa-lg"/> Login
-                </NavbarText>
-              </NavItem>
-              </>
-            }
-          </Nav>
-        </Collapse>
-      </Navbar>
-      
+    <div>
+      Navbar
+      <br/>
+      {"address: " + authState.address +" role: "+  authState.stakeholder.role+" isAuthenticated: "+ authState.isAuthenticated}
+      <br/>
+      {authState.isAuthenticated? 
+        <button onClick={logout}>Logout</button>  
+      : 
+        <button onClick={connectWallet}>Login</button>
+      }
+      <br/>
+      {authState.errMess}
     </div>
   )
 }
-export default Header;
+export default Navbar;

@@ -1,4 +1,3 @@
-import { BrowserRouter } from 'react-router-dom';
 import './Assests/Styles/app.css';
 import ErrorBoundary from './Layouts/ErrorBoundary';
 import Main from './Layouts/Main';
@@ -12,10 +11,8 @@ function App() {
       <ErrorBoundary>
         <AuthContextProvider>
           <ContractContextProvider>
-            <BrowserRouter>
-              <Navbar/>
-              <Main/>
-            </BrowserRouter>
+            <Navbar/>
+            <Main/>
           </ContractContextProvider>
         </AuthContextProvider>
       </ErrorBoundary>

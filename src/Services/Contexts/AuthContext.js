@@ -12,7 +12,6 @@ export const AuthContextProvider = ({children}) => {
     isWeb3Enabled: false,
     isAuthenticated: false,
     address: null,
-    formattedAddress: null,
     stakeholder: {}
   })
 

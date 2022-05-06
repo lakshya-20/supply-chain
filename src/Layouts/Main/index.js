@@ -2,9 +2,7 @@ import Routes from "../../Routes";
 
 const Main  = () => {
   return (
-    <div className="container">
-      <Routes/>
-    </div>
+    <Routes/>
   )
 }
 export default Main;

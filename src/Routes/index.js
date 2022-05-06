@@ -42,8 +42,8 @@ const Routing = () => {
       return(
         <>
         <Route path="/admin" element={<Admin/>} />
-        <Route path="/admin/verify/farmer" element={<VerifyFarmer/>} />
-        <Route path="/admin/verify/manufacturer" element={<VerifyManufacturer/>} />
+        <Route path="/admin/verfiy/farmer" element={<VerifyFarmer/>} />
+        <Route path="/admin/verfiy/manufacturer" element={<VerifyManufacturer/>} />
         </>
       )
     }
@@ -67,12 +67,14 @@ const Routing = () => {
   }
   
   return (
-    <Routes>
-      <Route path="/" element={<Dashboard/>}/>
-      {authRoutes()}
-      {roleRoutes()}
-      <Route path="*" element={<Navigate to="/" replace/>} />
-    </Routes>
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<Dashboard/>}/>
+        {authRoutes()}
+        {roleRoutes()}
+        <Route path="*" element={<Navigate to="/" replace/>} />
+      </Routes>
+    </BrowserRouter>
   )
 }
 export default Routing;
