@@ -82,24 +82,20 @@ export const ContractContextProvider = ({children}) => {
 
   useEffect(() => {
     (async () => {
-      await loadStakeholder();
+      if(contractState.stakeholderContract){
+        let stakeholderDetails = await contractState.stakeholderContract.methods.get(authState.address).call({from: authState.address});
+        stakeholderDetails = {
+          id: stakeholderDetails.id,
+          name: stakeholderDetails.name,
+          location: stakeholderDetails.location,
+          role: stakeholderDetails.role === "" ? "new" : stakeholderDetails.role,
+          isRegistered: stakeholderDetails.role === "" ? false : true,
+          isVerified: stakeholderDetails.isVerified
+        }
+        authDispatch(authStateStakeholder(stakeholderDetails));
+      }
     })();
   }, [contractState.stakeholderContract])
-
-  const loadStakeholder = async () => {
-    if(contractState.stakeholderContract){
-      let stakeholderDetails = await contractState.stakeholderContract.methods.get(authState.address).call({from: authState.address});
-      stakeholderDetails = {
-        id: stakeholderDetails.id,
-        name: stakeholderDetails.name,
-        location: stakeholderDetails.location,
-        role: stakeholderDetails.role === "" ? "new" : stakeholderDetails.role,
-        isRegistered: stakeholderDetails.role === "" ? false : true,
-        isVerified: stakeholderDetails.isVerified
-      }
-      authDispatch(authStateStakeholder(stakeholderDetails));
-    }
-  }
 
   const updateStats = async () => {
     const stats = {};
@@ -110,7 +106,7 @@ export const ContractContextProvider = ({children}) => {
   }
 
   return (
-    <ContractContext.Provider value={{contractState, contractDispatch, updateStats, loadStakeholder}}>
+    <ContractContext.Provider value={{contractState, contractDispatch, updateStats}}>
       {children}
     </ContractContext.Provider>
   )

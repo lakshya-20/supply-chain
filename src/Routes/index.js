@@ -13,6 +13,7 @@ import Farmers from '../Pages/Farmers';
 import Farmer from '../Pages/Farmers/farmer';
 import Manufacturers from '../Pages/Manufacturers';
 import Manufacturer from '../Pages/Manufacturers/manufacturer';
+import LaunchProduct from '../Pages/Manufacturers/launchProduct';
 
 const Routing = () => {
   const {authState}  = useContext(AuthContext);
