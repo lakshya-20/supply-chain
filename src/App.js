@@ -1,7 +1,6 @@
 import './Assests/Styles/app.css';
 import ErrorBoundary from './Layouts/ErrorBoundary';
 import Main from './Layouts/Main';
-import Navbar from './Layouts/Navbar';
 import { AuthContextProvider } from './Services/Contexts/AuthContext';
 
 function App() {
@@ -9,7 +8,6 @@ function App() {
     <div className='App'>
       <ErrorBoundary>
         <AuthContextProvider>
-          <Navbar/>
           <Main/>
         </AuthContextProvider>
       </ErrorBoundary>
