@@ -62,7 +62,13 @@ const Header = () => {
           </>
         )
       default:
-        return null;
+        return (
+          <>
+          <NavItem>
+            <NavLink to="profile" className="nav-link">Profile</NavLink>
+          </NavItem>
+          </>
+        )
     }
   }
 
