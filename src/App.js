@@ -1,30 +1,25 @@
-import './App.css';
-import {BrowserRouter} from 'react-router-dom'
-import FooterComponent from './Components/Footer';
-import NavbarComponent from './Components/Navbar';
-import Routing from './Routing';
-import AuthContextProvider from './Context/Contexts/AuthContext';
-import ContractContextProvider from './Context/Contexts/ContractContext';
-import JumbotronComponent from './Components/JombotronComponent';
-
+import { BrowserRouter } from 'react-router-dom';
+import './Assests/Styles/app.css';
+import ErrorBoundary from './Layouts/ErrorBoundary';
+import Main from './Layouts/Main';
+import Navbar from './Layouts/Navbar';
+import { AuthContextProvider } from './Services/Contexts/AuthContext';
+import { ContractContextProvider } from './Services/Contexts/ContractContext';
 
 function App() {
   return (
     <div className='App'>
-    <AuthContextProvider>
-    <ContractContextProvider>
-      <NavbarComponent/>
-      <JumbotronComponent/>
-      <BrowserRouter>        
-          <div className='container'>
-            <Routing/>
-          </div>        
-      </BrowserRouter>
-      {/* <FooterComponent/> */}
-      </ContractContextProvider>
-    </AuthContextProvider>
+      <ErrorBoundary>
+        <AuthContextProvider>
+          <ContractContextProvider>
+            <BrowserRouter>
+              <Navbar/>
+              <Main/>
+            </BrowserRouter>
+          </ContractContextProvider>
+        </AuthContextProvider>
+      </ErrorBoundary>
     </div>
   );
 }
-
 export default App;
