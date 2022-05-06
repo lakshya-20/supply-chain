@@ -8,7 +8,6 @@ contract Stakeholder is Admin{
     string name;
     string location;
     string role;
-    bool isVerified;
   }
 
   mapping(address => stakeholder) _stakeholders;
@@ -22,7 +21,7 @@ contract Stakeholder is Admin{
     string memory _location
   ) public virtual returns (bool) {
     require (_stakeholders[msg.sender].id ==  address(0), "Stakeholder::register: Stakeholder already registered");
-    _stakeholders[msg.sender] = stakeholder(msg.sender, _name, _location, "stakeholder", false);
+    _stakeholders[msg.sender] = stakeholder(msg.sender, _name, _location, "stakeholder");
     return true;
   }
   
@@ -56,11 +55,6 @@ contract Stakeholder is Admin{
     require (_to != address(0), "Stakeholder::transferFrom: Cannot transfer to null address");
     _stakeholderProductOwnership[_from][_productId] = false;
     _stakeholderProductOwnership[_to][_productId] = true;
-    return true;
-  }
-
-  function verify(address _id) public onlyAdmin returns (bool){
-    _stakeholders[_id].isVerified = true;
     return true;
   }
 

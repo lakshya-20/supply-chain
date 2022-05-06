@@ -1,42 +1,77 @@
-// SPDX-License-Identifier: MIT
-pragma solidity ^0.8.0;
-import './Stakeholder.sol';
-contract Manufacturer is Stakeholder {
-
-  struct rawProduct{
-    string name;
-    address[] boughtFromIds;
-    bool isVerified;
-  }
-
-  mapping(address => bool) public _isRenewableUsed;
-  mapping(address => string[]) public _rawProducts;
-  mapping(string => address[]) public _rawProductSuppliers;
-  mapping(string => bool) public _rawProductVerified;
-  mapping(address => uint256[]) public _launchedProducts;
-
-  constructor() Stakeholder() {}
-
-  function register(string memory _name, string memory _location) public override returns (bool) {
-    require (_stakeholders[msg.sender].id ==  address(0), "Manufacturer::registerManufacturer: Manufacturer already registered");
-    _stakeholders[msg.sender] = stakeholder(msg.sender, _name, _location, "manufacturer", false);
-    _isRenewableUsed[msg.sender] = false;
-    return true;
-  }
-
-  function addRawProduct(string memory _name, address _supplier) public returns (bool){
-    bool productAlreadyAdded = false;
-    for (uint i = 0; i < _rawProducts[msg.sender].length; i++) {
-      if (keccak256(abi.encodePacked((_rawProducts[msg.sender][i]))) == keccak256(abi.encodePacked((_name)))) {
-        productAlreadyAdded = true;
-      }
+pragma solidity >=0.4.22 <0.9.0;
+pragma experimental ABIEncoderV2;
+contract Manufacturer {    
+    struct Manufacturer{
+        address id;
+        string name;
+        string[] rawProducts;        
+        bool isRenewableUsed;
+        bool isValue; //to verify value exists in mapping or not
     }
-    if(!productAlreadyAdded){
-      _rawProducts[msg.sender].push(_name);
+    address private adminAddress;
+    address [] private manufacturersList;
+    mapping(address => Manufacturer) private manufacturers;            
+    mapping(string => address) private farmerAddresses; //Mapping to store raw material supplier address for a manufacturer
+    
+    constructor() public {
+        adminAddress = msg.sender;        
     }
-    _rawProductSuppliers[_name].push(_supplier);
-    _rawProductVerified[_name] = super.get(_supplier).isVerified && _rawProductVerified[_name];
-    return true;
-  }
 
+    //get list of ids of all manufacturers
+    function getManufacturersList() public view returns(address[] memory){
+        return manufacturersList;
+    }
+
+    //Get manufacturer by id
+    function getManufacturer(address id) public view returns(Manufacturer memory){
+        return manufacturers[id];
+    }
+
+    //Adding new manufacturer
+    function addManufacturer(
+        string memory name, 
+        string[] memory rawProducts,
+        address[] memory farmerAddress
+    ) public {        
+        manufacturersList.push(msg.sender);                
+        manufacturers[msg.sender] = Manufacturer(msg.sender, name, rawProducts, false, true);
+        for(uint i=0; i<rawProducts.length; i++){            
+            farmerAddresses[string(abi.encodePacked(msg.sender, rawProducts[i]))] = farmerAddress[i];    
+        }   
+    }
+
+    //Updating raw products information for a manufacturer
+    function updateRawProducts(        
+        string[] memory rawProducts,
+        address[] memory farmerAddress
+    ) public {
+        for(uint i = 0;i< rawProducts.length; i++){
+            bool isExist = false;
+            for(uint j=0; j<manufacturers[msg.sender].rawProducts.length; j++){                
+                if(keccak256(abi.encodePacked(manufacturers[msg.sender].rawProducts[j])) == keccak256(abi.encodePacked(rawProducts[i]))){
+                    farmerAddresses[string(abi.encodePacked(msg.sender, rawProducts[i]))] = farmerAddress[i];
+                    isExist = true;
+                    break;
+                }
+            }
+            if(isExist==false){
+                manufacturers[msg.sender].rawProducts.push(rawProducts[i]);
+                farmerAddresses[string(abi.encodePacked(msg.sender, rawProducts[i]))] = farmerAddress[i];
+            }
+        }
+    }
+
+    //Get raw material supplier(farmer) address for a manufacturer
+    function getRawProductInfo(
+        address id,
+        string memory rawProduct        
+    ) public view returns (address){
+        return farmerAddresses[string(abi.encodePacked(id, rawProduct))];
+    }
+
+    //Verify manufacturer source of energy
+    function verifyManufacturer(address id) public {
+        require(msg.sender == adminAddress, "Manufacturer::verify: Only admin can verify an identity");
+        manufacturers[id].isRenewableUsed = true;
+    }
 }
