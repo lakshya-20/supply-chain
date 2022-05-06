@@ -57,7 +57,7 @@ const Manufacturer = () => {
   return (
     <div>
       <AddRawProduct isModalOpen={isRPModalOpen} toggleModalOpen={toggleRPModal} />
-      <LaunchProduct isModalOpen={isProductModalOpen} toggleModal={toggleProductModal} manufacturerRP={manufacturer.rawProducts} />
+      <LaunchProduct isModalOpen={isProductModalOpen} toggleModal={toggleProductModal} />
       <div className="d-flex justify-content-center">
         <ManufacturerCard id={manufacturerAddress} manufacturerObject={manufacturer}/>
       </div>
