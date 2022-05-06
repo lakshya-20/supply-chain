@@ -7,9 +7,6 @@ import { fetchManufacturer, formattedAddress } from '../../Services/Utils/stakeh
 import { ContractContext } from '../../Services/Contexts/ContractContext';
 import { AuthContext } from '../../Services/Contexts/AuthContext';
 import Toast from '../../Components/Toast';
-import ReactStars from "react-rating-stars-component";
-import Rating from '../../Components/Rating';
-
 const Product = () => {
   const location = useLocation();
   const { authState } = useContext(AuthContext);
@@ -18,12 +15,6 @@ const Product = () => {
   const [transferState, setTransferState] = useState({
     from: authState.address,
   });
-  const [reviewState, setReviewState] = useState({
-    rating: 0,
-    comment: "",
-    from: authState.address,
-  })
-  const [isOwner, setIsOnwer] = useState(authState.address.toLowerCase() == location.state.product.item["currentOwner"].toLowerCase());
 
   const reload = async () => {
     const id = location.state.product.item.id;
@@ -40,6 +31,19 @@ const Product = () => {
 
   const transfer = async () => {
     await contractState.productContract.methods.transfer(transferState.to, product.item.id).send({from: authState.address});
+    // setProduct(product => {
+    //   return {
+    //     ...product,
+    //     "transactions": [
+    //       ...product.transactions,
+    //       {
+    //         "from": transferState.from,
+    //         "to": transferState.to,
+    //         "date": new Date().toDateString(),
+    //       }
+    //     ]
+    //   }
+    // });
     await reload();
     Toast("success", "Product transferred successfully");
     setTransferState({
@@ -57,21 +61,6 @@ const Product = () => {
     // .on('error', error => {
     //   console.log(error);
     // })
-  }
-
-  const postReview = async () => {
-    if(!isOwner){
-      Toast("error", "You are not the owner of this product");
-      return;
-    }
-    await contractState.productContract.methods.addReview(product.item.id, reviewState.rating, reviewState.comment).send({from: authState.address});
-    await reload();
-    Toast("success", "Review posted successfully");
-    setReviewState({
-      rating: 0,
-      comment: "",
-      from: authState.address,
-    });
   }
 
   const features = [
@@ -107,9 +96,10 @@ const Product = () => {
             {product.item["title"]}
           </span>
           <br/>
-          <span className='tw-product-stats d-flex align-items-center'>
-            <Rating rating={product.item["rating"]/20} editable={false}/>
-            &nbsp;| &nbsp;
+          <span className='tw-product-stats'>
+            <span>
+              {product.item["rating"]/10} &nbsp;| &nbsp;
+            </span>
             <span>
               {product.reviews.length} ratings &nbsp;| &nbsp;
             </span>
@@ -117,7 +107,6 @@ const Product = () => {
               {product.transactions.length} transactions
             </span>
           </span>
-          {new Date(product.item["launchDate"] * 1000).toDateString()}
           <br/>
           <span className='tw-features d-flex justify-content-around'>
             {features.map(feature => (
@@ -159,12 +148,12 @@ const Product = () => {
         <br/>
         <span>
           {product.rawProducts.map(rawProduct => (
-            <span className='me-3'>
-              {rawProduct["name"]} &nbsp;
+            <span className='me-2'>
+              {rawProduct["name"]} 
               {rawProduct["isVerified"]?
-                <i className='text-success fa fa-check' title='Verified'/>
+                <i className='fa fa-check'/>
               :
-                <i className='text-warning fa fa-exclamation' title='Not verified'/>
+                <i className='fa fa-exclamation'/>
               }
             </span>
           ))}
@@ -181,8 +170,6 @@ const Product = () => {
               <div className='my-1 border'>
                 Transfer From {formattedAddress(transaction["from"])}
                 <br/>
-                Transfer To {formattedAddress(transaction["to"])}
-                <br/>
                 {new Date(transaction["date"] * 1000).toDateString()}
               </div>
             ))}
@@ -191,38 +178,10 @@ const Product = () => {
             <span className='heading'>
               Reviews
             </span>
-            <div className='bw-review-wrapper'>
-              <textarea placeholder='Comment' className='col-10' disabled={!isOwner}
-               onChange={
-                (e) => {
-                  setReviewState({
-                    ...reviewState,
-                    comment: e.target.value
-                  })
-                }
-              }/>
-              <br/>
-              <span className='d-flex align-items-center'>
-                <Rating rating={reviewState.rating} editable={isOwner} onChange={
-                  (rating) => {
-                    setReviewState({
-                      ...reviewState,
-                      rating: rating*20
-                    })
-                  }
-                }/>
-                <button onClick={postReview} disabled={!isOwner}>Post</button>
-              </span>
-              <br/>
-            </div>
             {product.reviews.map(review => (
               <div className='my-1 border'> 
-                <span className='d-flex align-items-center'>
-                  <Rating rating={review["rating"]/20} editable={false}/>
-                  &nbsp;
-                  <span className='badge bg-success'>Verified Purchase</span>
-                </span>
-                Reviewer: &nbsp; {formattedAddress(review["reviewer"])} &nbsp;
+                {review["rating"]/10} &nbsp; {formattedAddress(review["reviewer"])} &nbsp;
+                <span className='badge bg-success'>Verified Review</span>
                 <br/>
                 Reviewed on: {new Date(review["date"] * 1000).toDateString()}
                 <br/>

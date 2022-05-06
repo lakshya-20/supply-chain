@@ -29,7 +29,6 @@ contract Product {
     address currentOwner;
     address lastOwner;
     uint256 rating;
-    uint launchDate;
   }
 
   uint256[] public _itemIds;
@@ -58,8 +57,7 @@ contract Product {
       manufacturer: _manufacturer,
       currentOwner: _manufacturer,
       lastOwner: address(0),
-      rating: 0,
-      launchDate: block.timestamp
+      rating: 0
     });
     for(uint i = 0; i < _rawProducts.length; i++){
       _itemRawProducts[_id].push(_rawProducts[i]);
@@ -96,8 +94,8 @@ contract Product {
     
     _transactions[_nextTransactionId] = Transaction({ 
       txId: _nextTransactionId,
-      from: _items[_id].lastOwner,
-      to: _items[_id].currentOwner,
+      from: _items[_id].currentOwner,
+      to: _items[_id].lastOwner,
       date: block.timestamp
     });
     _itemTransactions[_id].push(_nextTransactionId);

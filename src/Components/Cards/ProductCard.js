@@ -1,5 +1,4 @@
 import product_default from '../../Assests/Images/product_default.jpg';
-import Rating from '../Rating';
 const ProductCard = ({product}) => {
   return (
     <div className="my-1">
@@ -20,10 +19,8 @@ const ProductCard = ({product}) => {
           <span className="card-key">Manufacturer: </span>
           <span className="card-value">{product.manufacturer["name"]}</span>
           <br/>
-          <span className='d-flex align-items-center'>
-            <span className="card-key">Rating: </span> &nbsp;
-            <Rating rating={product.item["rating"]/20} editable={false}/>
-          </span>
+          <span className="card-key">Rating: </span>
+          <span className="card-value">{product.item["rating"]/10}</span>
           <br/>
           <span className="d-flex justify-content-around">
             {product.manufacturer.isVerified?
