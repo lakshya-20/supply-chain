@@ -65,8 +65,7 @@ export const ContractContextProvider = ({children}) => {
           id: stakeholderDetails.id,
           name: stakeholderDetails.name,
           location: stakeholderDetails.location,
-          role: stakeholderDetails.role === "" ? "new" : stakeholderDetails.role,
-          isRegistered: stakeholderDetails.role === "" ? false : true,
+          role: stakeholderDetails.role == "" ? "new" : stakeholderDetails.role,
           isVerified: stakeholderDetails.isVerified
         }
         authDispatch(authStateStakeholder(stakeholderDetails));
