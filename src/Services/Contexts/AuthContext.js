@@ -26,11 +26,9 @@ export const AuthContextProvider = ({children}) => {
       authDispatch(authStateEnableWeb3());
     }
     else {
-      const errMess = "Non-Ethereum browser detected";
-      authDispatch(authStateFailed(errMess));
+      authDispatch(authStateFailed("Non-Ethereum browser detected."));
       authDispatch(authStateDisableWeb3());
-      Toast("error", errMess);
-      throw new Error(errMess);
+      Toast("error", "Non-Ethereum browser detected.");
     }
   }, [])
 
