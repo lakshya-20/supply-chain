@@ -14,7 +14,6 @@ contract Stakeholder is Admin{
   mapping(address => stakeholder) _stakeholders;
   mapping(address => mapping(uint256 => bool)) _stakeholderProductOwnership;
   mapping(address => mapping(address => bool)) _operatorApprovals;
-  address[] _stakeholderAddresses;
 
   constructor() Admin(msg.sender){}
 
@@ -25,7 +24,6 @@ contract Stakeholder is Admin{
   ) public virtual returns (bool) {
     require (_stakeholders[msg.sender].id ==  address(0), "Stakeholder::register: Stakeholder already registered");
     _stakeholders[msg.sender] = stakeholder(msg.sender, _name, _location, _role, false);
-    _stakeholderAddresses.push(msg.sender);
     return true;
   }
   
@@ -73,10 +71,6 @@ contract Stakeholder is Admin{
 
   function getRole(address _id) public view returns (string memory){
     return _stakeholders[_id].role;
-  }
-
-  function getAddresses() public view returns (address[] memory){
-    return _stakeholderAddresses;
   }
 
   modifier onlyStakeholder(address _id){

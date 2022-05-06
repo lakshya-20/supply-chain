@@ -27,20 +27,6 @@ export const contractReducer = (state, action) => {
         errMess: null,
         mainContract: action.payload.contract
       }
-    case ActionTypes.CONTRACT_STATE_FARMER:
-      return {
-        ...state,
-        isLoading: false,
-        errMess: null,
-        farmerContract: action.payload.contract
-      }
-    case ActionTypes.CONTRACT_STATE_MANUFACTURER:
-      return {
-        ...state,
-        isLoading: false,
-        errMess: null,
-        manufacturerContract: action.payload.contract
-      }
     case ActionTypes.CONTRACT_STATE_STAKEHOLDER:
       return {
         ...state,

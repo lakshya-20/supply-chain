@@ -6,14 +6,7 @@ import StakeholderContract from '../../Smart-Contract/ABI/Stakeholder.json';
 import FarmerContract from '../../Smart-Contract/ABI/Farmer.json';
 import ManufacturerContract from '../../Smart-Contract/ABI/Manufacturer.json';
 import ProductContract from '../../Smart-Contract/ABI/Product.json';
-import { 
-  contractStateMain, 
-  contractStateProduct,
-  contractStateFarmer, 
-  contractStateManufacturer,
-  contractStateStakeholder, 
-  contractStateStats 
-} from '../Actions/ContractActionCreator';
+import { contractStateMain, contractStateProduct, contractStateStakeholder, contractStateStats } from '../Actions/ContractActionCreator';
 import { authStateStakeholder } from '../Actions/AuthActionCreator';
 import { AuthContext } from "./AuthContext";
 
@@ -23,8 +16,6 @@ export const ContractContextProvider = ({children}) => {
     isLoading: false,
     errMess: null,
     mainContract: null,
-    farmerContract: null,
-    manufacturerContract: null,
     stakeholderContract: null,
     productContract: null,
     stats: {
@@ -46,10 +37,6 @@ export const ContractContextProvider = ({children}) => {
         contractDispatch(contractStateMain(main));
         const product  = new web3.eth.Contract(ProductContract.abi, ProductContract.networks[networkId].address);
         contractDispatch(contractStateProduct(product));
-        const farmer = new web3.eth.Contract(FarmerContract.abi, FarmerContract.networks[networkId].address);
-        contractDispatch(contractStateFarmer(farmer));
-        const manufacturer = new web3.eth.Contract(ManufacturerContract.abi, ManufacturerContract.networks[networkId].address);
-        contractDispatch(contractStateManufacturer(manufacturer));
         const stats = {};
         stats["productsCount"] = await product.methods.getProductsCount().call();
         stats["transactionsCount"] = await product.methods.getTransactionsCount().call();
