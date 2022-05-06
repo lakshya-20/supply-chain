@@ -1,0 +1,18 @@
+.register-card {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  -webkit-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+  text-align: center;
+  border-radius: 5px;
+  box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.2);
+  background-color: #fff;
+  padding: 20px;
+}
+
+.register-card-heading{
+  text-transform: uppercase;
+  font-size: larger;
+  font-weight: 500;
+}
