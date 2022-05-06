@@ -7,7 +7,7 @@ import '../../Assests/Styles/card.css';
 import farmer_default from '../../Assests/Images/farmer_default.jpg';
 import { fetchFarmer } from "../../Services/Utils/stakeholder";
 
-const FarmerCard = ({id, farmerObject}) => {
+const FarmerCard = ({id}) => {
   const {authState} = useContext(AuthContext);
   const {contractState} = useContext(ContractContext);
   const role = authState.stakeholder.role;
@@ -19,15 +19,12 @@ const FarmerCard = ({id, farmerObject}) => {
   });
 
   useEffect(() => {
-    if(farmerObject){
-      setFarmer(farmerObject);
-    }
-    else if(contractState.farmerContract){
+    if(contractState.farmerContract){
       (async() => {
         setFarmer(await fetchFarmer(authState.address, contractState.farmerContract, id));
       })();
     }
-  }, [farmerObject])
+  }, [])
 
   const verify = async () => {
     try{
