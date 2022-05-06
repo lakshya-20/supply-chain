@@ -2,7 +2,7 @@ import { useContext, useEffect, useState } from "react";
 
 import { AuthContext } from "../../Services/Contexts/AuthContext";
 import { ContractContext } from "../../Services/Contexts/ContractContext";
-import '../../Assests/Styles/card.css';
+import '../../Assests/Styles/stakeholder.card.css';
 import Toast from "../Toast";
 import manufacturer_default from "../../Assests/Images/manufacturer_default.jpg";
 import { fetchManufacturer } from "../../Services/Utils/stakeholder";
