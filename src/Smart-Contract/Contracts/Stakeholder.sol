@@ -74,10 +74,7 @@ contract Stakeholder is Admin{
   }
 
   modifier onlyStakeholder(address _id){
-    require(
-      _id == _stakeholders[msg.sender].id || _stakeholders[msg.sender].id == address(0), 
-      "Only stakeholder can access this function"
-    );
+    require(_id == _stakeholders[msg.sender].id, "Only stakeholder can access this function");
     _;
   }
 
