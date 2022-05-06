@@ -1,7 +1,7 @@
 import { useContext, useEffect, useState } from "react";
-import { ContractContext } from "../../Services/Contexts/ContractContext";
-import '../../Assests/Styles/verify.page.css';
-import ManufacturerCard from "../../Components/Cards/ManufacturerCard";
+import { ContractContext } from "../../../Services/Contexts/ContractContext";
+import '../../../Assests/Styles/verify.page.css';
+import RenderManufacturer from "./renderManufacturer";
 
 const Verifymanufacturer = () => {
   const {contractState} = useContext(ContractContext);
@@ -18,7 +18,7 @@ const Verifymanufacturer = () => {
       <div className="heading">Verify Manufacturer</div>
       <div className="row">
         {addresses.map(address => (
-          <ManufacturerCard id={address} />
+          <RenderManufacturer id={address} />
         ))}
       </div>
     </div>

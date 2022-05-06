@@ -1,12 +1,12 @@
 import { useContext, useEffect, useState } from "react";
 
-import { AuthContext } from "../../Services/Contexts/AuthContext";
-import { ContractContext } from "../../Services/Contexts/ContractContext";
-import '../../Assests/Styles/stakeholder.card.css';
-import Toast from "../Toast";
-import manufacturer_default from "../../Assests/Images/manufacturer_default.jpg";
+import { AuthContext } from "../../../Services/Contexts/AuthContext";
+import { ContractContext } from "../../../Services/Contexts/ContractContext";
+import '../../../Assests/Styles/verify.page.css';
+import Toast from "../../../Components/Toast";
+import manufacturer_default from "../../../Assests/Images/admin/manufacturer_default.jpg";
 
-const ManufacturerCard = ({id}) => {
+const RenderManufacturer = ({id}) => {
   const {authState} = useContext(AuthContext);
   const {contractState} = useContext(ContractContext);
   const [manufacturer, setManufacturer] = useState({
@@ -146,4 +146,4 @@ const ManufacturerCard = ({id}) => {
     </div>
   )
 }
-export default ManufacturerCard;
+export default RenderManufacturer;

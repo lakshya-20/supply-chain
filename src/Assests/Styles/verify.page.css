@@ -9,3 +9,15 @@
   text-transform: uppercase;
   text-decoration: overline underline;
 }
+
+.card-key {
+  font-size: 1rem;
+  font-weight: bold;
+  color: #023B59;
+}
+
+.card-value {
+  font-size: 1rem;
+  font-weight: 500;
+  color: #482673;
+}
