@@ -41,12 +41,10 @@ contract Product {
 
   uint256 _nextTransactionId;
   uint256 _nextReviewId;
-  uint256 _productsCount;
 
   constructor() {
     _nextTransactionId = 0;
     _nextReviewId = 0;
-    _productsCount = 0;
   }
 
   function add(uint256 _id, string memory _title, RawProduct[] memory _rawProducts) public returns (bool){
@@ -63,7 +61,6 @@ contract Product {
     for(uint i = 0; i < _rawProducts.length; i++){
       _itemRawProducts[_id].push(_rawProducts[i]);
     }
-    _productsCount++;
     return true;
   }
 
@@ -117,18 +114,6 @@ contract Product {
     _itemReviews[_id].push(_nextReviewId);
     _nextReviewId++;
     return true;
-  }
-
-  function getProductsCount() public view returns (uint256){
-    return _productsCount;
-  }
-
-  function getTransactionsCount() public view returns (uint256){
-    return _nextTransactionId;
-  }
-
-  function getReviewsCount() public view returns (uint256){
-    return _nextReviewId;
   }
 
 }
