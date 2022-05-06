@@ -16,5 +16,5 @@ module.exports = async function (deployer) {
   await deployer.deploy(Product);
   const product = await Product.deployed();
 
-  await deployer.deploy(Main, farmer.address, manufacturer.address, stakeholder.address);
+  await deployer.deploy(Main, farmer.address, manufacturer.address, stakeholder.address, product.address);
 };

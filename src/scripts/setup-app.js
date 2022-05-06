@@ -2,7 +2,6 @@ const Stakeholder = artifacts.require("Stakeholder");
 const Farmer = artifacts.require("Farmer");
 const Manufacturer = artifacts.require("Manufacturer");
 const Product = artifacts.require("Product");
-const Main = artifacts.require("Main");
 
 module.exports = async (callback) => {
 
@@ -12,7 +11,6 @@ module.exports = async (callback) => {
   let farmerContract = await Farmer.deployed();
   let manufacturerContract = await Manufacturer.deployed();
   let productContract = await Product.deployed();
-  let mainContract = await Main.deployed(farmerContract.address, manufacturerContract.address, stakeholderContract.address);
 
   const admin = accounts[0];
   const farmer1 = accounts[1];
@@ -107,15 +105,6 @@ module.exports = async (callback) => {
   await productContract.addReview(123, 90, "Value for money", {from: consumer});
   await productContract.addReview(123, 60, "Useful", {from: consumer});
   console.log(await productContract.get(123, {from: consumer}));
-
-  console.log(await mainContract.getRole(admin));
-  console.log(await mainContract.getRole(farmer1));
-  console.log(await mainContract.getRole(farmer2));
-  console.log(await mainContract.getRole(manufacturer));
-  console.log(await mainContract.getRole(distributer));
-  console.log(await mainContract.getRole(retailer));
-  console.log(await mainContract.getRole(consumer));
-  console.log(await mainContract.getRole(accounts[7]));
 
   callback();
 }
