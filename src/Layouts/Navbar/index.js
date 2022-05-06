@@ -7,7 +7,7 @@ const Navbar = () => {
     <div>
       Navbar
       <br/>
-      {"address: " + authState.address +" role: "+  authState.role+" isAuthenticated: "+ authState.isAuthenticated}
+      {"address: " + authState.address +" role: "+  authState.role}
       <br/>
       {authState.isAuthenticated? 
         <button onClick={logout}>Logout</button>  
