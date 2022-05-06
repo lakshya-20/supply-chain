@@ -53,7 +53,7 @@ module.exports = async (callback) => {
       isVerified: await farmerContract.isVerified(farmer1, { from: farmer1 })
     },
   ], { from: manufacturer });
-  await manufacturerContract.addRawProduct("Wheat", [
+  await manufacturerContract.addRawProduct("Tomato", [
     {
       id: farmer2,
       isVerified: await farmerContract.isVerified(farmer2, { from: farmer2 })
@@ -70,39 +70,20 @@ module.exports = async (callback) => {
     }
   ], { from: manufacturer });
 
-  let manufacturerRawProducts = await manufacturerContract.getManufacturerRawProductDetails(manufacturer, { from: manufacturer });
-  manufacturerRawProductsMap = {};
-  for (let i = 0; i < manufacturerRawProducts.length; i++) {
-    manufacturerRawProductsMap[manufacturerRawProducts[i].name] = manufacturerRawProducts[i].isVerified;
-  }
-  console.log(manufacturerRawProductsMap);
+  console.log(await manufacturerContract.getManufacturerRawProductDetails(manufacturer, { from: manufacturer }));
 
-  await productContract.add(
-    123, 
-    "Dairy Milk", 
-    [
-      {
-        name: "Milk",
-        isVerified: manufacturerRawProductsMap["Milk"]
-      },
-      {
-        name: "Sugar",
-        isVerified: manufacturerRawProductsMap["Sugar"]
-      },
-      {
-        name: "Wheat",
-        isVerified: manufacturerRawProductsMap["Wheat"]
-      }
-    ],
-    {from: manufacturer}
-  );
+  await productContract.add(123, "Dairy Milk", {from: manufacturer});
   await manufacturerContract.launchProduct(123, {from: manufacturer});
-
+  console.log(await productContract.get(123, {from: consumer}));
   await productContract.transfer(retailer, 123, {from: manufacturer});
+  console.log(await productContract.get(123, {from: consumer}));
   await productContract.transfer(consumer, 123, {from: retailer});
+  console.log(await productContract.get(123, {from: consumer}));
 
   await productContract.addReview(123, 70, "Good product", {from: consumer});
+  console.log(await productContract.get(123, {from: consumer}));
   await productContract.addReview(123, 90, "Value for money", {from: consumer});
+  console.log(await productContract.get(123, {from: consumer}));
   await productContract.addReview(123, 60, "Useful", {from: consumer});
   console.log(await productContract.get(123, {from: consumer}));
 
