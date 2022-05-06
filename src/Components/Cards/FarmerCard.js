@@ -5,7 +5,6 @@ import { ContractContext } from "../../Services/Contexts/ContractContext";
 import Toast from '../Toast';
 import '../../Assests/Styles/stakeholder.card.css';
 import farmer_default from '../../Assests/Images/farmer_default.jpg';
-import { fetchFarmer } from "../../Services/Utils/stakeholder";
 
 const FarmerCard = ({id}) => {
   const {authState} = useContext(AuthContext);
@@ -21,7 +20,14 @@ const FarmerCard = ({id}) => {
   useEffect(() => {
     if(contractState.farmerContract){
       (async() => {
-        setFarmer(await fetchFarmer(authState.address, contractState.farmerContract, id));
+        const response = await contractState.farmerContract.methods.getFarmer(id).call({from: id});
+        setFarmer(farmer => {
+          return {
+            ...response.farmer,
+            formattedAddress: id.substring(0, 6) + "..." + id.substring(id.length - 4, id.length),
+            rawProducts: response.rawProducts
+          }
+        });
       })();
     }
   }, [])
