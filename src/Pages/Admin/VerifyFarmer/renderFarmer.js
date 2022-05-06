@@ -4,7 +4,7 @@ import { AuthContext } from "../../../Services/Contexts/AuthContext";
 import { ContractContext } from "../../../Services/Contexts/ContractContext";
 import '../../../Assests/Styles/verify.page.css';
 import Toast from "../../../Components/Toast";
-import farmer_default from "../../../Assests/Images/admin/farmer_default.jpg";
+import farmer_default from "../../../Assests/Images/admin/rawProducts_o0t5az.jpg";
 
 const RenderFarmer = ({id}) => {
   const {authState} = useContext(AuthContext);
@@ -48,13 +48,13 @@ const RenderFarmer = ({id}) => {
   return (
     <div className="col-12 col-lg-6 my-1">
       <div className="row d-flex justify-content-around align-items-center">
-        <div className="col-12 col-md-4">
+        <div className="col-4">
           <img 
             src={farmer_default}
             width="100%"
           />
         </div>
-        <div className="col-12 col-md-8">
+        <div className="col-8">
           <span className="card-key">Id: </span>
           <span className="card-value">{farmer.formattedAddress}</span>
           <br/>
@@ -69,21 +69,18 @@ const RenderFarmer = ({id}) => {
             <span className="card-value">{rawProduct+", "}</span>
           ))}
           <br/>
-          <span className="">
-            <span className="card-key"> Verification: </span>
+          <span className="row text-center">
             {farmer.isVerified?
               <span className="">
                 <span className="badge bg-success">Verified</span>
               </span>
             :
               <span className="">
-                <span className="badge bg-warning">Not Verified</span>
                 <span 
-                  className="badge bg-dark mx-1" 
+                  className="badge bg-info" 
                   type="button"
                   onClick={verify}
                 >
-                  <i class="fa fa-certificate"/>
                   Verify
                 </span>
               </span>
@@ -91,7 +88,6 @@ const RenderFarmer = ({id}) => {
           </span>
         </div>
       </div>
-      <hr/>
     </div>
   )
 }

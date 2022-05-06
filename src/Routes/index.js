@@ -8,7 +8,7 @@ import Product from '../Pages/Products/product';
 import Register from '../Pages/Register';
 import Admin from '../Pages/Admin';
 import VerifyFarmer from '../Pages/Admin/VerifyFarmer';
-import VerifyManufacturer from '../Pages/Admin/VerifyManufacturer';
+import VerifyManufacturer from '../Pages/Admin/verifyManufacturer';
 import Farmers from '../Pages/Farmers';
 import Farmer from '../Pages/Farmers/farmer';
 import Manufacturers from '../Pages/Manufacturers';
