@@ -43,7 +43,6 @@ const Register = () => {
 
   return (
     <div>
-      {JSON.stringify(stakeholder)}
       <div className="d-flex justify-content-center">
         <div className="col-11 col-sm-10 col-md-5 register-card">
           <span className="register-card-heading">Register</span>
