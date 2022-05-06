@@ -3,7 +3,6 @@ const Farmer = artifacts.require('Farmer');
 const Manufacturer = artifacts.require('Manufacturer');
 const Product = artifacts.require('Product');
 const Stakeholder = artifacts.require('Stakeholder');
-
 module.exports = async function (deployer) {
   await deployer.deploy(Farmer);
   const farmer = await Farmer.deployed();
