@@ -7,7 +7,7 @@ import Toast from "../Toast";
 import manufacturer_default from "../../Assests/Images/manufacturer_default.jpg";
 import { fetchManufacturer } from "../../Services/Utils/stakeholder";
 
-const ManufacturerCard = ({id, manufacturerObject}) => {
+const ManufacturerCard = ({id}) => {
   const {authState} = useContext(AuthContext);
   const {contractState} = useContext(ContractContext);
   const role = authState.stakeholder.role;
@@ -20,10 +20,7 @@ const ManufacturerCard = ({id, manufacturerObject}) => {
   });
 
   useEffect(() => {
-    if(manufacturerObject){
-      setManufacturer(manufacturerObject);
-    }
-    else if(contractState.manufacturerContract){
+    if(contractState.manufacturerContract){
       (async() => {
         setManufacturer(await fetchManufacturer(
           authState.address,
@@ -32,7 +29,7 @@ const ManufacturerCard = ({id, manufacturerObject}) => {
         ))
       })();
     }
-  }, [manufacturerObject])
+  }, [])
 
   const verify = async () => {
     try{
