@@ -13,7 +13,6 @@ import Farmers from '../Pages/Farmers';
 import Farmer from '../Pages/Farmers/farmer';
 import Manufacturers from '../Pages/Manufacturers';
 import Manufacturer from '../Pages/Manufacturers/manufacturer';
-import Profile from '../Pages/Profile';
 
 const Routing = () => {
   const {authState}  = useContext(AuthContext);
@@ -63,13 +62,6 @@ const Routing = () => {
         <>
         <Route path="/manufacturers" element={<Manufacturers/>} />
         <Route path="/manufacturers/:id" element={<Manufacturer/>} />
-        </>
-      )
-    }
-    else if(isRegistered){
-      return(
-        <>
-        <Route path="/profile" element={<Profile/>} />
         </>
       )
     }
