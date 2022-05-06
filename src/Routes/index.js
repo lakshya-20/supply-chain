@@ -16,9 +16,8 @@ import Manufacturer from '../Pages/Manufacturers/manufacturer';
 import LaunchProduct from '../Pages/Manufacturers/launchProduct';
 
 const Routing = () => {
-  const {authState}  = useContext(AuthContext);
-  const isAuthenticated = authState.isAuthenticated;
-  const role = authState.stakeholder.role;
+  const {isAuthenticated, role}  = useContext(AuthContext);
+  
   const authRoutes = () => {
     if(isAuthenticated && role){
       return(

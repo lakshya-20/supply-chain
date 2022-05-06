@@ -10,7 +10,7 @@ export const authReducuer = (state, action) => {
         isWeb3Enabled: false, 
         isAuthenticated: false, 
         address: null, 
-        stakeholder: {}
+        role: null
       }
     case ActionTypes.AUTH_STATE_FAILED:
       return {
@@ -19,7 +19,7 @@ export const authReducuer = (state, action) => {
         errMess: action.payload, 
         isAuthenticated: false, 
         address: null, 
-        stakeholder: {}
+        role: null
       }
     case ActionTypes.AUTH_STATE_ENABLE_WEB3:
       return {
@@ -40,7 +40,7 @@ export const authReducuer = (state, action) => {
         errMess: null, 
         isAuthenticated: true, 
         address: action.payload.address, 
-        stakeholder: {}
+        role: null
       }
     case ActionTypes.AUTH_STATE_LOGOUT:
       return {
@@ -49,12 +49,12 @@ export const authReducuer = (state, action) => {
         errMess: null, 
         isAuthenticated: false, 
         address: null, 
-        stakeholder: {}
+        role: null
       }
-    case ActionTypes.AUTH_STATE_STAKEHOLDER:
+    case ActionTypes.AUTH_STATE_ROLE:
       return {
         ...state,
-        role: action.payload.stakeholder
+        role: action.payload.role
       }
   }
 }
