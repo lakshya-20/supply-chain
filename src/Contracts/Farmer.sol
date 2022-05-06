@@ -7,18 +7,10 @@ contract Farmer is Stakeholder {
 
   constructor() Stakeholder() {}
 
-  function registerFarmer(
-    string memory _name, 
-    string memory _location, 
-    string memory _role,
-    string[] memory _rawProducts
-  ) public returns (bool) {
+  function registerFarmer(string memory _name, string memory _location, string[] memory _rawProducts) public returns (bool) {
     require (_stakeholders[msg.sender].id ==  address(0), "Farmer::registerFarmer: Farmer already registered");
-    _stakeholders[msg.sender] = stakeholder(msg.sender, _name, _location, _role, false);
+    _stakeholders[msg.sender] = stakeholder(msg.sender, _name, _location, "farmer", false);
     _farmerRawProducts[msg.sender] = _rawProducts;
-    for (uint i = 0; i < _rawProducts.length; i++) {
-      _rawProductFarmers[_rawProducts[i]].push(msg.sender);
-    }
     return true;
   }
 
@@ -36,11 +28,12 @@ contract Farmer is Stakeholder {
   }
 
   function getFarmer(address _id) public view onlyStakeholder(_id) returns(
-    stakeholder memory farmer,
-    string[] memory rawProducts
+    stakeholder memory,
+    string[] memory farmerRawProducts
   ){
-    farmer = super.get(_id);
-    rawProducts = _farmerRawProducts[_id];
+    stakeholder memory stakeholder = super.get(_id);
+    farmerRawProducts = _farmerRawProducts[_id];
+    return (stakeholder, farmerRawProducts);
   }
 
   function getRawProductFarmers(string memory _rawProduct) public view returns (address[] memory) {

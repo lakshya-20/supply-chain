@@ -1,111 +1,44 @@
-// SPDX-License-Identifier: MIT
-pragma solidity ^0.8.0;
+pragma solidity >=0.4.22 <0.9.0;
+pragma experimental ABIEncoderV2;
 contract Product {
-
-  struct Transaction{
-    uint256 txId;
-    address from;
-    address to;
-    uint date;
-  }
-
-  struct Review{
-    uint256 id;
-    uint date;
-    uint256 rating;
-    string comment;
-    address reviewer;
-  }
-
-  struct RawProduct{
-    string name;
-    bool isVerified;
-  }
-
-  struct Item{
-    uint256 id;
-    string title;
-    address manufacturer;
-    address currentOwner;
-    address lastOwner;
-    uint256 rating;
-  }
-
-  mapping(uint256 => Item) public _items;
-  mapping(uint256 => Review) _reviews;
-  mapping(uint256 => Transaction) _transactions;
-  mapping(uint256 => mapping(string => bool)) _rawMaterials;
-
-  mapping(uint256 => uint256[]) _itemTransactions;
-  mapping(uint256 => uint256[]) _itemReviews;
-
-  uint256 _nextTransactionId;
-  uint256 _nextReviewId;
-
-  constructor() {
-    _nextTransactionId = 0;
-    _nextReviewId = 0;
-  }
-
-  function add(uint256 _id, string memory _title) public returns (bool){
-    address _manufacturer = msg.sender;
-    require (_manufacturer != address(0), "Product::add: Manufacturer cannot be null");
-    _items[_id] = Item({
-      id: _id,
-      title: _title,
-      manufacturer: _manufacturer,
-      currentOwner: _manufacturer,
-      lastOwner: address(0),
-      rating: 0
-    });
-    return true;
-  }
-
-  function get(uint256 _id) public view returns (
-    Item memory item, 
-    Transaction[] memory transactions, 
-    Review[] memory reviews
-  ){
-    item = _items[_id];
-    transactions = new Transaction[](_itemTransactions[_id].length);
-    for (uint256 i = 0; i < _itemTransactions[_id].length; i++){
-      transactions[i] = _transactions[_itemTransactions[_id][i]];
+    struct Product{
+        string id;
+        string name;
+        address ownership;
+        address manufacturer;
+        string[] rawProducts;  
+        bool isValue; //to verify value exists in mapping or not
     }
-    reviews = new Review[](0);
-    for (uint256 i = 0; i < _itemReviews[_id].length; i++){
-      reviews[i] = _reviews[_itemReviews[_id][i]];
+    mapping(string => Product) public products;
+
+    //add new product
+    function addProduct(
+        string memory id,
+        string memory name,
+        string[] memory rawProducts
+    ) public {
+        Product storage product = products[id];
+        require(product.isValue == false, "Product::add: Product with serial no already exists");
+        product.id = id;
+        product.name = name;
+        product.ownership = msg.sender;
+        product.manufacturer = msg.sender;
+        product.rawProducts = rawProducts;
+        product.isValue = true;        
     }
-  }
 
-  function transfer(address _to, uint256 _id) public returns (bool){
-    require (_items[_id].currentOwner != address(0), "Product::transfer: Product does not exist");
-    require (_items[_id].currentOwner != _to, "Product::transfer: Cannot transfer to self");
-    require (_to != address(0), "Product::transfer: Cannot transfer to null address");
-    
-    _items[_id].lastOwner = _items[_id].currentOwner;
-    _items[_id].currentOwner = _to;
-    
-    _transactions[_nextTransactionId] = Transaction({ 
-      txId: _nextTransactionId,
-      from: _items[_id].currentOwner,
-      to: _items[_id].lastOwner,
-      date: block.timestamp
-    });
-    _itemTransactions[_id].push(_nextTransactionId);
-    _nextTransactionId++;
-    return true;
-  }
+    //get product by id
+    function getProduct (string memory id) public view returns (Product memory) {
+        return products[id];
+    }
 
-  function addReview(uint256 _id, uint256 _rating, string memory _comment) public returns (bool){
-    require (_items[_id].currentOwner == msg.sender, "Product::addReview: Only current owner can add review");
-    _reviews[_nextReviewId] = Review({
-      id: _nextReviewId,
-      date: block.timestamp,
-      rating: _rating,
-      comment: _comment,
-      reviewer: msg.sender
-    });
-    return true;
-  }
+    //update product ownership
+    function updateOwnership(
+        address newOwner,
+        string memory id
+    ) public {
+        require(products[id].ownership==msg.sender,"Product::Transfer: Only owner can transfer the ownership");
+        products[id].ownership = newOwner;
+    }
 
 }

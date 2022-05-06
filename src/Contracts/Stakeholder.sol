@@ -19,11 +19,10 @@ contract Stakeholder is Admin{
 
   function register(
     string memory _name,
-    string memory _location,
-    string memory _role
+    string memory _location
   ) public virtual returns (bool) {
     require (_stakeholders[msg.sender].id ==  address(0), "Stakeholder::register: Stakeholder already registered");
-    _stakeholders[msg.sender] = stakeholder(msg.sender, _name, _location, _role, false);
+    _stakeholders[msg.sender] = stakeholder(msg.sender, _name, _location, "stakeholder", false);
     return true;
   }
   
@@ -65,13 +64,6 @@ contract Stakeholder is Admin{
     return true;
   }
 
-  function isVerified(address _id) public view returns (bool){
-    return _stakeholders[_id].isVerified;
-  }
-
-  function getRole(address _id) public view returns (string memory){
-    return _stakeholders[_id].role;
-  }
 
   modifier onlyStakeholder(address _id){
     require(_id == _stakeholders[msg.sender].id, "Only stakeholder can access this function");

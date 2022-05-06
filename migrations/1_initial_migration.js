@@ -11,10 +11,10 @@ module.exports = async function (deployer) {
   const manufacturer = await Manufacturer.deployed();
 
   await deployer.deploy(Stakeholder);
-  const stakeholder = await Stakeholder.deployed();
+  const Stakeholder = await Stakeholder.deployed();
 
   await deployer.deploy(Product);
   const product = await Product.deployed();
 
-  await deployer.deploy(Main, farmer.address, manufacturer.address, stakeholder.address, product.address);
+  await deployer.deploy(Main, farmer.address, manufacturer.address, Stakeholder.address, product.address);
 };
