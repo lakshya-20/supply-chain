@@ -97,16 +97,8 @@ export const ContractContextProvider = ({children}) => {
     })();
   }, [contractState.stakeholderContract])
 
-  const updateStats = async () => {
-    const stats = {};
-    stats["productsCount"] = await contractState.productContract.methods.getProductsCount().call();
-    stats["transactionsCount"] = await contractState.productContract.methods.getTransactionsCount().call();
-    stats["reviewsCount"] = await contractState.productContract.methods.getReviewsCount().call();
-    contractDispatch(contractStateStats(stats));
-  }
-
   return (
-    <ContractContext.Provider value={{contractState, contractDispatch, updateStats}}>
+    <ContractContext.Provider value={{contractState, contractDispatch}}>
       {children}
     </ContractContext.Provider>
   )

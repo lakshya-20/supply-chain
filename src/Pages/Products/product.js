@@ -13,7 +13,7 @@ import Rating from '../../Components/Rating';
 const Product = () => {
   const location = useLocation();
   const { authState } = useContext(AuthContext);
-  const { contractState, updateStats } = useContext(ContractContext);
+  const { contractState } = useContext(ContractContext);
   const [product, setProduct] = useState(location.state.product);
   const [transferState, setTransferState] = useState({
     from: authState.address,
@@ -57,7 +57,6 @@ const Product = () => {
     // .on('error', error => {
     //   console.log(error);
     // })
-    updateStats();
   }
 
   const postReview = async () => {
@@ -73,7 +72,6 @@ const Product = () => {
       comment: "",
       from: authState.address,
     });
-    updateStats();
   }
 
   const features = [
