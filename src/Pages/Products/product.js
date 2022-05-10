@@ -129,7 +129,16 @@ const Product = () => {
             ))}
           </span>
           <span className='tw-brand'>
-            Brand: {product.manufacturer["name"]}
+            Brand: {product.manufacturer["name"]} &nbsp;| &nbsp;
+            {product.manufacturer.isRenewableUsed?
+              <span className="">
+                <span className="badge bg-success">Eco Friendly</span>
+              </span>
+            :
+              <span className="">
+                <span className="badge bg-warning">Non Eco Friendly</span>
+              </span>
+            }
           </span>
           <br/>
           <span className='tw-seller text-wrap'>
