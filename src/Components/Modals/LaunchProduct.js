@@ -6,6 +6,7 @@ import '../../Assests/Styles/launchProduct.modal.css';
 import { AuthContext } from "../../Services/Contexts/AuthContext"
 import { ContractContext } from "../../Services/Contexts/ContractContext";
 import Toast from "../Toast";
+import Loading from "../Loading";
 
 const LaunchProduct = ({isModalOpen, toggleModal, manufacturerRP}) => {
   const { authState } = useContext(AuthContext);
@@ -14,7 +15,10 @@ const LaunchProduct = ({isModalOpen, toggleModal, manufacturerRP}) => {
     id: "",
     title: "",
     selectedRawProducts: {},
-    image_url: "",
+    image: {
+      url: "",
+      isLoading: false,
+    }
   })
 
   const ipfs_client = create({ url: "https://ipfs.infura.io:5001/api/v0" });
@@ -47,13 +51,17 @@ const LaunchProduct = ({isModalOpen, toggleModal, manufacturerRP}) => {
       Toast("error", "Please select atleast one raw product");
       return;
     }
-    await contractState.productContract.methods.add(product.id, product.title, selectedRP, product.image_url).send({from: authState.address});
+    await contractState.productContract.methods.add(product.id, product.title, selectedRP, product.image.url).send({from: authState.address});
     await contractState.manufacturerContract.methods.launchProduct(product.id).send({from: authState.address});
     Toast("success", "Launced Product!");
     setProduct({
       id: "",
       title: "",
-      selectedRawProducts: {}
+      selectedRawProducts: {},
+      image: {
+        url: "",
+        isLoading: false,
+      }
     })
     toggleModal();
     updateStats();
@@ -63,9 +71,13 @@ const LaunchProduct = ({isModalOpen, toggleModal, manufacturerRP}) => {
     <div>
       <Modal isOpen={isModalOpen} toggle={toggleModal}>
         <ModalHeader>Launch Product </ModalHeader>
-        <div className="text-center">
-          {product.image_url ?
-            <img src={product.image_url} alt="product image" width="60%"/>
+        <div className="mt-4 d-flex justify-content-center">
+          {product.image.isLoading ?
+            <Loading pageCenter={false} />
+          : null
+          }
+          {product.image.url ?
+            <img src={product.image.url} alt="product image" width="60%"/>
           :
            null
           }
@@ -75,10 +87,23 @@ const LaunchProduct = ({isModalOpen, toggleModal, manufacturerRP}) => {
             <Input
               type="file"
               onChange={async (e) => {
+                setProduct({
+                  ...product,
+                  image: {
+                    ...product.image,
+                    isLoading: true
+                  }
+                })
                 const file = e.target.files[0];
                 try{
                   const response = await ipfs_client.add(file);
-                  setProduct(product => ({ ...product, image_url: `https://ipfs.io/ipfs/${response.path}` }));
+                  setProduct(product => ({ 
+                    ...product,
+                    image: {
+                      url: `https://ipfs.io/ipfs/${response.path}`,
+                      isLoading: false
+                    }
+                  }));
                 } catch(err){
                   console.log(err);
                 }
@@ -136,7 +161,11 @@ const LaunchProduct = ({isModalOpen, toggleModal, manufacturerRP}) => {
             setProduct({
               id: "",
               title: "",
-              selectedRawProducts: {}
+              selectedRawProducts: {},
+              image: {
+                url: "",
+                isLoading: false,
+              }
             })
             toggleModal();
           }}>Cancel</Button>
