@@ -1,5 +1,6 @@
 import { useContext, useState, useEffect } from "react"
 import { Button, Input, InputGroup, InputGroupText, Modal, ModalBody, ModalFooter, ModalHeader } from "reactstrap";
+import { create } from 'ipfs-http-client'
 
 import '../../Assests/Styles/launchProduct.modal.css';
 import { AuthContext } from "../../Services/Contexts/AuthContext"
@@ -12,8 +13,11 @@ const LaunchProduct = ({isModalOpen, toggleModal, manufacturerRP}) => {
   const [product, setProduct] = useState({
     id: "",
     title: "",
-    selectedRawProducts: {}
+    selectedRawProducts: {},
+    image_url: "",
   })
+
+  const ipfs_client = create({ url: "https://ipfs.infura.io:5001/api/v0" });
 
   const toggleRP = (rawProductIndex) => {
     setProduct(product => {
@@ -43,7 +47,7 @@ const LaunchProduct = ({isModalOpen, toggleModal, manufacturerRP}) => {
       Toast("error", "Please select atleast one raw product");
       return;
     }
-    await contractState.productContract.methods.add(product.id, product.title, selectedRP).send({from: authState.address});
+    await contractState.productContract.methods.add(product.id, product.title, selectedRP, product.image_url).send({from: authState.address});
     await contractState.manufacturerContract.methods.launchProduct(product.id).send({from: authState.address});
     Toast("success", "Launced Product!");
     setProduct({
@@ -59,7 +63,29 @@ const LaunchProduct = ({isModalOpen, toggleModal, manufacturerRP}) => {
     <div>
       <Modal isOpen={isModalOpen} toggle={toggleModal}>
         <ModalHeader>Launch Product </ModalHeader>
+        <div className="text-center">
+          {product.image_url ?
+            <img src={product.image_url} alt="product image" width="60%"/>
+          :
+           null
+          }
+        </div>
         <ModalBody>
+          <InputGroup>
+            <Input
+              type="file"
+              onChange={async (e) => {
+                const file = e.target.files[0];
+                try{
+                  const response = await ipfs_client.add(file);
+                  setProduct(product => ({ ...product, image_url: `https://ipfs.io/ipfs/${response.path}` }));
+                } catch(err){
+                  console.log(err);
+                }
+              }}
+            />
+          </InputGroup>
+          <br/>
           <InputGroup>
             <InputGroupText>
               Product ID
@@ -79,6 +105,7 @@ const LaunchProduct = ({isModalOpen, toggleModal, manufacturerRP}) => {
               onChange={(e) => setProduct(product => ({ ...product, title: e.target.value }))}
             />
           </InputGroup>
+          <br/>
           <div className="row mt-2 justify-content-around">
             {Object.keys(manufacturerRP).map((rawProductIndex) => {
               const rawProduct = manufacturerRP[rawProductIndex];

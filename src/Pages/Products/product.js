@@ -1,13 +1,11 @@
 import { useContext, useEffect, useState } from 'react';
 
 import '../../Assests/Styles/product.page.css';
-import product_default from '../../Assests/Images/product_default.jpg';
 import { useLocation } from 'react-router-dom';
 import { fetchManufacturer, formattedAddress } from '../../Services/Utils/stakeholder';
 import { ContractContext } from '../../Services/Contexts/ContractContext';
 import { AuthContext } from '../../Services/Contexts/AuthContext';
 import Toast from '../../Components/Toast';
-import ReactStars from "react-rating-stars-component";
 import Rating from '../../Components/Rating';
 
 const Product = () => {
@@ -102,7 +100,7 @@ const Product = () => {
     <div className="wrapper">
       <div className="row top-wrapper">
         <div className="col-12 col-md-4 tw-left">
-          <img src={product_default} width="100%"/>
+          <img src={product.item["image_url"]} width="100%"/>
         </div>
         <div className="col-12 col-md-8 tw-right">
           <span className="tw-heading1">

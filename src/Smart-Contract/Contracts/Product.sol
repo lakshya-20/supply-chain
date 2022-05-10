@@ -30,6 +30,7 @@ contract Product {
     address lastOwner;
     uint256 rating;
     uint launchDate;
+    string image_url;
   }
 
   uint256[] public _itemIds;
@@ -49,7 +50,7 @@ contract Product {
     _nextReviewId = 0;
   }
 
-  function add(uint256 _id, string memory _title, RawProduct[] memory _rawProducts) public returns (bool){
+  function add(uint256 _id, string memory _title, RawProduct[] memory _rawProducts, string memory image_url) public returns (bool){
     address _manufacturer = msg.sender;
     require (_manufacturer != address(0), "Product::add: Manufacturer cannot be null");
     _items[_id] = Item({
@@ -59,7 +60,8 @@ contract Product {
       currentOwner: _manufacturer,
       lastOwner: address(0),
       rating: 0,
-      launchDate: block.timestamp
+      launchDate: block.timestamp,
+      image_url: image_url
     });
     for(uint i = 0; i < _rawProducts.length; i++){
       _itemRawProducts[_id].push(_rawProducts[i]);

@@ -100,6 +100,7 @@ module.exports = async (callback) => {
         isVerified: manufacturerRawProductsMap["Wheat"]
       }
     ],
+    "https://res.cloudinary.com/dstmsi8qv/image/upload/v1642156422/Supply%20Chain/chocolate_pvwybq.jpg",
     {from: manufacturer}
   );
   await manufacturerContract.launchProduct(123, {from: manufacturer});

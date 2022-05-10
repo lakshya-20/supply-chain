@@ -6,7 +6,7 @@ const ProductCard = ({product}) => {
       <div className="row d-flex justify-content-around align-items-center">
         <div className="col-12 col-md-4">
           <img 
-            src={product_default}
+            src={product.item["image_url"]}
             width="100%"
           />
         </div>
