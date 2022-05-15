@@ -9765,7 +9765,7 @@
                 }
               ]
             },
-            "name": "abi_encode_t_struct$_stakeholder_$1313_memory_ptr_to_t_struct$_stakeholder_$1313_memory_ptr_fromStack",
+            "name": "abi_encode_t_struct$_stakeholder_$1318_memory_ptr_to_t_struct$_stakeholder_$1318_memory_ptr_fromStack",
             "nodeType": "YulFunctionDefinition",
             "parameters": [
               {
@@ -11927,7 +11927,7 @@
                       }
                     ],
                     "functionName": {
-                      "name": "abi_encode_t_struct$_stakeholder_$1313_memory_ptr_to_t_struct$_stakeholder_$1313_memory_ptr_fromStack",
+                      "name": "abi_encode_t_struct$_stakeholder_$1318_memory_ptr_to_t_struct$_stakeholder_$1318_memory_ptr_fromStack",
                       "nodeType": "YulIdentifier",
                       "src": "22443:101:6"
                     },
@@ -11944,7 +11944,7 @@
                 }
               ]
             },
-            "name": "abi_encode_tuple_t_struct$_stakeholder_$1313_memory_ptr__to_t_struct$_stakeholder_$1313_memory_ptr__fromStack_reversed",
+            "name": "abi_encode_tuple_t_struct$_stakeholder_$1318_memory_ptr__to_t_struct$_stakeholder_$1318_memory_ptr__fromStack_reversed",
             "nodeType": "YulFunctionDefinition",
             "parameters": [
               {
@@ -12085,7 +12085,7 @@
                       }
                     ],
                     "functionName": {
-                      "name": "abi_encode_t_struct$_stakeholder_$1313_memory_ptr_to_t_struct$_stakeholder_$1313_memory_ptr_fromStack",
+                      "name": "abi_encode_t_struct$_stakeholder_$1318_memory_ptr_to_t_struct$_stakeholder_$1318_memory_ptr_fromStack",
                       "nodeType": "YulIdentifier",
                       "src": "22936:101:6"
                     },
@@ -12193,7 +12193,7 @@
                 }
               ]
             },
-            "name": "abi_encode_tuple_t_struct$_stakeholder_$1313_memory_ptr_t_array$_t_string_memory_ptr_$dyn_memory_ptr__to_t_struct$_stakeholder_$1313_memory_ptr_t_array$_t_string_memory_ptr_$dyn_memory_ptr__fromStack_reversed",
+            "name": "abi_encode_tuple_t_struct$_stakeholder_$1318_memory_ptr_t_array$_t_string_memory_ptr_$dyn_memory_ptr__to_t_struct$_stakeholder_$1318_memory_ptr_t_array$_t_string_memory_ptr_$dyn_memory_ptr__fromStack_reversed",
             "nodeType": "YulFunctionDefinition",
             "parameters": [
               {
@@ -15332,7 +15332,7 @@
           }
         ]
       },
-      "contents": "{\n\n    // string[]\n    function abi_decode_available_length_t_array$_t_string_memory_ptr_$dyn_memory_ptr(offset, length, end) -> array {\n        array := allocateMemory(array_allocation_size_t_array$_t_string_memory_ptr_$dyn_memory_ptr(length))\n        let dst := array\n        mstore(array, length) dst := add(array, 0x20)\n        let src := offset\n\n        for { let i := 0 } lt(i, length) { i := add(i, 1) }\n        {\n            let elementPos := add(offset, calldataload(src))\n            mstore(dst, abi_decode_t_string_memory_ptr(elementPos, end))\n            dst := add(dst, 0x20)\n            src := add(src, 0x20)\n        }\n    }\n\n    function abi_decode_available_length_t_string_memory_ptr(src, length, end) -> array {\n        array := allocateMemory(array_allocation_size_t_string_memory_ptr(length))\n        mstore(array, length)\n        let dst := add(array, 0x20)\n        if gt(add(src, length), end) { revert(0, 0) }\n        copy_calldata_to_memory(src, dst, length)\n    }\n\n    function abi_decode_t_address(offset, end) -> value {\n        value := calldataload(offset)\n        validator_revert_t_address(value)\n    }\n\n    // string[]\n    function abi_decode_t_array$_t_string_memory_ptr_$dyn_memory_ptr(offset, end) -> array {\n        if iszero(slt(add(offset, 0x1f), end)) { revert(0, 0) }\n        let length := calldataload(offset)\n        array := abi_decode_available_length_t_array$_t_string_memory_ptr_$dyn_memory_ptr(add(offset, 0x20), length, end)\n    }\n\n    function abi_decode_t_bool(offset, end) -> value {\n        value := calldataload(offset)\n        validator_revert_t_bool(value)\n    }\n\n    // string\n    function abi_decode_t_string_memory_ptr(offset, end) -> array {\n        if iszero(slt(add(offset, 0x1f), end)) { revert(0, 0) }\n        let length := calldataload(offset)\n        array := abi_decode_available_length_t_string_memory_ptr(add(offset, 0x20), length, end)\n    }\n\n    function abi_decode_t_uint256(offset, end) -> value {\n        value := calldataload(offset)\n        validator_revert_t_uint256(value)\n    }\n\n    function abi_decode_tuple_t_address(headStart, dataEnd) -> value0 {\n        if slt(sub(dataEnd, headStart), 32) { revert(0, 0) }\n\n        {\n\n            let offset := 0\n\n            value0 := abi_decode_t_address(add(headStart, offset), dataEnd)\n        }\n\n    }\n\n    function abi_decode_tuple_t_addresst_address(headStart, dataEnd) -> value0, value1 {\n        if slt(sub(dataEnd, headStart), 64) { revert(0, 0) }\n\n        {\n\n            let offset := 0\n\n            value0 := abi_decode_t_address(add(headStart, offset), dataEnd)\n        }\n\n        {\n\n            let offset := 32\n\n            value1 := abi_decode_t_address(add(headStart, offset), dataEnd)\n        }\n\n    }\n\n    function abi_decode_tuple_t_addresst_addresst_uint256(headStart, dataEnd) -> value0, value1, value2 {\n        if slt(sub(dataEnd, headStart), 96) { revert(0, 0) }\n\n        {\n\n            let offset := 0\n\n            value0 := abi_decode_t_address(add(headStart, offset), dataEnd)\n        }\n\n        {\n\n            let offset := 32\n\n            value1 := abi_decode_t_address(add(headStart, offset), dataEnd)\n        }\n\n        {\n\n            let offset := 64\n\n            value2 := abi_decode_t_uint256(add(headStart, offset), dataEnd)\n        }\n\n    }\n\n    function abi_decode_tuple_t_addresst_bool(headStart, dataEnd) -> value0, value1 {\n        if slt(sub(dataEnd, headStart), 64) { revert(0, 0) }\n\n        {\n\n            let offset := 0\n\n            value0 := abi_decode_t_address(add(headStart, offset), dataEnd)\n        }\n\n        {\n\n            let offset := 32\n\n            value1 := abi_decode_t_bool(add(headStart, offset), dataEnd)\n        }\n\n    }\n\n    function abi_decode_tuple_t_addresst_uint256(headStart, dataEnd) -> value0, value1 {\n        if slt(sub(dataEnd, headStart), 64) { revert(0, 0) }\n\n        {\n\n            let offset := 0\n\n            value0 := abi_decode_t_address(add(headStart, offset), dataEnd)\n        }\n\n        {\n\n            let offset := 32\n\n            value1 := abi_decode_t_uint256(add(headStart, offset), dataEnd)\n        }\n\n    }\n\n    function abi_decode_tuple_t_string_memory_ptr(headStart, dataEnd) -> value0 {\n        if slt(sub(dataEnd, headStart), 32) { revert(0, 0) }\n\n        {\n\n            let offset := calldataload(add(headStart, 0))\n            if gt(offset, 0xffffffffffffffff) { revert(0, 0) }\n\n            value0 := abi_decode_t_string_memory_ptr(add(headStart, offset), dataEnd)\n        }\n\n    }\n\n    function abi_decode_tuple_t_string_memory_ptrt_string_memory_ptrt_string_memory_ptr(headStart, dataEnd) -> value0, value1, value2 {\n        if slt(sub(dataEnd, headStart), 96) { revert(0, 0) }\n\n        {\n\n            let offset := calldataload(add(headStart, 0))\n            if gt(offset, 0xffffffffffffffff) { revert(0, 0) }\n\n            value0 := abi_decode_t_string_memory_ptr(add(headStart, offset), dataEnd)\n        }\n\n        {\n\n            let offset := calldataload(add(headStart, 32))\n            if gt(offset, 0xffffffffffffffff) { revert(0, 0) }\n\n            value1 := abi_decode_t_string_memory_ptr(add(headStart, offset), dataEnd)\n        }\n\n        {\n\n            let offset := calldataload(add(headStart, 64))\n            if gt(offset, 0xffffffffffffffff) { revert(0, 0) }\n\n            value2 := abi_decode_t_string_memory_ptr(add(headStart, offset), dataEnd)\n        }\n\n    }\n\n    function abi_decode_tuple_t_string_memory_ptrt_string_memory_ptrt_string_memory_ptrt_array$_t_string_memory_ptr_$dyn_memory_ptr(headStart, dataEnd) -> value0, value1, value2, value3 {\n        if slt(sub(dataEnd, headStart), 128) { revert(0, 0) }\n\n        {\n\n            let offset := calldataload(add(headStart, 0))\n            if gt(offset, 0xffffffffffffffff) { revert(0, 0) }\n\n            value0 := abi_decode_t_string_memory_ptr(add(headStart, offset), dataEnd)\n        }\n\n        {\n\n            let offset := calldataload(add(headStart, 32))\n            if gt(offset, 0xffffffffffffffff) { revert(0, 0) }\n\n            value1 := abi_decode_t_string_memory_ptr(add(headStart, offset), dataEnd)\n        }\n\n        {\n\n            let offset := calldataload(add(headStart, 64))\n            if gt(offset, 0xffffffffffffffff) { revert(0, 0) }\n\n            value2 := abi_decode_t_string_memory_ptr(add(headStart, offset), dataEnd)\n        }\n\n        {\n\n            let offset := calldataload(add(headStart, 96))\n            if gt(offset, 0xffffffffffffffff) { revert(0, 0) }\n\n            value3 := abi_decode_t_array$_t_string_memory_ptr_$dyn_memory_ptr(add(headStart, offset), dataEnd)\n        }\n\n    }\n\n    function abi_decode_tuple_t_string_memory_ptrt_uint256(headStart, dataEnd) -> value0, value1 {\n        if slt(sub(dataEnd, headStart), 64) { revert(0, 0) }\n\n        {\n\n            let offset := calldataload(add(headStart, 0))\n            if gt(offset, 0xffffffffffffffff) { revert(0, 0) }\n\n            value0 := abi_decode_t_string_memory_ptr(add(headStart, offset), dataEnd)\n        }\n\n        {\n\n            let offset := 32\n\n            value1 := abi_decode_t_uint256(add(headStart, offset), dataEnd)\n        }\n\n    }\n\n    function abi_encodeUpdatedPos_t_address_to_t_address(value0, pos) -> updatedPos {\n        abi_encode_t_address_to_t_address(value0, pos)\n        updatedPos := add(pos, 0x20)\n    }\n\n    function abi_encodeUpdatedPos_t_string_memory_ptr_to_t_string_memory_ptr(value0, pos) -> updatedPos {\n        updatedPos := abi_encode_t_string_memory_ptr_to_t_string_memory_ptr(value0, pos)\n    }\n\n    function abi_encode_t_address_to_t_address(value, pos) {\n        mstore(pos, cleanup_t_address(value))\n    }\n\n    function abi_encode_t_address_to_t_address_fromStack(value, pos) {\n        mstore(pos, cleanup_t_address(value))\n    }\n\n    // address[] -> address[]\n    function abi_encode_t_array$_t_address_$dyn_memory_ptr_to_t_array$_t_address_$dyn_memory_ptr_fromStack(value, pos)  -> end  {\n        let length := array_length_t_array$_t_address_$dyn_memory_ptr(value)\n        pos := array_storeLengthForEncoding_t_array$_t_address_$dyn_memory_ptr_fromStack(pos, length)\n        let baseRef := array_dataslot_t_array$_t_address_$dyn_memory_ptr(value)\n        let srcPtr := baseRef\n        for { let i := 0 } lt(i, length) { i := add(i, 1) }\n        {\n            let elementValue0 := mload(srcPtr)\n            pos := abi_encodeUpdatedPos_t_address_to_t_address(elementValue0, pos)\n            srcPtr := array_nextElement_t_array$_t_address_$dyn_memory_ptr(srcPtr)\n        }\n        end := pos\n    }\n\n    // string[] -> string[]\n    function abi_encode_t_array$_t_string_memory_ptr_$dyn_memory_ptr_to_t_array$_t_string_memory_ptr_$dyn_memory_ptr_fromStack(value, pos)  -> end  {\n        let length := array_length_t_array$_t_string_memory_ptr_$dyn_memory_ptr(value)\n        pos := array_storeLengthForEncoding_t_array$_t_string_memory_ptr_$dyn_memory_ptr_fromStack(pos, length)\n        let headStart := pos\n        let tail := add(pos, mul(length, 0x20))\n        let baseRef := array_dataslot_t_array$_t_string_memory_ptr_$dyn_memory_ptr(value)\n        let srcPtr := baseRef\n        for { let i := 0 } lt(i, length) { i := add(i, 1) }\n        {\n            mstore(pos, sub(tail, headStart))\n            let elementValue0 := mload(srcPtr)\n            tail := abi_encodeUpdatedPos_t_string_memory_ptr_to_t_string_memory_ptr(elementValue0, tail)\n            srcPtr := array_nextElement_t_array$_t_string_memory_ptr_$dyn_memory_ptr(srcPtr)\n            pos := add(pos, 0x20)\n        }\n        pos := tail\n        end := pos\n    }\n\n    function abi_encode_t_bool_to_t_bool(value, pos) {\n        mstore(pos, cleanup_t_bool(value))\n    }\n\n    function abi_encode_t_bool_to_t_bool_fromStack(value, pos) {\n        mstore(pos, cleanup_t_bool(value))\n    }\n\n    function abi_encode_t_string_memory_ptr_to_t_string_memory_ptr(value, pos) -> end {\n        let length := array_length_t_string_memory_ptr(value)\n        pos := array_storeLengthForEncoding_t_string_memory_ptr(pos, length)\n        copy_memory_to_memory(add(value, 0x20), pos, length)\n        end := add(pos, round_up_to_mul_of_32(length))\n    }\n\n    function abi_encode_t_string_memory_ptr_to_t_string_memory_ptr_fromStack(value, pos) -> end {\n        let length := array_length_t_string_memory_ptr(value)\n        pos := array_storeLengthForEncoding_t_string_memory_ptr_fromStack(pos, length)\n        copy_memory_to_memory(add(value, 0x20), pos, length)\n        end := add(pos, round_up_to_mul_of_32(length))\n    }\n\n    function abi_encode_t_string_memory_ptr_to_t_string_memory_ptr_nonPadded_inplace_fromStack(value, pos) -> end {\n        let length := array_length_t_string_memory_ptr(value)\n        pos := array_storeLengthForEncoding_t_string_memory_ptr_nonPadded_inplace_fromStack(pos, length)\n        copy_memory_to_memory(add(value, 0x20), pos, length)\n        end := add(pos, length)\n    }\n\n    // string -> string\n    function abi_encode_t_string_storage_to_t_string_memory_ptr_nonPadded_inplace_fromStack(value, pos) -> ret {\n        let slotValue := sload(value)\n        let length := extract_byte_array_length(slotValue)\n        pos := array_storeLengthForEncoding_t_string_memory_ptr_nonPadded_inplace_fromStack(pos, length)\n        switch and(slotValue, 1)\n        case 0 {\n            // short byte array\n            mstore(pos, and(slotValue, not(0xff)))\n            ret := add(pos, length)\n        }\n        case 1 {\n            // long byte array\n            let dataPos := array_dataslot_t_string_storage(value)\n            let i := 0\n            for { } lt(i, length) { i := add(i, 0x20) } {\n                mstore(add(pos, i), sload(dataPos))\n                dataPos := add(dataPos, 1)\n            }\n            ret := add(pos, length)\n        }\n    }\n\n    function abi_encode_t_stringliteral_1b38f0221178b2b5e310bb647af250b228925d8de34c63d0a58b72978601f4ac_to_t_string_memory_ptr_fromStack(pos) -> end {\n        pos := array_storeLengthForEncoding_t_string_memory_ptr_fromStack(pos, 48)\n\n        mstore(add(pos, 0), \"Farmer::addRawProduct: Raw produ\")\n\n        mstore(add(pos, 32), \"ct already added\")\n\n        end := add(pos, 64)\n    }\n\n    function abi_encode_t_stringliteral_62a7648a843efbae99b7b51f833f3035e679303964cd369b587533d443eeedab_to_t_string_memory_ptr_fromStack(pos) -> end {\n        pos := array_storeLengthForEncoding_t_string_memory_ptr_fromStack(pos, 49)\n\n        mstore(add(pos, 0), \"Farmer::registerFarmer: Farmer a\")\n\n        mstore(add(pos, 32), \"lready registered\")\n\n        end := add(pos, 64)\n    }\n\n    function abi_encode_t_stringliteral_82c76c6a047ddf46e2764b404f4d006b6ea89c019b4e3343e3ae4ad92316c3f1_to_t_string_memory_ptr_fromStack(pos) -> end {\n        pos := array_storeLengthForEncoding_t_string_memory_ptr_fromStack(pos, 60)\n\n        mstore(add(pos, 0), \"Stakeholder::setApprovalForAll: \")\n\n        mstore(add(pos, 32), \"Cannot set approval for self\")\n\n        end := add(pos, 64)\n    }\n\n    function abi_encode_t_stringliteral_937e236ad5ecb0805f11935ac39a868eaaeb0e346df6659e9057a7501e8eb23d_to_t_string_memory_ptr_fromStack(pos) -> end {\n        pos := array_storeLengthForEncoding_t_string_memory_ptr_fromStack(pos, 58)\n\n        mstore(add(pos, 0), \"Stakeholder::transferFrom: Canno\")\n\n        mstore(add(pos, 32), \"t transfer to null address\")\n\n        end := add(pos, 64)\n    }\n\n    function abi_encode_t_stringliteral_a394e524e192b8b2f2fd9cfff2a40155ac4b9098a6c617cc65cc15e937d900a2_to_t_string_memory_ptr_fromStack(pos) -> end {\n        pos := array_storeLengthForEncoding_t_string_memory_ptr_fromStack(pos, 41)\n\n        mstore(add(pos, 0), \"Only stakeholder can access this\")\n\n        mstore(add(pos, 32), \" function\")\n\n        end := add(pos, 64)\n    }\n\n    function abi_encode_t_stringliteral_e3a61907e309c93bac1c1c798e4655b9ca144cfe8bac2d845b8f7229e9d1b479_to_t_string_memory_ptr_fromStack(pos) -> end {\n        pos := array_storeLengthForEncoding_t_string_memory_ptr_fromStack(pos, 50)\n\n        mstore(add(pos, 0), \"Stakeholder::transferFrom: Canno\")\n\n        mstore(add(pos, 32), \"t transfer to self\")\n\n        end := add(pos, 64)\n    }\n\n    function abi_encode_t_stringliteral_e50c7624f855c2666b7529237ee45304b091ceff220fb5c0142d15d830cc602c_to_t_string_memory_ptr_fromStack(pos) -> end {\n        pos := array_storeLengthForEncoding_t_string_memory_ptr_fromStack(pos, 53)\n\n        mstore(add(pos, 0), \"Stakeholder::register: Stakehold\")\n\n        mstore(add(pos, 32), \"er already registered\")\n\n        end := add(pos, 64)\n    }\n\n    function abi_encode_t_stringliteral_ea26cd598c904e01a2d6bcb2714bd3b36cb2016f86f1317399fb7b44ff5283b5_to_t_string_memory_ptr_fromStack(pos) -> end {\n        pos := array_storeLengthForEncoding_t_string_memory_ptr_fromStack(pos, 47)\n\n        mstore(add(pos, 0), \"Only owner or approved can acces\")\n\n        mstore(add(pos, 32), \"s this function\")\n\n        end := add(pos, 64)\n    }\n\n    function abi_encode_t_stringliteral_f05c057b7643e4a8414fae272aa63bff2a71e0934343b7719732b0ef8168be05_to_t_string_memory_ptr_fromStack(pos) -> end {\n        pos := array_storeLengthForEncoding_t_string_memory_ptr_fromStack(pos, 68)\n\n        mstore(add(pos, 0), \"Stakeholder::setApprovalForAll: \")\n\n        mstore(add(pos, 32), \"Cannot set approval for null add\")\n\n        mstore(add(pos, 64), \"ress\")\n\n        end := add(pos, 96)\n    }\n\n    // struct Stakeholder.stakeholder -> struct Stakeholder.stakeholder\n    function abi_encode_t_struct$_stakeholder_$1313_memory_ptr_to_t_struct$_stakeholder_$1313_memory_ptr_fromStack(value, pos)  -> end  {\n        let tail := add(pos, 0xa0)\n\n        {\n            // id\n\n            let memberValue0 := mload(add(value, 0x00))\n            abi_encode_t_address_to_t_address(memberValue0, add(pos, 0x00))\n        }\n\n        {\n            // name\n\n            let memberValue0 := mload(add(value, 0x20))\n\n            mstore(add(pos, 0x20), sub(tail, pos))\n            tail := abi_encode_t_string_memory_ptr_to_t_string_memory_ptr(memberValue0, tail)\n\n        }\n\n        {\n            // location\n\n            let memberValue0 := mload(add(value, 0x40))\n\n            mstore(add(pos, 0x40), sub(tail, pos))\n            tail := abi_encode_t_string_memory_ptr_to_t_string_memory_ptr(memberValue0, tail)\n\n        }\n\n        {\n            // role\n\n            let memberValue0 := mload(add(value, 0x60))\n\n            mstore(add(pos, 0x60), sub(tail, pos))\n            tail := abi_encode_t_string_memory_ptr_to_t_string_memory_ptr(memberValue0, tail)\n\n        }\n\n        {\n            // isVerified\n\n            let memberValue0 := mload(add(value, 0x80))\n            abi_encode_t_bool_to_t_bool(memberValue0, add(pos, 0x80))\n        }\n\n        end := tail\n    }\n\n    function abi_encode_tuple_packed_t_string_memory_ptr__to_t_string_memory_ptr__nonPadded_inplace_fromStack_reversed(pos , value0) -> end {\n\n        pos := abi_encode_t_string_memory_ptr_to_t_string_memory_ptr_nonPadded_inplace_fromStack(value0,  pos)\n\n        end := pos\n    }\n\n    function abi_encode_tuple_packed_t_string_storage__to_t_string_memory_ptr__nonPadded_inplace_fromStack_reversed(pos , value0) -> end {\n\n        pos := abi_encode_t_string_storage_to_t_string_memory_ptr_nonPadded_inplace_fromStack(value0,  pos)\n\n        end := pos\n    }\n\n    function abi_encode_tuple_t_address__to_t_address__fromStack_reversed(headStart , value0) -> tail {\n        tail := add(headStart, 32)\n\n        abi_encode_t_address_to_t_address_fromStack(value0,  add(headStart, 0))\n\n    }\n\n    function abi_encode_tuple_t_array$_t_address_$dyn_memory_ptr__to_t_array$_t_address_$dyn_memory_ptr__fromStack_reversed(headStart , value0) -> tail {\n        tail := add(headStart, 32)\n\n        mstore(add(headStart, 0), sub(tail, headStart))\n        tail := abi_encode_t_array$_t_address_$dyn_memory_ptr_to_t_array$_t_address_$dyn_memory_ptr_fromStack(value0,  tail)\n\n    }\n\n    function abi_encode_tuple_t_bool__to_t_bool__fromStack_reversed(headStart , value0) -> tail {\n        tail := add(headStart, 32)\n\n        abi_encode_t_bool_to_t_bool_fromStack(value0,  add(headStart, 0))\n\n    }\n\n    function abi_encode_tuple_t_string_memory_ptr__to_t_string_memory_ptr__fromStack_reversed(headStart , value0) -> tail {\n        tail := add(headStart, 32)\n\n        mstore(add(headStart, 0), sub(tail, headStart))\n        tail := abi_encode_t_string_memory_ptr_to_t_string_memory_ptr_fromStack(value0,  tail)\n\n    }\n\n    function abi_encode_tuple_t_stringliteral_1b38f0221178b2b5e310bb647af250b228925d8de34c63d0a58b72978601f4ac__to_t_string_memory_ptr__fromStack_reversed(headStart ) -> tail {\n        tail := add(headStart, 32)\n\n        mstore(add(headStart, 0), sub(tail, headStart))\n        tail := abi_encode_t_stringliteral_1b38f0221178b2b5e310bb647af250b228925d8de34c63d0a58b72978601f4ac_to_t_string_memory_ptr_fromStack( tail)\n\n    }\n\n    function abi_encode_tuple_t_stringliteral_62a7648a843efbae99b7b51f833f3035e679303964cd369b587533d443eeedab__to_t_string_memory_ptr__fromStack_reversed(headStart ) -> tail {\n        tail := add(headStart, 32)\n\n        mstore(add(headStart, 0), sub(tail, headStart))\n        tail := abi_encode_t_stringliteral_62a7648a843efbae99b7b51f833f3035e679303964cd369b587533d443eeedab_to_t_string_memory_ptr_fromStack( tail)\n\n    }\n\n    function abi_encode_tuple_t_stringliteral_82c76c6a047ddf46e2764b404f4d006b6ea89c019b4e3343e3ae4ad92316c3f1__to_t_string_memory_ptr__fromStack_reversed(headStart ) -> tail {\n        tail := add(headStart, 32)\n\n        mstore(add(headStart, 0), sub(tail, headStart))\n        tail := abi_encode_t_stringliteral_82c76c6a047ddf46e2764b404f4d006b6ea89c019b4e3343e3ae4ad92316c3f1_to_t_string_memory_ptr_fromStack( tail)\n\n    }\n\n    function abi_encode_tuple_t_stringliteral_937e236ad5ecb0805f11935ac39a868eaaeb0e346df6659e9057a7501e8eb23d__to_t_string_memory_ptr__fromStack_reversed(headStart ) -> tail {\n        tail := add(headStart, 32)\n\n        mstore(add(headStart, 0), sub(tail, headStart))\n        tail := abi_encode_t_stringliteral_937e236ad5ecb0805f11935ac39a868eaaeb0e346df6659e9057a7501e8eb23d_to_t_string_memory_ptr_fromStack( tail)\n\n    }\n\n    function abi_encode_tuple_t_stringliteral_a394e524e192b8b2f2fd9cfff2a40155ac4b9098a6c617cc65cc15e937d900a2__to_t_string_memory_ptr__fromStack_reversed(headStart ) -> tail {\n        tail := add(headStart, 32)\n\n        mstore(add(headStart, 0), sub(tail, headStart))\n        tail := abi_encode_t_stringliteral_a394e524e192b8b2f2fd9cfff2a40155ac4b9098a6c617cc65cc15e937d900a2_to_t_string_memory_ptr_fromStack( tail)\n\n    }\n\n    function abi_encode_tuple_t_stringliteral_e3a61907e309c93bac1c1c798e4655b9ca144cfe8bac2d845b8f7229e9d1b479__to_t_string_memory_ptr__fromStack_reversed(headStart ) -> tail {\n        tail := add(headStart, 32)\n\n        mstore(add(headStart, 0), sub(tail, headStart))\n        tail := abi_encode_t_stringliteral_e3a61907e309c93bac1c1c798e4655b9ca144cfe8bac2d845b8f7229e9d1b479_to_t_string_memory_ptr_fromStack( tail)\n\n    }\n\n    function abi_encode_tuple_t_stringliteral_e50c7624f855c2666b7529237ee45304b091ceff220fb5c0142d15d830cc602c__to_t_string_memory_ptr__fromStack_reversed(headStart ) -> tail {\n        tail := add(headStart, 32)\n\n        mstore(add(headStart, 0), sub(tail, headStart))\n        tail := abi_encode_t_stringliteral_e50c7624f855c2666b7529237ee45304b091ceff220fb5c0142d15d830cc602c_to_t_string_memory_ptr_fromStack( tail)\n\n    }\n\n    function abi_encode_tuple_t_stringliteral_ea26cd598c904e01a2d6bcb2714bd3b36cb2016f86f1317399fb7b44ff5283b5__to_t_string_memory_ptr__fromStack_reversed(headStart ) -> tail {\n        tail := add(headStart, 32)\n\n        mstore(add(headStart, 0), sub(tail, headStart))\n        tail := abi_encode_t_stringliteral_ea26cd598c904e01a2d6bcb2714bd3b36cb2016f86f1317399fb7b44ff5283b5_to_t_string_memory_ptr_fromStack( tail)\n\n    }\n\n    function abi_encode_tuple_t_stringliteral_f05c057b7643e4a8414fae272aa63bff2a71e0934343b7719732b0ef8168be05__to_t_string_memory_ptr__fromStack_reversed(headStart ) -> tail {\n        tail := add(headStart, 32)\n\n        mstore(add(headStart, 0), sub(tail, headStart))\n        tail := abi_encode_t_stringliteral_f05c057b7643e4a8414fae272aa63bff2a71e0934343b7719732b0ef8168be05_to_t_string_memory_ptr_fromStack( tail)\n\n    }\n\n    function abi_encode_tuple_t_struct$_stakeholder_$1313_memory_ptr__to_t_struct$_stakeholder_$1313_memory_ptr__fromStack_reversed(headStart , value0) -> tail {\n        tail := add(headStart, 32)\n\n        mstore(add(headStart, 0), sub(tail, headStart))\n        tail := abi_encode_t_struct$_stakeholder_$1313_memory_ptr_to_t_struct$_stakeholder_$1313_memory_ptr_fromStack(value0,  tail)\n\n    }\n\n    function abi_encode_tuple_t_struct$_stakeholder_$1313_memory_ptr_t_array$_t_string_memory_ptr_$dyn_memory_ptr__to_t_struct$_stakeholder_$1313_memory_ptr_t_array$_t_string_memory_ptr_$dyn_memory_ptr__fromStack_reversed(headStart , value1, value0) -> tail {\n        tail := add(headStart, 64)\n\n        mstore(add(headStart, 0), sub(tail, headStart))\n        tail := abi_encode_t_struct$_stakeholder_$1313_memory_ptr_to_t_struct$_stakeholder_$1313_memory_ptr_fromStack(value0,  tail)\n\n        mstore(add(headStart, 32), sub(tail, headStart))\n        tail := abi_encode_t_array$_t_string_memory_ptr_$dyn_memory_ptr_to_t_array$_t_string_memory_ptr_$dyn_memory_ptr_fromStack(value1,  tail)\n\n    }\n\n    function allocateMemory(size) -> memPtr {\n        memPtr := mload(64)\n        let newFreePtr := add(memPtr, size)\n        // protect against overflow\n        if or(gt(newFreePtr, 0xffffffffffffffff), lt(newFreePtr, memPtr)) { panic_error_0x41() }\n        mstore(64, newFreePtr)\n    }\n\n    function array_allocation_size_t_array$_t_string_memory_ptr_$dyn_memory_ptr(length) -> size {\n        // Make sure we can allocate memory without overflow\n        if gt(length, 0xffffffffffffffff) { panic_error_0x41() }\n\n        size := mul(length, 0x20)\n\n        // add length slot\n        size := add(size, 0x20)\n\n    }\n\n    function array_allocation_size_t_string_memory_ptr(length) -> size {\n        // Make sure we can allocate memory without overflow\n        if gt(length, 0xffffffffffffffff) { panic_error_0x41() }\n\n        // round up\n        size := and(add(length, 0x1f), not(0x1f))\n\n        // add length slot\n        size := add(size, 0x20)\n\n    }\n\n    function array_dataslot_t_array$_t_address_$dyn_memory_ptr(ptr) -> data {\n        data := ptr\n\n        data := add(ptr, 0x20)\n\n    }\n\n    function array_dataslot_t_array$_t_string_memory_ptr_$dyn_memory_ptr(ptr) -> data {\n        data := ptr\n\n        data := add(ptr, 0x20)\n\n    }\n\n    function array_dataslot_t_string_storage(ptr) -> data {\n        data := ptr\n\n        mstore(0, ptr)\n        data := keccak256(0, 0x20)\n\n    }\n\n    function array_length_t_array$_t_address_$dyn_memory_ptr(value) -> length {\n\n        length := mload(value)\n\n    }\n\n    function array_length_t_array$_t_string_memory_ptr_$dyn_memory_ptr(value) -> length {\n\n        length := mload(value)\n\n    }\n\n    function array_length_t_string_memory_ptr(value) -> length {\n\n        length := mload(value)\n\n    }\n\n    function array_nextElement_t_array$_t_address_$dyn_memory_ptr(ptr) -> next {\n        next := add(ptr, 0x20)\n    }\n\n    function array_nextElement_t_array$_t_string_memory_ptr_$dyn_memory_ptr(ptr) -> next {\n        next := add(ptr, 0x20)\n    }\n\n    function array_storeLengthForEncoding_t_array$_t_address_$dyn_memory_ptr_fromStack(pos, length) -> updated_pos {\n        mstore(pos, length)\n        updated_pos := add(pos, 0x20)\n    }\n\n    function array_storeLengthForEncoding_t_array$_t_string_memory_ptr_$dyn_memory_ptr_fromStack(pos, length) -> updated_pos {\n        mstore(pos, length)\n        updated_pos := add(pos, 0x20)\n    }\n\n    function array_storeLengthForEncoding_t_string_memory_ptr(pos, length) -> updated_pos {\n        mstore(pos, length)\n        updated_pos := add(pos, 0x20)\n    }\n\n    function array_storeLengthForEncoding_t_string_memory_ptr_fromStack(pos, length) -> updated_pos {\n        mstore(pos, length)\n        updated_pos := add(pos, 0x20)\n    }\n\n    function array_storeLengthForEncoding_t_string_memory_ptr_nonPadded_inplace_fromStack(pos, length) -> updated_pos {\n        updated_pos := pos\n    }\n\n    function cleanup_t_address(value) -> cleaned {\n        cleaned := cleanup_t_uint160(value)\n    }\n\n    function cleanup_t_bool(value) -> cleaned {\n        cleaned := iszero(iszero(value))\n    }\n\n    function cleanup_t_uint160(value) -> cleaned {\n        cleaned := and(value, 0xffffffffffffffffffffffffffffffffffffffff)\n    }\n\n    function cleanup_t_uint256(value) -> cleaned {\n        cleaned := value\n    }\n\n    function copy_calldata_to_memory(src, dst, length) {\n        calldatacopy(dst, src, length)\n        // clear end\n        mstore(add(dst, length), 0)\n    }\n\n    function copy_memory_to_memory(src, dst, length) {\n        let i := 0\n        for { } lt(i, length) { i := add(i, 32) }\n        {\n            mstore(add(dst, i), mload(add(src, i)))\n        }\n        if gt(i, length)\n        {\n            // clear end\n            mstore(add(dst, length), 0)\n        }\n    }\n\n    function extract_byte_array_length(data) -> length {\n        length := div(data, 2)\n        let outOfPlaceEncoding := and(data, 1)\n        if iszero(outOfPlaceEncoding) {\n            length := and(length, 0x7f)\n        }\n\n        if eq(outOfPlaceEncoding, lt(length, 32)) {\n            panic_error_0x22()\n        }\n    }\n\n    function increment_t_uint256(value) -> ret {\n        value := cleanup_t_uint256(value)\n        if eq(value, 0xffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff) { panic_error_0x11() }\n        ret := add(value, 1)\n    }\n\n    function panic_error_0x11() {\n        mstore(0, 35408467139433450592217433187231851964531694900788300625387963629091585785856)\n        mstore(4, 0x11)\n        revert(0, 0x24)\n    }\n\n    function panic_error_0x22() {\n        mstore(0, 35408467139433450592217433187231851964531694900788300625387963629091585785856)\n        mstore(4, 0x22)\n        revert(0, 0x24)\n    }\n\n    function panic_error_0x41() {\n        mstore(0, 35408467139433450592217433187231851964531694900788300625387963629091585785856)\n        mstore(4, 0x41)\n        revert(0, 0x24)\n    }\n\n    function round_up_to_mul_of_32(value) -> result {\n        result := and(add(value, 31), not(31))\n    }\n\n    function validator_revert_t_address(value) {\n        if iszero(eq(value, cleanup_t_address(value))) { revert(0, 0) }\n    }\n\n    function validator_revert_t_bool(value) {\n        if iszero(eq(value, cleanup_t_bool(value))) { revert(0, 0) }\n    }\n\n    function validator_revert_t_uint256(value) {\n        if iszero(eq(value, cleanup_t_uint256(value))) { revert(0, 0) }\n    }\n\n}\n",
+      "contents": "{\n\n    // string[]\n    function abi_decode_available_length_t_array$_t_string_memory_ptr_$dyn_memory_ptr(offset, length, end) -> array {\n        array := allocateMemory(array_allocation_size_t_array$_t_string_memory_ptr_$dyn_memory_ptr(length))\n        let dst := array\n        mstore(array, length) dst := add(array, 0x20)\n        let src := offset\n\n        for { let i := 0 } lt(i, length) { i := add(i, 1) }\n        {\n            let elementPos := add(offset, calldataload(src))\n            mstore(dst, abi_decode_t_string_memory_ptr(elementPos, end))\n            dst := add(dst, 0x20)\n            src := add(src, 0x20)\n        }\n    }\n\n    function abi_decode_available_length_t_string_memory_ptr(src, length, end) -> array {\n        array := allocateMemory(array_allocation_size_t_string_memory_ptr(length))\n        mstore(array, length)\n        let dst := add(array, 0x20)\n        if gt(add(src, length), end) { revert(0, 0) }\n        copy_calldata_to_memory(src, dst, length)\n    }\n\n    function abi_decode_t_address(offset, end) -> value {\n        value := calldataload(offset)\n        validator_revert_t_address(value)\n    }\n\n    // string[]\n    function abi_decode_t_array$_t_string_memory_ptr_$dyn_memory_ptr(offset, end) -> array {\n        if iszero(slt(add(offset, 0x1f), end)) { revert(0, 0) }\n        let length := calldataload(offset)\n        array := abi_decode_available_length_t_array$_t_string_memory_ptr_$dyn_memory_ptr(add(offset, 0x20), length, end)\n    }\n\n    function abi_decode_t_bool(offset, end) -> value {\n        value := calldataload(offset)\n        validator_revert_t_bool(value)\n    }\n\n    // string\n    function abi_decode_t_string_memory_ptr(offset, end) -> array {\n        if iszero(slt(add(offset, 0x1f), end)) { revert(0, 0) }\n        let length := calldataload(offset)\n        array := abi_decode_available_length_t_string_memory_ptr(add(offset, 0x20), length, end)\n    }\n\n    function abi_decode_t_uint256(offset, end) -> value {\n        value := calldataload(offset)\n        validator_revert_t_uint256(value)\n    }\n\n    function abi_decode_tuple_t_address(headStart, dataEnd) -> value0 {\n        if slt(sub(dataEnd, headStart), 32) { revert(0, 0) }\n\n        {\n\n            let offset := 0\n\n            value0 := abi_decode_t_address(add(headStart, offset), dataEnd)\n        }\n\n    }\n\n    function abi_decode_tuple_t_addresst_address(headStart, dataEnd) -> value0, value1 {\n        if slt(sub(dataEnd, headStart), 64) { revert(0, 0) }\n\n        {\n\n            let offset := 0\n\n            value0 := abi_decode_t_address(add(headStart, offset), dataEnd)\n        }\n\n        {\n\n            let offset := 32\n\n            value1 := abi_decode_t_address(add(headStart, offset), dataEnd)\n        }\n\n    }\n\n    function abi_decode_tuple_t_addresst_addresst_uint256(headStart, dataEnd) -> value0, value1, value2 {\n        if slt(sub(dataEnd, headStart), 96) { revert(0, 0) }\n\n        {\n\n            let offset := 0\n\n            value0 := abi_decode_t_address(add(headStart, offset), dataEnd)\n        }\n\n        {\n\n            let offset := 32\n\n            value1 := abi_decode_t_address(add(headStart, offset), dataEnd)\n        }\n\n        {\n\n            let offset := 64\n\n            value2 := abi_decode_t_uint256(add(headStart, offset), dataEnd)\n        }\n\n    }\n\n    function abi_decode_tuple_t_addresst_bool(headStart, dataEnd) -> value0, value1 {\n        if slt(sub(dataEnd, headStart), 64) { revert(0, 0) }\n\n        {\n\n            let offset := 0\n\n            value0 := abi_decode_t_address(add(headStart, offset), dataEnd)\n        }\n\n        {\n\n            let offset := 32\n\n            value1 := abi_decode_t_bool(add(headStart, offset), dataEnd)\n        }\n\n    }\n\n    function abi_decode_tuple_t_addresst_uint256(headStart, dataEnd) -> value0, value1 {\n        if slt(sub(dataEnd, headStart), 64) { revert(0, 0) }\n\n        {\n\n            let offset := 0\n\n            value0 := abi_decode_t_address(add(headStart, offset), dataEnd)\n        }\n\n        {\n\n            let offset := 32\n\n            value1 := abi_decode_t_uint256(add(headStart, offset), dataEnd)\n        }\n\n    }\n\n    function abi_decode_tuple_t_string_memory_ptr(headStart, dataEnd) -> value0 {\n        if slt(sub(dataEnd, headStart), 32) { revert(0, 0) }\n\n        {\n\n            let offset := calldataload(add(headStart, 0))\n            if gt(offset, 0xffffffffffffffff) { revert(0, 0) }\n\n            value0 := abi_decode_t_string_memory_ptr(add(headStart, offset), dataEnd)\n        }\n\n    }\n\n    function abi_decode_tuple_t_string_memory_ptrt_string_memory_ptrt_string_memory_ptr(headStart, dataEnd) -> value0, value1, value2 {\n        if slt(sub(dataEnd, headStart), 96) { revert(0, 0) }\n\n        {\n\n            let offset := calldataload(add(headStart, 0))\n            if gt(offset, 0xffffffffffffffff) { revert(0, 0) }\n\n            value0 := abi_decode_t_string_memory_ptr(add(headStart, offset), dataEnd)\n        }\n\n        {\n\n            let offset := calldataload(add(headStart, 32))\n            if gt(offset, 0xffffffffffffffff) { revert(0, 0) }\n\n            value1 := abi_decode_t_string_memory_ptr(add(headStart, offset), dataEnd)\n        }\n\n        {\n\n            let offset := calldataload(add(headStart, 64))\n            if gt(offset, 0xffffffffffffffff) { revert(0, 0) }\n\n            value2 := abi_decode_t_string_memory_ptr(add(headStart, offset), dataEnd)\n        }\n\n    }\n\n    function abi_decode_tuple_t_string_memory_ptrt_string_memory_ptrt_string_memory_ptrt_array$_t_string_memory_ptr_$dyn_memory_ptr(headStart, dataEnd) -> value0, value1, value2, value3 {\n        if slt(sub(dataEnd, headStart), 128) { revert(0, 0) }\n\n        {\n\n            let offset := calldataload(add(headStart, 0))\n            if gt(offset, 0xffffffffffffffff) { revert(0, 0) }\n\n            value0 := abi_decode_t_string_memory_ptr(add(headStart, offset), dataEnd)\n        }\n\n        {\n\n            let offset := calldataload(add(headStart, 32))\n            if gt(offset, 0xffffffffffffffff) { revert(0, 0) }\n\n            value1 := abi_decode_t_string_memory_ptr(add(headStart, offset), dataEnd)\n        }\n\n        {\n\n            let offset := calldataload(add(headStart, 64))\n            if gt(offset, 0xffffffffffffffff) { revert(0, 0) }\n\n            value2 := abi_decode_t_string_memory_ptr(add(headStart, offset), dataEnd)\n        }\n\n        {\n\n            let offset := calldataload(add(headStart, 96))\n            if gt(offset, 0xffffffffffffffff) { revert(0, 0) }\n\n            value3 := abi_decode_t_array$_t_string_memory_ptr_$dyn_memory_ptr(add(headStart, offset), dataEnd)\n        }\n\n    }\n\n    function abi_decode_tuple_t_string_memory_ptrt_uint256(headStart, dataEnd) -> value0, value1 {\n        if slt(sub(dataEnd, headStart), 64) { revert(0, 0) }\n\n        {\n\n            let offset := calldataload(add(headStart, 0))\n            if gt(offset, 0xffffffffffffffff) { revert(0, 0) }\n\n            value0 := abi_decode_t_string_memory_ptr(add(headStart, offset), dataEnd)\n        }\n\n        {\n\n            let offset := 32\n\n            value1 := abi_decode_t_uint256(add(headStart, offset), dataEnd)\n        }\n\n    }\n\n    function abi_encodeUpdatedPos_t_address_to_t_address(value0, pos) -> updatedPos {\n        abi_encode_t_address_to_t_address(value0, pos)\n        updatedPos := add(pos, 0x20)\n    }\n\n    function abi_encodeUpdatedPos_t_string_memory_ptr_to_t_string_memory_ptr(value0, pos) -> updatedPos {\n        updatedPos := abi_encode_t_string_memory_ptr_to_t_string_memory_ptr(value0, pos)\n    }\n\n    function abi_encode_t_address_to_t_address(value, pos) {\n        mstore(pos, cleanup_t_address(value))\n    }\n\n    function abi_encode_t_address_to_t_address_fromStack(value, pos) {\n        mstore(pos, cleanup_t_address(value))\n    }\n\n    // address[] -> address[]\n    function abi_encode_t_array$_t_address_$dyn_memory_ptr_to_t_array$_t_address_$dyn_memory_ptr_fromStack(value, pos)  -> end  {\n        let length := array_length_t_array$_t_address_$dyn_memory_ptr(value)\n        pos := array_storeLengthForEncoding_t_array$_t_address_$dyn_memory_ptr_fromStack(pos, length)\n        let baseRef := array_dataslot_t_array$_t_address_$dyn_memory_ptr(value)\n        let srcPtr := baseRef\n        for { let i := 0 } lt(i, length) { i := add(i, 1) }\n        {\n            let elementValue0 := mload(srcPtr)\n            pos := abi_encodeUpdatedPos_t_address_to_t_address(elementValue0, pos)\n            srcPtr := array_nextElement_t_array$_t_address_$dyn_memory_ptr(srcPtr)\n        }\n        end := pos\n    }\n\n    // string[] -> string[]\n    function abi_encode_t_array$_t_string_memory_ptr_$dyn_memory_ptr_to_t_array$_t_string_memory_ptr_$dyn_memory_ptr_fromStack(value, pos)  -> end  {\n        let length := array_length_t_array$_t_string_memory_ptr_$dyn_memory_ptr(value)\n        pos := array_storeLengthForEncoding_t_array$_t_string_memory_ptr_$dyn_memory_ptr_fromStack(pos, length)\n        let headStart := pos\n        let tail := add(pos, mul(length, 0x20))\n        let baseRef := array_dataslot_t_array$_t_string_memory_ptr_$dyn_memory_ptr(value)\n        let srcPtr := baseRef\n        for { let i := 0 } lt(i, length) { i := add(i, 1) }\n        {\n            mstore(pos, sub(tail, headStart))\n            let elementValue0 := mload(srcPtr)\n            tail := abi_encodeUpdatedPos_t_string_memory_ptr_to_t_string_memory_ptr(elementValue0, tail)\n            srcPtr := array_nextElement_t_array$_t_string_memory_ptr_$dyn_memory_ptr(srcPtr)\n            pos := add(pos, 0x20)\n        }\n        pos := tail\n        end := pos\n    }\n\n    function abi_encode_t_bool_to_t_bool(value, pos) {\n        mstore(pos, cleanup_t_bool(value))\n    }\n\n    function abi_encode_t_bool_to_t_bool_fromStack(value, pos) {\n        mstore(pos, cleanup_t_bool(value))\n    }\n\n    function abi_encode_t_string_memory_ptr_to_t_string_memory_ptr(value, pos) -> end {\n        let length := array_length_t_string_memory_ptr(value)\n        pos := array_storeLengthForEncoding_t_string_memory_ptr(pos, length)\n        copy_memory_to_memory(add(value, 0x20), pos, length)\n        end := add(pos, round_up_to_mul_of_32(length))\n    }\n\n    function abi_encode_t_string_memory_ptr_to_t_string_memory_ptr_fromStack(value, pos) -> end {\n        let length := array_length_t_string_memory_ptr(value)\n        pos := array_storeLengthForEncoding_t_string_memory_ptr_fromStack(pos, length)\n        copy_memory_to_memory(add(value, 0x20), pos, length)\n        end := add(pos, round_up_to_mul_of_32(length))\n    }\n\n    function abi_encode_t_string_memory_ptr_to_t_string_memory_ptr_nonPadded_inplace_fromStack(value, pos) -> end {\n        let length := array_length_t_string_memory_ptr(value)\n        pos := array_storeLengthForEncoding_t_string_memory_ptr_nonPadded_inplace_fromStack(pos, length)\n        copy_memory_to_memory(add(value, 0x20), pos, length)\n        end := add(pos, length)\n    }\n\n    // string -> string\n    function abi_encode_t_string_storage_to_t_string_memory_ptr_nonPadded_inplace_fromStack(value, pos) -> ret {\n        let slotValue := sload(value)\n        let length := extract_byte_array_length(slotValue)\n        pos := array_storeLengthForEncoding_t_string_memory_ptr_nonPadded_inplace_fromStack(pos, length)\n        switch and(slotValue, 1)\n        case 0 {\n            // short byte array\n            mstore(pos, and(slotValue, not(0xff)))\n            ret := add(pos, length)\n        }\n        case 1 {\n            // long byte array\n            let dataPos := array_dataslot_t_string_storage(value)\n            let i := 0\n            for { } lt(i, length) { i := add(i, 0x20) } {\n                mstore(add(pos, i), sload(dataPos))\n                dataPos := add(dataPos, 1)\n            }\n            ret := add(pos, length)\n        }\n    }\n\n    function abi_encode_t_stringliteral_1b38f0221178b2b5e310bb647af250b228925d8de34c63d0a58b72978601f4ac_to_t_string_memory_ptr_fromStack(pos) -> end {\n        pos := array_storeLengthForEncoding_t_string_memory_ptr_fromStack(pos, 48)\n\n        mstore(add(pos, 0), \"Farmer::addRawProduct: Raw produ\")\n\n        mstore(add(pos, 32), \"ct already added\")\n\n        end := add(pos, 64)\n    }\n\n    function abi_encode_t_stringliteral_62a7648a843efbae99b7b51f833f3035e679303964cd369b587533d443eeedab_to_t_string_memory_ptr_fromStack(pos) -> end {\n        pos := array_storeLengthForEncoding_t_string_memory_ptr_fromStack(pos, 49)\n\n        mstore(add(pos, 0), \"Farmer::registerFarmer: Farmer a\")\n\n        mstore(add(pos, 32), \"lready registered\")\n\n        end := add(pos, 64)\n    }\n\n    function abi_encode_t_stringliteral_82c76c6a047ddf46e2764b404f4d006b6ea89c019b4e3343e3ae4ad92316c3f1_to_t_string_memory_ptr_fromStack(pos) -> end {\n        pos := array_storeLengthForEncoding_t_string_memory_ptr_fromStack(pos, 60)\n\n        mstore(add(pos, 0), \"Stakeholder::setApprovalForAll: \")\n\n        mstore(add(pos, 32), \"Cannot set approval for self\")\n\n        end := add(pos, 64)\n    }\n\n    function abi_encode_t_stringliteral_937e236ad5ecb0805f11935ac39a868eaaeb0e346df6659e9057a7501e8eb23d_to_t_string_memory_ptr_fromStack(pos) -> end {\n        pos := array_storeLengthForEncoding_t_string_memory_ptr_fromStack(pos, 58)\n\n        mstore(add(pos, 0), \"Stakeholder::transferFrom: Canno\")\n\n        mstore(add(pos, 32), \"t transfer to null address\")\n\n        end := add(pos, 64)\n    }\n\n    function abi_encode_t_stringliteral_a394e524e192b8b2f2fd9cfff2a40155ac4b9098a6c617cc65cc15e937d900a2_to_t_string_memory_ptr_fromStack(pos) -> end {\n        pos := array_storeLengthForEncoding_t_string_memory_ptr_fromStack(pos, 41)\n\n        mstore(add(pos, 0), \"Only stakeholder can access this\")\n\n        mstore(add(pos, 32), \" function\")\n\n        end := add(pos, 64)\n    }\n\n    function abi_encode_t_stringliteral_e3a61907e309c93bac1c1c798e4655b9ca144cfe8bac2d845b8f7229e9d1b479_to_t_string_memory_ptr_fromStack(pos) -> end {\n        pos := array_storeLengthForEncoding_t_string_memory_ptr_fromStack(pos, 50)\n\n        mstore(add(pos, 0), \"Stakeholder::transferFrom: Canno\")\n\n        mstore(add(pos, 32), \"t transfer to self\")\n\n        end := add(pos, 64)\n    }\n\n    function abi_encode_t_stringliteral_e50c7624f855c2666b7529237ee45304b091ceff220fb5c0142d15d830cc602c_to_t_string_memory_ptr_fromStack(pos) -> end {\n        pos := array_storeLengthForEncoding_t_string_memory_ptr_fromStack(pos, 53)\n\n        mstore(add(pos, 0), \"Stakeholder::register: Stakehold\")\n\n        mstore(add(pos, 32), \"er already registered\")\n\n        end := add(pos, 64)\n    }\n\n    function abi_encode_t_stringliteral_ea26cd598c904e01a2d6bcb2714bd3b36cb2016f86f1317399fb7b44ff5283b5_to_t_string_memory_ptr_fromStack(pos) -> end {\n        pos := array_storeLengthForEncoding_t_string_memory_ptr_fromStack(pos, 47)\n\n        mstore(add(pos, 0), \"Only owner or approved can acces\")\n\n        mstore(add(pos, 32), \"s this function\")\n\n        end := add(pos, 64)\n    }\n\n    function abi_encode_t_stringliteral_f05c057b7643e4a8414fae272aa63bff2a71e0934343b7719732b0ef8168be05_to_t_string_memory_ptr_fromStack(pos) -> end {\n        pos := array_storeLengthForEncoding_t_string_memory_ptr_fromStack(pos, 68)\n\n        mstore(add(pos, 0), \"Stakeholder::setApprovalForAll: \")\n\n        mstore(add(pos, 32), \"Cannot set approval for null add\")\n\n        mstore(add(pos, 64), \"ress\")\n\n        end := add(pos, 96)\n    }\n\n    // struct Stakeholder.stakeholder -> struct Stakeholder.stakeholder\n    function abi_encode_t_struct$_stakeholder_$1318_memory_ptr_to_t_struct$_stakeholder_$1318_memory_ptr_fromStack(value, pos)  -> end  {\n        let tail := add(pos, 0xa0)\n\n        {\n            // id\n\n            let memberValue0 := mload(add(value, 0x00))\n            abi_encode_t_address_to_t_address(memberValue0, add(pos, 0x00))\n        }\n\n        {\n            // name\n\n            let memberValue0 := mload(add(value, 0x20))\n\n            mstore(add(pos, 0x20), sub(tail, pos))\n            tail := abi_encode_t_string_memory_ptr_to_t_string_memory_ptr(memberValue0, tail)\n\n        }\n\n        {\n            // location\n\n            let memberValue0 := mload(add(value, 0x40))\n\n            mstore(add(pos, 0x40), sub(tail, pos))\n            tail := abi_encode_t_string_memory_ptr_to_t_string_memory_ptr(memberValue0, tail)\n\n        }\n\n        {\n            // role\n\n            let memberValue0 := mload(add(value, 0x60))\n\n            mstore(add(pos, 0x60), sub(tail, pos))\n            tail := abi_encode_t_string_memory_ptr_to_t_string_memory_ptr(memberValue0, tail)\n\n        }\n\n        {\n            // isVerified\n\n            let memberValue0 := mload(add(value, 0x80))\n            abi_encode_t_bool_to_t_bool(memberValue0, add(pos, 0x80))\n        }\n\n        end := tail\n    }\n\n    function abi_encode_tuple_packed_t_string_memory_ptr__to_t_string_memory_ptr__nonPadded_inplace_fromStack_reversed(pos , value0) -> end {\n\n        pos := abi_encode_t_string_memory_ptr_to_t_string_memory_ptr_nonPadded_inplace_fromStack(value0,  pos)\n\n        end := pos\n    }\n\n    function abi_encode_tuple_packed_t_string_storage__to_t_string_memory_ptr__nonPadded_inplace_fromStack_reversed(pos , value0) -> end {\n\n        pos := abi_encode_t_string_storage_to_t_string_memory_ptr_nonPadded_inplace_fromStack(value0,  pos)\n\n        end := pos\n    }\n\n    function abi_encode_tuple_t_address__to_t_address__fromStack_reversed(headStart , value0) -> tail {\n        tail := add(headStart, 32)\n\n        abi_encode_t_address_to_t_address_fromStack(value0,  add(headStart, 0))\n\n    }\n\n    function abi_encode_tuple_t_array$_t_address_$dyn_memory_ptr__to_t_array$_t_address_$dyn_memory_ptr__fromStack_reversed(headStart , value0) -> tail {\n        tail := add(headStart, 32)\n\n        mstore(add(headStart, 0), sub(tail, headStart))\n        tail := abi_encode_t_array$_t_address_$dyn_memory_ptr_to_t_array$_t_address_$dyn_memory_ptr_fromStack(value0,  tail)\n\n    }\n\n    function abi_encode_tuple_t_bool__to_t_bool__fromStack_reversed(headStart , value0) -> tail {\n        tail := add(headStart, 32)\n\n        abi_encode_t_bool_to_t_bool_fromStack(value0,  add(headStart, 0))\n\n    }\n\n    function abi_encode_tuple_t_string_memory_ptr__to_t_string_memory_ptr__fromStack_reversed(headStart , value0) -> tail {\n        tail := add(headStart, 32)\n\n        mstore(add(headStart, 0), sub(tail, headStart))\n        tail := abi_encode_t_string_memory_ptr_to_t_string_memory_ptr_fromStack(value0,  tail)\n\n    }\n\n    function abi_encode_tuple_t_stringliteral_1b38f0221178b2b5e310bb647af250b228925d8de34c63d0a58b72978601f4ac__to_t_string_memory_ptr__fromStack_reversed(headStart ) -> tail {\n        tail := add(headStart, 32)\n\n        mstore(add(headStart, 0), sub(tail, headStart))\n        tail := abi_encode_t_stringliteral_1b38f0221178b2b5e310bb647af250b228925d8de34c63d0a58b72978601f4ac_to_t_string_memory_ptr_fromStack( tail)\n\n    }\n\n    function abi_encode_tuple_t_stringliteral_62a7648a843efbae99b7b51f833f3035e679303964cd369b587533d443eeedab__to_t_string_memory_ptr__fromStack_reversed(headStart ) -> tail {\n        tail := add(headStart, 32)\n\n        mstore(add(headStart, 0), sub(tail, headStart))\n        tail := abi_encode_t_stringliteral_62a7648a843efbae99b7b51f833f3035e679303964cd369b587533d443eeedab_to_t_string_memory_ptr_fromStack( tail)\n\n    }\n\n    function abi_encode_tuple_t_stringliteral_82c76c6a047ddf46e2764b404f4d006b6ea89c019b4e3343e3ae4ad92316c3f1__to_t_string_memory_ptr__fromStack_reversed(headStart ) -> tail {\n        tail := add(headStart, 32)\n\n        mstore(add(headStart, 0), sub(tail, headStart))\n        tail := abi_encode_t_stringliteral_82c76c6a047ddf46e2764b404f4d006b6ea89c019b4e3343e3ae4ad92316c3f1_to_t_string_memory_ptr_fromStack( tail)\n\n    }\n\n    function abi_encode_tuple_t_stringliteral_937e236ad5ecb0805f11935ac39a868eaaeb0e346df6659e9057a7501e8eb23d__to_t_string_memory_ptr__fromStack_reversed(headStart ) -> tail {\n        tail := add(headStart, 32)\n\n        mstore(add(headStart, 0), sub(tail, headStart))\n        tail := abi_encode_t_stringliteral_937e236ad5ecb0805f11935ac39a868eaaeb0e346df6659e9057a7501e8eb23d_to_t_string_memory_ptr_fromStack( tail)\n\n    }\n\n    function abi_encode_tuple_t_stringliteral_a394e524e192b8b2f2fd9cfff2a40155ac4b9098a6c617cc65cc15e937d900a2__to_t_string_memory_ptr__fromStack_reversed(headStart ) -> tail {\n        tail := add(headStart, 32)\n\n        mstore(add(headStart, 0), sub(tail, headStart))\n        tail := abi_encode_t_stringliteral_a394e524e192b8b2f2fd9cfff2a40155ac4b9098a6c617cc65cc15e937d900a2_to_t_string_memory_ptr_fromStack( tail)\n\n    }\n\n    function abi_encode_tuple_t_stringliteral_e3a61907e309c93bac1c1c798e4655b9ca144cfe8bac2d845b8f7229e9d1b479__to_t_string_memory_ptr__fromStack_reversed(headStart ) -> tail {\n        tail := add(headStart, 32)\n\n        mstore(add(headStart, 0), sub(tail, headStart))\n        tail := abi_encode_t_stringliteral_e3a61907e309c93bac1c1c798e4655b9ca144cfe8bac2d845b8f7229e9d1b479_to_t_string_memory_ptr_fromStack( tail)\n\n    }\n\n    function abi_encode_tuple_t_stringliteral_e50c7624f855c2666b7529237ee45304b091ceff220fb5c0142d15d830cc602c__to_t_string_memory_ptr__fromStack_reversed(headStart ) -> tail {\n        tail := add(headStart, 32)\n\n        mstore(add(headStart, 0), sub(tail, headStart))\n        tail := abi_encode_t_stringliteral_e50c7624f855c2666b7529237ee45304b091ceff220fb5c0142d15d830cc602c_to_t_string_memory_ptr_fromStack( tail)\n\n    }\n\n    function abi_encode_tuple_t_stringliteral_ea26cd598c904e01a2d6bcb2714bd3b36cb2016f86f1317399fb7b44ff5283b5__to_t_string_memory_ptr__fromStack_reversed(headStart ) -> tail {\n        tail := add(headStart, 32)\n\n        mstore(add(headStart, 0), sub(tail, headStart))\n        tail := abi_encode_t_stringliteral_ea26cd598c904e01a2d6bcb2714bd3b36cb2016f86f1317399fb7b44ff5283b5_to_t_string_memory_ptr_fromStack( tail)\n\n    }\n\n    function abi_encode_tuple_t_stringliteral_f05c057b7643e4a8414fae272aa63bff2a71e0934343b7719732b0ef8168be05__to_t_string_memory_ptr__fromStack_reversed(headStart ) -> tail {\n        tail := add(headStart, 32)\n\n        mstore(add(headStart, 0), sub(tail, headStart))\n        tail := abi_encode_t_stringliteral_f05c057b7643e4a8414fae272aa63bff2a71e0934343b7719732b0ef8168be05_to_t_string_memory_ptr_fromStack( tail)\n\n    }\n\n    function abi_encode_tuple_t_struct$_stakeholder_$1318_memory_ptr__to_t_struct$_stakeholder_$1318_memory_ptr__fromStack_reversed(headStart , value0) -> tail {\n        tail := add(headStart, 32)\n\n        mstore(add(headStart, 0), sub(tail, headStart))\n        tail := abi_encode_t_struct$_stakeholder_$1318_memory_ptr_to_t_struct$_stakeholder_$1318_memory_ptr_fromStack(value0,  tail)\n\n    }\n\n    function abi_encode_tuple_t_struct$_stakeholder_$1318_memory_ptr_t_array$_t_string_memory_ptr_$dyn_memory_ptr__to_t_struct$_stakeholder_$1318_memory_ptr_t_array$_t_string_memory_ptr_$dyn_memory_ptr__fromStack_reversed(headStart , value1, value0) -> tail {\n        tail := add(headStart, 64)\n\n        mstore(add(headStart, 0), sub(tail, headStart))\n        tail := abi_encode_t_struct$_stakeholder_$1318_memory_ptr_to_t_struct$_stakeholder_$1318_memory_ptr_fromStack(value0,  tail)\n\n        mstore(add(headStart, 32), sub(tail, headStart))\n        tail := abi_encode_t_array$_t_string_memory_ptr_$dyn_memory_ptr_to_t_array$_t_string_memory_ptr_$dyn_memory_ptr_fromStack(value1,  tail)\n\n    }\n\n    function allocateMemory(size) -> memPtr {\n        memPtr := mload(64)\n        let newFreePtr := add(memPtr, size)\n        // protect against overflow\n        if or(gt(newFreePtr, 0xffffffffffffffff), lt(newFreePtr, memPtr)) { panic_error_0x41() }\n        mstore(64, newFreePtr)\n    }\n\n    function array_allocation_size_t_array$_t_string_memory_ptr_$dyn_memory_ptr(length) -> size {\n        // Make sure we can allocate memory without overflow\n        if gt(length, 0xffffffffffffffff) { panic_error_0x41() }\n\n        size := mul(length, 0x20)\n\n        // add length slot\n        size := add(size, 0x20)\n\n    }\n\n    function array_allocation_size_t_string_memory_ptr(length) -> size {\n        // Make sure we can allocate memory without overflow\n        if gt(length, 0xffffffffffffffff) { panic_error_0x41() }\n\n        // round up\n        size := and(add(length, 0x1f), not(0x1f))\n\n        // add length slot\n        size := add(size, 0x20)\n\n    }\n\n    function array_dataslot_t_array$_t_address_$dyn_memory_ptr(ptr) -> data {\n        data := ptr\n\n        data := add(ptr, 0x20)\n\n    }\n\n    function array_dataslot_t_array$_t_string_memory_ptr_$dyn_memory_ptr(ptr) -> data {\n        data := ptr\n\n        data := add(ptr, 0x20)\n\n    }\n\n    function array_dataslot_t_string_storage(ptr) -> data {\n        data := ptr\n\n        mstore(0, ptr)\n        data := keccak256(0, 0x20)\n\n    }\n\n    function array_length_t_array$_t_address_$dyn_memory_ptr(value) -> length {\n\n        length := mload(value)\n\n    }\n\n    function array_length_t_array$_t_string_memory_ptr_$dyn_memory_ptr(value) -> length {\n\n        length := mload(value)\n\n    }\n\n    function array_length_t_string_memory_ptr(value) -> length {\n\n        length := mload(value)\n\n    }\n\n    function array_nextElement_t_array$_t_address_$dyn_memory_ptr(ptr) -> next {\n        next := add(ptr, 0x20)\n    }\n\n    function array_nextElement_t_array$_t_string_memory_ptr_$dyn_memory_ptr(ptr) -> next {\n        next := add(ptr, 0x20)\n    }\n\n    function array_storeLengthForEncoding_t_array$_t_address_$dyn_memory_ptr_fromStack(pos, length) -> updated_pos {\n        mstore(pos, length)\n        updated_pos := add(pos, 0x20)\n    }\n\n    function array_storeLengthForEncoding_t_array$_t_string_memory_ptr_$dyn_memory_ptr_fromStack(pos, length) -> updated_pos {\n        mstore(pos, length)\n        updated_pos := add(pos, 0x20)\n    }\n\n    function array_storeLengthForEncoding_t_string_memory_ptr(pos, length) -> updated_pos {\n        mstore(pos, length)\n        updated_pos := add(pos, 0x20)\n    }\n\n    function array_storeLengthForEncoding_t_string_memory_ptr_fromStack(pos, length) -> updated_pos {\n        mstore(pos, length)\n        updated_pos := add(pos, 0x20)\n    }\n\n    function array_storeLengthForEncoding_t_string_memory_ptr_nonPadded_inplace_fromStack(pos, length) -> updated_pos {\n        updated_pos := pos\n    }\n\n    function cleanup_t_address(value) -> cleaned {\n        cleaned := cleanup_t_uint160(value)\n    }\n\n    function cleanup_t_bool(value) -> cleaned {\n        cleaned := iszero(iszero(value))\n    }\n\n    function cleanup_t_uint160(value) -> cleaned {\n        cleaned := and(value, 0xffffffffffffffffffffffffffffffffffffffff)\n    }\n\n    function cleanup_t_uint256(value) -> cleaned {\n        cleaned := value\n    }\n\n    function copy_calldata_to_memory(src, dst, length) {\n        calldatacopy(dst, src, length)\n        // clear end\n        mstore(add(dst, length), 0)\n    }\n\n    function copy_memory_to_memory(src, dst, length) {\n        let i := 0\n        for { } lt(i, length) { i := add(i, 32) }\n        {\n            mstore(add(dst, i), mload(add(src, i)))\n        }\n        if gt(i, length)\n        {\n            // clear end\n            mstore(add(dst, length), 0)\n        }\n    }\n\n    function extract_byte_array_length(data) -> length {\n        length := div(data, 2)\n        let outOfPlaceEncoding := and(data, 1)\n        if iszero(outOfPlaceEncoding) {\n            length := and(length, 0x7f)\n        }\n\n        if eq(outOfPlaceEncoding, lt(length, 32)) {\n            panic_error_0x22()\n        }\n    }\n\n    function increment_t_uint256(value) -> ret {\n        value := cleanup_t_uint256(value)\n        if eq(value, 0xffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff) { panic_error_0x11() }\n        ret := add(value, 1)\n    }\n\n    function panic_error_0x11() {\n        mstore(0, 35408467139433450592217433187231851964531694900788300625387963629091585785856)\n        mstore(4, 0x11)\n        revert(0, 0x24)\n    }\n\n    function panic_error_0x22() {\n        mstore(0, 35408467139433450592217433187231851964531694900788300625387963629091585785856)\n        mstore(4, 0x22)\n        revert(0, 0x24)\n    }\n\n    function panic_error_0x41() {\n        mstore(0, 35408467139433450592217433187231851964531694900788300625387963629091585785856)\n        mstore(4, 0x41)\n        revert(0, 0x24)\n    }\n\n    function round_up_to_mul_of_32(value) -> result {\n        result := and(add(value, 31), not(31))\n    }\n\n    function validator_revert_t_address(value) {\n        if iszero(eq(value, cleanup_t_address(value))) { revert(0, 0) }\n    }\n\n    function validator_revert_t_bool(value) {\n        if iszero(eq(value, cleanup_t_bool(value))) { revert(0, 0) }\n    }\n\n    function validator_revert_t_uint256(value) {\n        if iszero(eq(value, cleanup_t_uint256(value))) { revert(0, 0) }\n    }\n\n}\n",
       "id": 6,
       "language": "Yul",
       "name": "#utility.yul"
@@ -15352,7 +15352,7 @@
         260
       ],
       "Stakeholder": [
-        1631
+        1636
       ]
     },
     "id": 261,
@@ -15376,7 +15376,7 @@
         "id": 40,
         "nodeType": "ImportDirective",
         "scope": 261,
-        "sourceUnit": 1632,
+        "sourceUnit": 1637,
         "src": "56:27:1",
         "symbolAliases": [],
         "unitAlias": ""
@@ -15389,7 +15389,7 @@
               "id": 41,
               "name": "Stakeholder",
               "nodeType": "IdentifierPath",
-              "referencedDeclaration": 1631,
+              "referencedDeclaration": 1636,
               "src": "103:11:1"
             },
             "id": 42,
@@ -15399,14 +15399,14 @@
         ],
         "contractDependencies": [
           37,
-          1631
+          1636
         ],
         "contractKind": "contract",
         "fullyImplemented": true,
         "id": 260,
         "linearizedBaseContracts": [
           260,
-          1631,
+          1636,
           37
         ],
         "name": "Farmer",
@@ -15541,7 +15541,7 @@
                   "id": 54,
                   "name": "Stakeholder",
                   "nodeType": "IdentifierPath",
-                  "referencedDeclaration": 1631,
+                  "referencedDeclaration": 1636,
                   "src": "250:11:1"
                 },
                 "nodeType": "ModifierInvocation",
@@ -15594,10 +15594,10 @@
                               "name": "_stakeholders",
                               "nodeType": "Identifier",
                               "overloadedDeclarations": [],
-                              "referencedDeclaration": 1318,
+                              "referencedDeclaration": 1323,
                               "src": "450:13:1",
                               "typeDescriptions": {
-                                "typeIdentifier": "t_mapping$_t_address_$_t_struct$_stakeholder_$1313_storage_$",
+                                "typeIdentifier": "t_mapping$_t_address_$_t_struct$_stakeholder_$1318_storage_$",
                                 "typeString": "mapping(address => struct Stakeholder.stakeholder storage ref)"
                               }
                             },
@@ -15635,7 +15635,7 @@
                             "nodeType": "IndexAccess",
                             "src": "450:25:1",
                             "typeDescriptions": {
-                              "typeIdentifier": "t_struct$_stakeholder_$1313_storage",
+                              "typeIdentifier": "t_struct$_stakeholder_$1318_storage",
                               "typeString": "struct Stakeholder.stakeholder storage ref"
                             }
                           },
@@ -15646,7 +15646,7 @@
                           "lValueRequested": false,
                           "memberName": "id",
                           "nodeType": "MemberAccess",
-                          "referencedDeclaration": 1304,
+                          "referencedDeclaration": 1309,
                           "src": "450:28:1",
                           "typeDescriptions": {
                             "typeIdentifier": "t_address",
@@ -15795,10 +15795,10 @@
                         "name": "_stakeholders",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 1318,
+                        "referencedDeclaration": 1323,
                         "src": "553:13:1",
                         "typeDescriptions": {
-                          "typeIdentifier": "t_mapping$_t_address_$_t_struct$_stakeholder_$1313_storage_$",
+                          "typeIdentifier": "t_mapping$_t_address_$_t_struct$_stakeholder_$1318_storage_$",
                           "typeString": "mapping(address => struct Stakeholder.stakeholder storage ref)"
                         }
                       },
@@ -15836,7 +15836,7 @@
                       "nodeType": "IndexAccess",
                       "src": "553:25:1",
                       "typeDescriptions": {
-                        "typeIdentifier": "t_struct$_stakeholder_$1313_storage",
+                        "typeIdentifier": "t_struct$_stakeholder_$1318_storage",
                         "typeString": "struct Stakeholder.stakeholder storage ref"
                       }
                     },
@@ -15950,10 +15950,10 @@
                         "name": "stakeholder",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 1313,
+                        "referencedDeclaration": 1318,
                         "src": "581:11:1",
                         "typeDescriptions": {
-                          "typeIdentifier": "t_type$_t_struct$_stakeholder_$1313_storage_ptr_$",
+                          "typeIdentifier": "t_type$_t_struct$_stakeholder_$1318_storage_ptr_$",
                           "typeString": "type(struct Stakeholder.stakeholder storage pointer)"
                         }
                       },
@@ -15968,13 +15968,13 @@
                       "src": "581:55:1",
                       "tryCall": false,
                       "typeDescriptions": {
-                        "typeIdentifier": "t_struct$_stakeholder_$1313_memory_ptr",
+                        "typeIdentifier": "t_struct$_stakeholder_$1318_memory_ptr",
                         "typeString": "struct Stakeholder.stakeholder memory"
                       }
                     },
                     "src": "553:83:1",
                     "typeDescriptions": {
-                      "typeIdentifier": "t_struct$_stakeholder_$1313_storage",
+                      "typeIdentifier": "t_struct$_stakeholder_$1318_storage",
                       "typeString": "struct Stakeholder.stakeholder storage ref"
                     }
                   },
@@ -16389,7 +16389,7 @@
                         "name": "_stakeholderAddresses",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 1333,
+                        "referencedDeclaration": 1338,
                         "src": "812:21:1",
                         "typeDescriptions": {
                           "typeIdentifier": "t_array$_t_address_$dyn_storage",
@@ -17663,7 +17663,7 @@
                       "referencedDeclaration": 227,
                       "src": "1598:6:1",
                       "typeDescriptions": {
-                        "typeIdentifier": "t_struct$_stakeholder_$1313_memory_ptr",
+                        "typeIdentifier": "t_struct$_stakeholder_$1318_memory_ptr",
                         "typeString": "struct Stakeholder.stakeholder memory"
                       }
                     },
@@ -17710,10 +17710,10 @@
                         "lValueRequested": false,
                         "memberName": "get",
                         "nodeType": "MemberAccess",
-                        "referencedDeclaration": 1406,
+                        "referencedDeclaration": 1411,
                         "src": "1607:9:1",
                         "typeDescriptions": {
-                          "typeIdentifier": "t_function_internal_view$_t_address_$returns$_t_struct$_stakeholder_$1313_memory_ptr_$",
+                          "typeIdentifier": "t_function_internal_view$_t_address_$returns$_t_struct$_stakeholder_$1318_memory_ptr_$",
                           "typeString": "function (address) view returns (struct Stakeholder.stakeholder memory)"
                         }
                       },
@@ -17728,13 +17728,13 @@
                       "src": "1607:14:1",
                       "tryCall": false,
                       "typeDescriptions": {
-                        "typeIdentifier": "t_struct$_stakeholder_$1313_memory_ptr",
+                        "typeIdentifier": "t_struct$_stakeholder_$1318_memory_ptr",
                         "typeString": "struct Stakeholder.stakeholder memory"
                       }
                     },
                     "src": "1598:23:1",
                     "typeDescriptions": {
-                      "typeIdentifier": "t_struct$_stakeholder_$1313_memory_ptr",
+                      "typeIdentifier": "t_struct$_stakeholder_$1318_memory_ptr",
                       "typeString": "struct Stakeholder.stakeholder memory"
                     }
                   },
@@ -17837,7 +17837,7 @@
                   "id": 222,
                   "name": "onlyStakeholder",
                   "nodeType": "IdentifierPath",
-                  "referencedDeclaration": 1594,
+                  "referencedDeclaration": 1599,
                   "src": "1496:15:1"
                 },
                 "nodeType": "ModifierInvocation",
@@ -17895,7 +17895,7 @@
                   "stateVariable": false,
                   "storageLocation": "memory",
                   "typeDescriptions": {
-                    "typeIdentifier": "t_struct$_stakeholder_$1313_memory_ptr",
+                    "typeIdentifier": "t_struct$_stakeholder_$1318_memory_ptr",
                     "typeString": "struct Stakeholder.stakeholder"
                   },
                   "typeName": {
@@ -17905,13 +17905,13 @@
                       "id": 225,
                       "name": "stakeholder",
                       "nodeType": "IdentifierPath",
-                      "referencedDeclaration": 1313,
+                      "referencedDeclaration": 1318,
                       "src": "1530:11:1"
                     },
-                    "referencedDeclaration": 1313,
+                    "referencedDeclaration": 1318,
                     "src": "1530:11:1",
                     "typeDescriptions": {
-                      "typeIdentifier": "t_struct$_stakeholder_$1313_storage_ptr",
+                      "typeIdentifier": "t_struct$_stakeholder_$1318_storage_ptr",
                       "typeString": "struct Stakeholder.stakeholder"
                     }
                   },
@@ -18118,7 +18118,7 @@
         260
       ],
       "Stakeholder": [
-        1631
+        1636
       ]
     },
     "id": 261,
@@ -18142,7 +18142,7 @@
         "id": 40,
         "nodeType": "ImportDirective",
         "scope": 261,
-        "sourceUnit": 1632,
+        "sourceUnit": 1637,
         "src": "56:27:1",
         "symbolAliases": [],
         "unitAlias": ""
@@ -18155,7 +18155,7 @@
               "id": 41,
               "name": "Stakeholder",
               "nodeType": "IdentifierPath",
-              "referencedDeclaration": 1631,
+              "referencedDeclaration": 1636,
               "src": "103:11:1"
             },
             "id": 42,
@@ -18165,14 +18165,14 @@
         ],
         "contractDependencies": [
           37,
-          1631
+          1636
         ],
         "contractKind": "contract",
         "fullyImplemented": true,
         "id": 260,
         "linearizedBaseContracts": [
           260,
-          1631,
+          1636,
           37
         ],
         "name": "Farmer",
@@ -18307,7 +18307,7 @@
                   "id": 54,
                   "name": "Stakeholder",
                   "nodeType": "IdentifierPath",
-                  "referencedDeclaration": 1631,
+                  "referencedDeclaration": 1636,
                   "src": "250:11:1"
                 },
                 "nodeType": "ModifierInvocation",
@@ -18360,10 +18360,10 @@
                               "name": "_stakeholders",
                               "nodeType": "Identifier",
                               "overloadedDeclarations": [],
-                              "referencedDeclaration": 1318,
+                              "referencedDeclaration": 1323,
                               "src": "450:13:1",
                               "typeDescriptions": {
-                                "typeIdentifier": "t_mapping$_t_address_$_t_struct$_stakeholder_$1313_storage_$",
+                                "typeIdentifier": "t_mapping$_t_address_$_t_struct$_stakeholder_$1318_storage_$",
                                 "typeString": "mapping(address => struct Stakeholder.stakeholder storage ref)"
                               }
                             },
@@ -18401,7 +18401,7 @@
                             "nodeType": "IndexAccess",
                             "src": "450:25:1",
                             "typeDescriptions": {
-                              "typeIdentifier": "t_struct$_stakeholder_$1313_storage",
+                              "typeIdentifier": "t_struct$_stakeholder_$1318_storage",
                               "typeString": "struct Stakeholder.stakeholder storage ref"
                             }
                           },
@@ -18412,7 +18412,7 @@
                           "lValueRequested": false,
                           "memberName": "id",
                           "nodeType": "MemberAccess",
-                          "referencedDeclaration": 1304,
+                          "referencedDeclaration": 1309,
                           "src": "450:28:1",
                           "typeDescriptions": {
                             "typeIdentifier": "t_address",
@@ -18561,10 +18561,10 @@
                         "name": "_stakeholders",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 1318,
+                        "referencedDeclaration": 1323,
                         "src": "553:13:1",
                         "typeDescriptions": {
-                          "typeIdentifier": "t_mapping$_t_address_$_t_struct$_stakeholder_$1313_storage_$",
+                          "typeIdentifier": "t_mapping$_t_address_$_t_struct$_stakeholder_$1318_storage_$",
                           "typeString": "mapping(address => struct Stakeholder.stakeholder storage ref)"
                         }
                       },
@@ -18602,7 +18602,7 @@
                       "nodeType": "IndexAccess",
                       "src": "553:25:1",
                       "typeDescriptions": {
-                        "typeIdentifier": "t_struct$_stakeholder_$1313_storage",
+                        "typeIdentifier": "t_struct$_stakeholder_$1318_storage",
                         "typeString": "struct Stakeholder.stakeholder storage ref"
                       }
                     },
@@ -18716,10 +18716,10 @@
                         "name": "stakeholder",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 1313,
+                        "referencedDeclaration": 1318,
                         "src": "581:11:1",
                         "typeDescriptions": {
-                          "typeIdentifier": "t_type$_t_struct$_stakeholder_$1313_storage_ptr_$",
+                          "typeIdentifier": "t_type$_t_struct$_stakeholder_$1318_storage_ptr_$",
                           "typeString": "type(struct Stakeholder.stakeholder storage pointer)"
                         }
                       },
@@ -18734,13 +18734,13 @@
                       "src": "581:55:1",
                       "tryCall": false,
                       "typeDescriptions": {
-                        "typeIdentifier": "t_struct$_stakeholder_$1313_memory_ptr",
+                        "typeIdentifier": "t_struct$_stakeholder_$1318_memory_ptr",
                         "typeString": "struct Stakeholder.stakeholder memory"
                       }
                     },
                     "src": "553:83:1",
                     "typeDescriptions": {
-                      "typeIdentifier": "t_struct$_stakeholder_$1313_storage",
+                      "typeIdentifier": "t_struct$_stakeholder_$1318_storage",
                       "typeString": "struct Stakeholder.stakeholder storage ref"
                     }
                   },
@@ -19155,7 +19155,7 @@
                         "name": "_stakeholderAddresses",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 1333,
+                        "referencedDeclaration": 1338,
                         "src": "812:21:1",
                         "typeDescriptions": {
                           "typeIdentifier": "t_array$_t_address_$dyn_storage",
@@ -20429,7 +20429,7 @@
                       "referencedDeclaration": 227,
                       "src": "1598:6:1",
                       "typeDescriptions": {
-                        "typeIdentifier": "t_struct$_stakeholder_$1313_memory_ptr",
+                        "typeIdentifier": "t_struct$_stakeholder_$1318_memory_ptr",
                         "typeString": "struct Stakeholder.stakeholder memory"
                       }
                     },
@@ -20476,10 +20476,10 @@
                         "lValueRequested": false,
                         "memberName": "get",
                         "nodeType": "MemberAccess",
-                        "referencedDeclaration": 1406,
+                        "referencedDeclaration": 1411,
                         "src": "1607:9:1",
                         "typeDescriptions": {
-                          "typeIdentifier": "t_function_internal_view$_t_address_$returns$_t_struct$_stakeholder_$1313_memory_ptr_$",
+                          "typeIdentifier": "t_function_internal_view$_t_address_$returns$_t_struct$_stakeholder_$1318_memory_ptr_$",
                           "typeString": "function (address) view returns (struct Stakeholder.stakeholder memory)"
                         }
                       },
@@ -20494,13 +20494,13 @@
                       "src": "1607:14:1",
                       "tryCall": false,
                       "typeDescriptions": {
-                        "typeIdentifier": "t_struct$_stakeholder_$1313_memory_ptr",
+                        "typeIdentifier": "t_struct$_stakeholder_$1318_memory_ptr",
                         "typeString": "struct Stakeholder.stakeholder memory"
                       }
                     },
                     "src": "1598:23:1",
                     "typeDescriptions": {
-                      "typeIdentifier": "t_struct$_stakeholder_$1313_memory_ptr",
+                      "typeIdentifier": "t_struct$_stakeholder_$1318_memory_ptr",
                       "typeString": "struct Stakeholder.stakeholder memory"
                     }
                   },
@@ -20603,7 +20603,7 @@
                   "id": 222,
                   "name": "onlyStakeholder",
                   "nodeType": "IdentifierPath",
-                  "referencedDeclaration": 1594,
+                  "referencedDeclaration": 1599,
                   "src": "1496:15:1"
                 },
                 "nodeType": "ModifierInvocation",
@@ -20661,7 +20661,7 @@
                   "stateVariable": false,
                   "storageLocation": "memory",
                   "typeDescriptions": {
-                    "typeIdentifier": "t_struct$_stakeholder_$1313_memory_ptr",
+                    "typeIdentifier": "t_struct$_stakeholder_$1318_memory_ptr",
                     "typeString": "struct Stakeholder.stakeholder"
                   },
                   "typeName": {
@@ -20671,13 +20671,13 @@
                       "id": 225,
                       "name": "stakeholder",
                       "nodeType": "IdentifierPath",
-                      "referencedDeclaration": 1313,
+                      "referencedDeclaration": 1318,
                       "src": "1530:11:1"
                     },
-                    "referencedDeclaration": 1313,
+                    "referencedDeclaration": 1318,
                     "src": "1530:11:1",
                     "typeDescriptions": {
-                      "typeIdentifier": "t_struct$_stakeholder_$1313_storage_ptr",
+                      "typeIdentifier": "t_struct$_stakeholder_$1318_storage_ptr",
                       "typeString": "struct Stakeholder.stakeholder"
                     }
                   },
@@ -20882,12 +20882,12 @@
     "5777": {
       "events": {},
       "links": {},
-      "address": "0xF9E74FC140d95f7530E97e7bc7E6f52651cDA5F3",
-      "transactionHash": "0xde17ae582dfeecad4d480da7add54b8375d18c87b245e4b013324ec58c364dcd"
+      "address": "0xc3c321c30FA5938F13238ACdc8a37d42e773C4cf",
+      "transactionHash": "0x53425726bcbb2c5670bb73e7bf797aec84e269d9846425247fcfdc4e5dc56090"
     }
   },
   "schemaVersion": "3.4.4",
-  "updatedAt": "2022-05-10T08:08:55.715Z",
+  "updatedAt": "2022-05-15T18:06:25.426Z",
   "networkType": "ethereum",
   "devdoc": {
     "kind": "dev",
