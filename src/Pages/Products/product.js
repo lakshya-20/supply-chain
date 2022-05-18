@@ -142,7 +142,7 @@ const Product = () => {
           </span>
           <br/>
           <span className='tw-seller text-wrap'>
-            Sold by: {`${product.item["currentOwner"].substring(0,6)}...${product.item["currentOwner"].substring(product.item["currentOwner"].length-6)}`}
+            Sold by: {formattedAddress(product.item["currentOwner"])}
           </span>
           <br/>
           <div className='tw-transfer-wrapper'>
