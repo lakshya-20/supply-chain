@@ -103,6 +103,11 @@ truffle test
 
 ### Setting up Client Application
 
+**Create `.env` file to setup environment variables**
+```
+REACT_APP_NFT_STORAGE_APIKEY=<https://nft.storage APIKEY>
+```
+
 **Install Dependencies**
 ```
 npm install
