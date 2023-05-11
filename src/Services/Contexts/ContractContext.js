@@ -97,6 +97,10 @@ export const ContractContextProvider = ({children}) => {
         isRegistered: stakeholderDetails.role === "" ? false : true,
         isVerified: stakeholderDetails.isVerified
       }
+      const role = await contractState.mainContract.methods.getRole(authState.address).call();
+      if(role == "admin"){
+        stakeholderDetails.role = role;
+      }
       authDispatch(authStateStakeholder(stakeholderDetails));
     }
   }
