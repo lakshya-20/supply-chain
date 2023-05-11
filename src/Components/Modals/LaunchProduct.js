@@ -1,6 +1,7 @@
 import { useContext, useState, useEffect } from "react"
 import { Button, Input, InputGroup, InputGroupText, Modal, ModalBody, ModalFooter, ModalHeader } from "reactstrap";
-import { create } from 'ipfs-http-client'
+import { NFTStorage } from "nft.storage/dist/bundle.esm.min.js";
+
 
 import '../../Assests/Styles/launchProduct.modal.css';
 import { AuthContext } from "../../Services/Contexts/AuthContext"
@@ -20,8 +21,6 @@ const LaunchProduct = ({isModalOpen, toggleModal, manufacturerRP}) => {
       isLoading: false,
     }
   })
-
-  const ipfs_client = create({ url: "https://ipfs.infura.io:5001/api/v0" });
 
   const toggleRP = (rawProductIndex) => {
     setProduct(product => {
@@ -67,6 +66,9 @@ const LaunchProduct = ({isModalOpen, toggleModal, manufacturerRP}) => {
     updateStats();
   }
 
+  const NFT_STORAGE_KEY = process.env.REACT_APP_NFT_STORAGE_APIKEY;
+  const client = new NFTStorage({ token: NFT_STORAGE_KEY })
+
   return (
     <div>
       <Modal isOpen={isModalOpen} toggle={toggleModal}>
@@ -94,13 +96,13 @@ const LaunchProduct = ({isModalOpen, toggleModal, manufacturerRP}) => {
                     isLoading: true
                   }
                 })
-                const file = e.target.files[0];
+                var file = e.target.files[0];
                 try{
-                  const response = await ipfs_client.add(file);
+                  const response = await client.storeBlob(file);
                   setProduct(product => ({ 
                     ...product,
                     image: {
-                      url: `https://ipfs.io/ipfs/${response.path}`,
+                      url: `https://ipfs.io/ipfs/${response}`,
                       isLoading: false
                     }
                   }));
