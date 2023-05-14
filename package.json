@@ -17,7 +17,8 @@
     "chai": "^4.3.4",
     "chai-as-promised": "^7.1.1",
     "font-awesome": "^4.7.0",
-    "ipfs-http-client": "^56.0.3",
+    "mime": "^3.0.0",
+    "nft.storage": "^7.0.3",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
     "react-multi-carousel": "^2.8.0",
@@ -27,7 +28,7 @@
     "react-scripts": "4.0.3",
     "react-toastify": "^8.1.0",
     "reactstrap": "^9.0.2",
-    "truffle": "^5.4.13",
+    "truffle": "^5.8.3",
     "web-vitals": "^1.1.2",
     "web3": "^1.6.0"
   },
